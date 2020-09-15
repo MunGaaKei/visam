@@ -69,29 +69,3 @@ export default {
     }
 }
 </script>
-
-<style scoped lang="scss">
-.vsm-tree {
-    position: relative;
-    user-select: none;
-}
-.vsm-tree-node {
-    display: flex;
-    padding: 4px var(--gap);
-    & > [node-name] { flex: 1 1 0; }
-    &:hover { background-color: #5a80fc1a; }
-    & + ul {
-        box-sizing: border-box;
-        height: 0;
-        padding: 0;
-        overflow: hidden;
-        transition: var(--transition);
-    }
-}
-.vsm-tree-open {
-    & + ul {
-        height: unset;
-        padding: 0 0 0 var(--gap);
-    }
-}
-</style>

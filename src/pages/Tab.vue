@@ -4,7 +4,7 @@
     <h3 class="section-title">基本</h3>
     <vsm-tabs
       :tabs="tabs"
-      title="name"
+      label="name"
       :active="activeTab"
       @change="listener">
       
@@ -21,6 +21,7 @@ export default {
     data () {
       return {
         activeTab: 0,
+
         tabs: [{
           name: 'William Shakespeare',
           content: 'Glorious road is narrow, a person can only move forward, not backward; so you should continue in this one narrow road moving forward, because many people are in competition behind you, a bear with a.'
@@ -32,8 +33,7 @@ export default {
           content: '标签页内容'
         }, {
           name: '黑色毛衣',
-          content: '白色蜻蜓',
-          disabled: true
+          content: '白色蜻蜓',
         }, {
           name: '听妈妈的话',
           content: '因为张学友开始准备唱吻别'

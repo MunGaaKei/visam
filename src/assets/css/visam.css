@@ -3,12 +3,11 @@
     --background: #fff;
     --color: #2a2a2a;
 
-    --theme-color: #1dd3bd;
-    --theme-color-reverse: #2a2a2a;
-    --theme-color-vice: #27dac5;
+    --theme-color: #2f2f2f;
+    --theme-color-reverse: #fff;
+    --theme-color-vice: #1a1a1a;
 
     --gap: 12px;
-    --content-width: 780px;
     
     --radius: 2px;
     --transition-duration: .24s;
@@ -20,7 +19,7 @@
     --input-focus: #f3f3f3;
     --input-color: inherit;
 
-    --black: #2a2a2a;
+    --black: #1a1a1a;
     --black-vice: #000;
 
     --white: #fff;
@@ -63,7 +62,7 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
     box-sizing: border-box;
     margin: 0 auto;
     padding: var(--gap);
-    width: var(--content-width);
+    width: 780px;
     max-width: 100%;
 }
 
@@ -136,9 +135,10 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
     box-sizing: border-box;
     display: inline-flex;
     align-items: center;
-    padding: 4px var(--gap) 6px;
+    padding: 6px 10px;
     border-radius: var(--radius);
     background: var(--theme-color);
+    color: var(--theme-color-reverse);
     border: 1px solid transparent;
     text-align: center;
     transition: var(--transition);
@@ -183,10 +183,9 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
     display: inline-flex;
     align-items: center;
     flex-shrink: 0;
-    padding: 0 var(--gap);
+    padding: 8px 10px;
     opacity: 0.4;
     border-radius: inherit;
-    line-height: 36px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -305,7 +304,31 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
     color: var(--black);
 }
 
-
+.vsm-tree {
+    position: relative;
+    user-select: none;
+}
+.vsm-tree-node {
+    display: flex;
+    padding: 6px var(--gap);
+}
+.vsm-tree-node > [node-name] {
+    flex: 1 1 0;
+}
+.vsm-tree-node:hover {
+    background-color: #5a80fc1a;
+}
+.vsm-tree-node + ul {
+    box-sizing: border-box;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: var(--transition);
+}
+.vsm-tree-open + ul {
+    height: unset;
+    padding: 0 0 0 var(--gap);
+}
 
 .vsm-loading {
     position: absolute;

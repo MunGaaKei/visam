@@ -9,10 +9,8 @@
                 :key="i"
                 :class="{ 'vsm-tab-active': activeTab == i }"
                 @click="switchTab(i, $event)"
-                :disabled="nav.disabled"
-                :tabindex="i"
-                v-html="title? nav[title]: nav"
             >
+                <span v-html="label? nav[label]: nav"></span>
                 <a v-if="tabClosable"
                 @click.stop="closeTab(i)"
                 class="iconfont icon-close vsm-close"></a>
@@ -42,7 +40,7 @@ export default {
             },
             required: true
         },
-        title: String,
+        label: String,
         active: {
             type: Number | String,
             default: 0
@@ -95,21 +93,24 @@ export default {
     },
     methods: {
         switchTab (i, e) {
+            if ( this.activeTab === i ) return;
+            this.$emit('beforeChange', i, this.activeTab, e);
             this.activeTab = i;
-            
+            this.$emit('change', i, e);
             this.$nextTick(() => {
                 this.setBarCSS();
                 this.setTabCenter();
             });
-
-            this.$emit('change', i, e);
         },
         closeTab (i) {
-
             this.$emit('close', i, this.navs[i]);
             this.navs.splice(i, 1);
 
             this.activeTab === i && this.switchTab( i - 1 < 0? 0: --i );
+            this.$nextTick(() => {
+                this.setBarCSS();
+                this.setTabCenter();
+            });
         },
         dragStart (e) {
             this.dragPosX = e.pageX;
@@ -136,6 +137,11 @@ export default {
 
             let $navs = this.$refs.navs;
             let $nav = this.$refs.nav[this.activeTab];
+            
+            if( !$nav ) {
+                this.barCSS = 'width: 0px;';
+                return;
+            }
 
             let auto = this.barDefs.width === 'auto';
             let width = auto? $nav.offsetWidth - GAP * 2: this.barDefs.width;
@@ -148,7 +154,7 @@ export default {
             let $navs = this.$refs.navs;
             let $nav = this.$refs.nav[this.activeTab];
 
-            $navs.scrollTo({
+            $nav && $navs.scrollTo({
                 top: 0,
                 left: $nav.offsetLeft - ($navs.offsetWidth - $nav.offsetWidth)/2,
                 behavior: 'smooth'

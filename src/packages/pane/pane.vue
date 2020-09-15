@@ -14,9 +14,3 @@ export default {
     }
 }
 </script>
-
-<style>
-.vsm-pane {
-    background: var(--background);
-}
-</style>

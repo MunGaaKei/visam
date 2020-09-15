@@ -4,7 +4,7 @@
     <div class="vsm-n vsm-container">
       <vsm-drawer
         v-model="sidebarHidden"
-        breakpoint="980">
+        breakpoint="780">
         <vsm-tree :list="menus" :style="`width:${sidebarWidth}`"></vsm-tree>
       </vsm-drawer>
 
@@ -17,7 +17,6 @@
 
 <script>
 import Header from '@/components/Header'
-
 import { menu } from '@/assets/data/docs'
 
 export default {
@@ -38,9 +37,7 @@ export default {
     }
   },
   mounted () {
-    this.$bus.$on('sidebar-toggle', hidden => {
-      this.sidebarHidden = hidden;
-    });
+    this.$bus.$on('sidebar-toggle', hidden => this.sidebarHidden = hidden);
   }
 }
 </script>
@@ -55,6 +52,7 @@ export default {
   .hljs {
     padding: 4px 1.5em;
     border-radius: 4px;
+    font-family: consolas;
   }
 }
 .section-title {
