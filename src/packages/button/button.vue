@@ -10,9 +10,10 @@ export default {
         default: ''
       },
 
-      reverse: Boolean,
+      reverse: Boolean | String,
       round: Boolean,
       plain: Boolean,
+      block: Boolean,
       loading: Boolean
     },
     data () {
@@ -27,6 +28,7 @@ export default {
           'vsm-plain': this.plain,
           'vsm-reverse': this.reverse,
           'vsm-round': this.round,
+          'vsm-block': this.block
         }, this.btnColor],
         on: {
           ...this.$listeners

@@ -6,27 +6,26 @@
 
         <div class="codes">
             <vsm-tabs :tabs="codeTabs" :active="activeTab0" @change="switchTab($event, 0)">
-                <transition name="fade">
-                    
-                    <div v-if="activeTab0 === 0" class="panel vsm-cols">
-                        <div class="vsm-col-5">
-                            <vsm-button
-                            :round="round"
-                            :reverse="reverse"
-                            :plain="plain"
-                            :loading="loading"
-                            :color="color"
-                            :block="block"
-                            :disabled="disabled"
-                            to="javascript:;">默认按钮</vsm-button>
-                        </div>
-                        <div class="vsm-n">
-                            <vsm-checkbox v-model="round">Round</vsm-checkbox>
-                        </div>
-
+                <div class="panel vsm-cols" v-if="activeTab0 === 0">
+                    <div class="vsm-col-5">
+                        <vsm-button
+                        :round="round"
+                        :reverse="reverse"
+                        :plain="plain"
+                        :loading="loading"
+                        :color="color"
+                        :block="block"
+                        :disabled="disabled"
+                        to="javascript:;">默认按钮</vsm-button>
                     </div>
-
-                    <div v-if="activeTab0 === 1" class="panel">
+                    <div class="vsm-n">
+                        <vsm-checkbox v-model="round">Round</vsm-checkbox>
+                        <vsm-checkbox v-model="reverse">Reverse</vsm-checkbox>
+                        <vsm-checkbox v-model="plain">Plain</vsm-checkbox>
+                        <vsm-checkbox v-model="block">Block</vsm-checkbox>
+                    </div>
+                </div>
+                <div v-if="activeTab0 === 1" class="panel">
 <pre v-highlight>
 <code class="html">
 &lt;vsm-button&gt;&lt;/vsm-button&gt;
@@ -36,8 +35,7 @@
 
 </code>
 </pre>
-                    </div>
-                </transition>
+                </div>
             </vsm-tabs>
         </div>
 

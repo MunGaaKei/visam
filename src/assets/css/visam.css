@@ -130,12 +130,53 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
     background: var(--background);
 }
 
+.vsm-checkbox,
+.vsm-radio {
+    position: relative;
+    transition: var(--transition);
+	outline: 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance:none;
+	appearance: none;
+    cursor: inherit;
+    overflow: hidden;
+}
+.vsm-checkbox-label,
+.vsm-radio-label {
+    margin: calc(var(--gap)/2);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+.vsm-checkbox-normal {
+    margin-right: .5em;
+    width: 1.2em;
+    height: 1.2em;
+    border: 1px solid var(--color);
+    border-radius: var(--radius);
+}
+.vsm-checkbox-normal:after {
+    content: '\20';
+    position: absolute;
+    left: 34%; top: 15%;
+	height: 50%; width: 20%;
+    border-bottom: 1.5px solid var(--background);
+    border-right: 1.5px solid var(--background);
+    transform: rotate(45deg);
+}
+.vsm-checkbox-normal:checked {
+    background: var(--color);
+}
+
 .vsm-btn {
     position: relative;
     box-sizing: border-box;
     display: inline-flex;
     align-items: center;
-    padding: 6px 10px;
+    justify-content: center;
+    padding: 6px 12px;
     border-radius: var(--radius);
     background: var(--theme-color);
     color: var(--theme-color-reverse);
@@ -152,6 +193,7 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
 .vsm-btn.vsm-plain {
     background: transparent;
     border-color: transparent !important;
+    color: var(--color);
 }
 .vsm-btn.vsm-reverse {
     background: transparent;
@@ -225,13 +267,6 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
     pointer-events: none;
 }
 
-.vsm-pane {
-    padding: var(--gap) 0;
-}
-
-.vsm-btn.vsm-round {
-    border-radius: 1000px;
-}
 
 .vsm-black {
     background: var(--black);
@@ -242,8 +277,7 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
     color: var(--black);
     border-color: var(--black);
 }
-.vsm-btn.vsm-black:hover,
-.vsm-btn.vsm-reverse:hover {
+.vsm-btn.vsm-black:hover {
     background: var(--black-vice);
     color: var(--white);
 }
@@ -256,8 +290,7 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
     color: var(--blue);
     border-color: var(--blue);
 }
-.vsm-btn.vsm-blue:hover,
-.vsm-btn.vsm-reverse:hover {
+.vsm-btn.vsm-blue:hover {
     background: var(--blue-vice);
     color: var(--white);
 }
@@ -270,8 +303,7 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
     color: var(--red);
     border-color: var(--red);
 }
-.vsm-btn.vsm-red:hover,
-.vsm-btn.vsm-reverse:hover {
+.vsm-btn.vsm-red:hover {
     background: var(--red-vice);
     color: var(--white);
 }
@@ -284,8 +316,7 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
     color: var(--green);
     border-color: var(--green);
 }
-.vsm-btn.vsm-green:hover,
-.vsm-btn.vsm-reverse:hover {
+.vsm-btn.vsm-green:hover {
     background: var(--green-vice);
     color: var(--white);
 }
@@ -298,8 +329,7 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
     color: var(--yellow);
     border-color: var(--yellow);
 }
-.vsm-btn.vsm-yellow:hover,
-.vsm-btn.vsm-reverse:hover {
+.vsm-btn.vsm-yellow:hover {
     background: var(--yellow-vice);
     color: var(--black);
 }
@@ -384,7 +414,10 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
 .vsm-col-75 { width: 75%; }
 .vsm-col-8 { width: 80%; }
 .vsm-col-9 { width: 90%; }
-.vsm-col-x { width: 100%; }
+.vsm-col-x, 
+.vsm-block { width: 100%; }
 .vsm-n { flex: 1 1 0; }
+
+.vsm-round { border-radius: 100px; }
 
 @keyframes loading { 50%{ transform: scale(1); } }
