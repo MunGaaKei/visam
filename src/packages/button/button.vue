@@ -22,25 +22,28 @@ export default {
       }
     },
     render (h) {
+      const $loading = h('div', {
+        class: 'vsm-loading',
+        on: {
+          click: (e) => e.stopPropagation()
+        }
+      });
+
       return h(this.to? 'a': 'button', {
         staticClass: 'vsm-btn',
         class: [{
           'vsm-plain': this.plain,
           'vsm-reverse': this.reverse,
           'vsm-round': this.round,
-          'vsm-col-x': this.block
+          'vsm-col-x': this.block,
+          'vsm-btn-loading': this.loading
         }, this.btnColor],
         on: {
           ...this.$listeners
         }
       }, [
         this.$slots.default,
-        h('div', {
-          class: 'vsm-loading',
-          on: {
-            click: (e) => e.stopPropagation()
-          }
-        })
+        this.loading? $loading: null
       ]);
     },
     computed: {

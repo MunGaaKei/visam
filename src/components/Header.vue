@@ -1,9 +1,9 @@
 <template>
   <header class="header vsm-cols">
+      <a @click="toggleSidebar" class="sidebar-toggler iconfont icon-menu"></a>
       <h1><a href="/"><span class="vue">V</span>ISA<span class="masiv">M</span></a></h1>
-      <a @click="toggleSidebar" class="sidebar-toggler iconfont icon-list"></a>
       <vsm-checkbox v-model="themeDark" type="text" @change="toggleTheme">
-        <i class="iconfont icon-brush"></i>
+        <i class="iconfont icon-theme"></i>
       </vsm-checkbox>
   </header>
 </template>
@@ -46,6 +46,6 @@ export default {
   color: var(--theme-color);
 }
 .sidebar-toggler {
-  margin: 0 var(--gap);
+  margin: 0 6px 0 0;
 }
 </style>

@@ -10,7 +10,7 @@
             <span v-if="checkable" :node-check="item.checked">{{ item.checked? '■': '□' }}</span>
             <span v-if="item.icon" node-icon>{{ item.icon }}</span>
             <span node-name>{{ item.name }}</span>
-            <span v-if="item.children" class="iconfont icon-down" :node-open="item.open"></span>
+            <span v-if="item.children" :node-open="item.open" v-html="toggler"></span>
         </a>
 
         <vsm-tree
@@ -41,6 +41,10 @@ export default {
         checkable: {
             type: Boolean,
             default: false
+        },
+        toggler: {
+            type: String,
+            default: '<i class="iconfont icon-down"></i>'
         }
     },
     data () {

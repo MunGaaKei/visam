@@ -16,10 +16,9 @@
                         :color="color"
                         :block="block"
                         :disabled="disabled"
-                        @click="round = !round"
                         to="javascript:;">默认按钮</vsm-button>
                     </div>
-                    <div class="vsm-n vsm-rows">
+                    <div class="vsm-n vsm-rows vsm-col-right">
                         <vsm-checkbox v-model="round" type="slide">Round</vsm-checkbox>
                         <vsm-checkbox v-model="reverse" type="slide">Reverse</vsm-checkbox>
                         <vsm-checkbox v-model="plain" type="slide">Plain</vsm-checkbox>

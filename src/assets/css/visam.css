@@ -235,6 +235,9 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
     white-space: nowrap;
     outline: none;
 }
+.vsm-btn-loading {
+    pointer-events: none;
+}
 .vsm-btn.vsm-plain {
     background: transparent;
     border-color: transparent !important;
@@ -405,6 +408,10 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
     padding: 0 0 0 var(--gap);
 }
 
+.vsm-reverse > .vsm-loading,
+.vsm-plain > .vsm-loading {
+    background: var(--background);
+}
 .vsm-loading {
     position: absolute;
     z-index: 1;
@@ -417,12 +424,11 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
 }
 .vsm-loading:before,
 .vsm-loading:after {
-    content: '\20';
-    /* ● */
-    width: 1em; height: 1em;
-    background: var(--background);
-    border-radius: 1em;
+    content: '●';
+    font-size: 1.25em;
+    color: inherit;
     transform: scale(0);
+    transition: var(--transition);
 }
 .vsm-loading:before {
     margin: auto -.2em auto 0;
@@ -462,6 +468,8 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
 .vsm-col-9 { width: 90%; }
 .vsm-col-x { width: 100%; }
 .vsm-n { flex: 1 1 0; }
+.vsm-col-left { margin-right: auto; }
+.vsm-col-right { margin-left: auto; }
 
 .vsm-round { border-radius: 100px; }
 
