@@ -7,6 +7,12 @@ const menu = [{
     children: [{
       name: '按钮',
       href: '/button'
+    }, {
+      name: '多选框',
+      href: '/checkbox'
+    }, {
+      name: '标签页',
+      href: '/tab'
     }]
   }];
 

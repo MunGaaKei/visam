@@ -10,5 +10,10 @@
 
 export default {
     name: 'vsmTable',
+    props: {
+        data: {
+            
+        }
+    }
 }
 </script>

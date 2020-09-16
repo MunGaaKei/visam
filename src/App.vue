@@ -54,6 +54,7 @@ export default {
     padding: 4px 1.5em;
     border-radius: 4px;
     font-family: consolas;
+    outline: none;
   }
 }
 .section-title {

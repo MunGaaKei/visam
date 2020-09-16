@@ -468,8 +468,8 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
 .vsm-col-9 { width: 90%; }
 .vsm-col-x { width: 100%; }
 .vsm-n { flex: 1 1 0; }
-.vsm-col-left { margin-right: auto; }
-.vsm-col-right { margin-left: auto; }
+.vsm-left { margin-right: auto; }
+.vsm-right { margin-left: auto; }
 
 .vsm-round { border-radius: 100px; }
 

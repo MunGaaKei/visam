@@ -16,7 +16,7 @@
                         :color="color"
                         :block="block"
                         :disabled="disabled"
-                        to="javascript:;">默认按钮</vsm-button>
+                        link="javascript:;">默认按钮</vsm-button>
                     </div>
                     <div class="vsm-n vsm-rows vsm-col-right">
                         <vsm-checkbox v-model="round" type="slide">Round</vsm-checkbox>
@@ -39,6 +39,11 @@
                 </div>
             </vsm-tabs>
         </div>
+
+        <h3 class="section-title">参数</h3>
+        <vsm-table :data="[]">
+
+        </vsm-table>
 
     </div>
 </template>

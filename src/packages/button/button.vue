@@ -3,7 +3,7 @@ export default {
     name: 'vsmButton',
     props: {
       type: String,
-      to: String,
+      link: String,
 
       color: {
         type: String,
@@ -29,7 +29,7 @@ export default {
         }
       });
 
-      return h(this.to? 'a': 'button', {
+      return h(this.link? 'a': 'button', {
         staticClass: 'vsm-btn',
         class: [{
           'vsm-plain': this.plain,
