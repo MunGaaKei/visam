@@ -28,19 +28,24 @@ export default {
           'vsm-plain': this.plain,
           'vsm-reverse': this.reverse,
           'vsm-round': this.round,
-          'vsm-block': this.block
+          'vsm-col-x': this.block
         }, this.btnColor],
         on: {
           ...this.$listeners
         }
-      }, this.$slots.default);
+      }, [
+        this.$slots.default,
+        h('div', {
+          class: 'vsm-loading',
+          on: {
+            click: (e) => e.stopPropagation()
+          }
+        })
+      ]);
     },
     computed: {
       href () {
         return false;
-      },
-      btnType () {
-        // return this.href? false: ['button', 'submit', 'reset'].find(this.type) || 'button';
       },
       btnColor () {
         return this.color? `vsm-${this.color}`: false;

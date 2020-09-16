@@ -3,16 +3,17 @@
     --background: #fff;
     --color: #2a2a2a;
 
-    --theme-color: #2f2f2f;
-    --theme-color-reverse: #fff;
+    --theme-color: #343434;
     --theme-color-vice: #1a1a1a;
+    --theme-color-reverse: #fff;
+    --theme-color-active: #568eff;
 
     --gap: 12px;
     
     --radius: 2px;
     --transition-duration: .24s;
     --transition: var(--transition-duration) ease;
-    --shadow: 0 4px 12px rgba(0,0,0,.1);
+    --shadow: 0 4px 12px rgba(0,0,0,.15);
 
     --input: #ececec;
     --input-hover: #f1f1f1;
@@ -37,6 +38,17 @@
     --red: #dd0a35;
     --red-vice: #f71735;
 }
+.theme-dark {
+    --background: #2a2a2a;
+    --color: #fff;
+
+    --theme-color: #ffd832;
+    --theme-color-vice: #fcea4d;
+    --theme-color-reverse: #212121;
+
+    --input: #6a6a6a;
+    --input-hover: #4a4a4a;
+}
 
   
 article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}
@@ -44,8 +56,7 @@ body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,figure,fieldse
 h1,h2,h3,h4,h5,h6,p,article,section,body{line-height: 1.5}
 a{ color: inherit; text-decoration: none; cursor: pointer; transition: var(--transition); }
 b,strong{ font-weight: 700; }
-html{ position: relative; height: 100%; overflow-x: hidden; scroll-behavior: smooth; }
-body{ color: var(--color); font: var(--font); }
+html{ position: relative; height: 100%; background: var(--background); color: var(--color); font: var(--font);  overflow-x: hidden; scroll-behavior: smooth; }
 input, button, textarea, select{ font: inherit; }
 input:-webkit-autofill{ background-color: initial; }
 ul,li,ol{ list-style: none; }
@@ -118,7 +129,7 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
 .vsm-drawer-left > .vsm-drawer-inner,
 .vsm-drawer-right > .vsm-drawer-inner {
     display: inline-block;
-        height: 100%;
+    height: 100%;
 }
 .vsm-drawer-top > .vsm-drawer-inner,
 .vsm-drawer-bottom > .vsm-drawer-inner {
@@ -140,7 +151,6 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
 	-ms-appearance:none;
 	appearance: none;
     cursor: inherit;
-    overflow: hidden;
 }
 .vsm-checkbox-label,
 .vsm-radio-label {
@@ -150,24 +160,59 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
     cursor: pointer;
     user-select: none;
 }
+.vsm-checkbox-label span {
+    transition: var(--transition);
+}
+.vsm-checkbox:hover,
+.vsm-radio:hover {
+    background: var(--input-hover);
+}
+.vsm-checkbox {
+    border-radius: var(--radius);
+    background: var(--input);
+}
 .vsm-checkbox-normal {
     margin-right: .5em;
-    width: 1.2em;
     height: 1.2em;
-    border: 1px solid var(--color);
-    border-radius: var(--radius);
+    width: 1.2em;
+    overflow: hidden;
+    border: 1px solid transparent;
 }
-.vsm-checkbox-normal:after {
+.vsm-checkbox-slide {
+    margin-right: .5em;
+    height: 1.5em;
+    width: 3em;
+}
+.vsm-checkbox:checked {
+    background: var(--theme-color-active);
+}
+.vsm-checkbox:after {
     content: '\20';
     position: absolute;
+    transition: var(--transition);
+}
+.vsm-checkbox-text:checked + span {
+    color: var(--theme-color-active);
+}
+.vsm-checkbox-normal:after {
     left: 34%; top: 15%;
 	height: 50%; width: 20%;
     border-bottom: 1.5px solid var(--background);
     border-right: 1.5px solid var(--background);
+    transform: rotate(90deg) scale(0);
+}
+.vsm-checkbox-normal:checked:after {
     transform: rotate(45deg);
 }
-.vsm-checkbox-normal:checked {
-    background: var(--color);
+.vsm-checkbox-slide:after {
+    left: 50%; top: 0;
+    width: 50%; height: 100%;
+    background: var(--background);
+    box-shadow: var(--shadow);
+    border-radius: inherit;
+}
+.vsm-checkbox-slide:checked:after {
+    transform: translate(-100%, 0);
 }
 
 .vsm-btn {
@@ -373,18 +418,19 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
 .vsm-loading:before,
 .vsm-loading:after {
     content: '\20';
+    /* ● */
     width: 1em; height: 1em;
+    background: var(--background);
     border-radius: 1em;
     transform: scale(0);
 }
 .vsm-loading:before {
     margin: auto -.2em auto 0;
-    background: rgba(0,0,0,.8);
     animation: loading 1s linear infinite;
 }
 .vsm-loading:after {
     margin: auto 0 auto -.2em;
-    background: rgba(0,0,0,.5);
+    opacity: .8;
     animation: loading 1s linear .15s infinite;
 }
 .vsm-cols {
@@ -414,8 +460,7 @@ img,video,audio,iframe{ margin: auto; max-height: 100%; max-width: 100%; transit
 .vsm-col-75 { width: 75%; }
 .vsm-col-8 { width: 80%; }
 .vsm-col-9 { width: 90%; }
-.vsm-col-x, 
-.vsm-block { width: 100%; }
+.vsm-col-x { width: 100%; }
 .vsm-n { flex: 1 1 0; }
 
 .vsm-round { border-radius: 100px; }

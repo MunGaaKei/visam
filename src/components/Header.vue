@@ -1,7 +1,10 @@
 <template>
   <header class="header vsm-cols">
       <h1><a href="/"><span class="vue">V</span>ISA<span class="masiv">M</span></a></h1>
-      <a @click="toggle" class="sidebar-toggler iconfont icon-list"></a>
+      <a @click="toggleSidebar" class="sidebar-toggler iconfont icon-list"></a>
+      <vsm-checkbox v-model="themeDark" type="text" @change="toggleTheme">
+        <i class="iconfont icon-brush"></i>
+      </vsm-checkbox>
   </header>
 </template>
 
@@ -11,11 +14,19 @@ export default {
     sidebarHidden: {
       type: Boolean,
       default: false
+    },
+  },
+  data () {
+    return {
+      themeDark: false
     }
   },
   methods: {
-    toggle () {
+    toggleSidebar () {
       this.$bus.$emit('sidebar-toggle', !this.sidebarHidden);
+    },
+    toggleTheme () {
+      document.documentElement.classList.toggle('theme-dark');
     }
   }
 }
@@ -35,6 +46,6 @@ export default {
   color: var(--theme-color);
 }
 .sidebar-toggler {
-  margin-left: 1rem;
+  margin: 0 var(--gap);
 }
 </style>

@@ -28,7 +28,6 @@
 <script>
 const STYLE = getComputedStyle(document.documentElement);
 const GAP = parseInt(STYLE.getPropertyValue('--gap'));
-const THEME_COLOR = STYLE.getPropertyValue('--theme-color');
 
 export default {
     name: 'vsmTabs',
@@ -85,7 +84,7 @@ export default {
             barDefs: Object.freeze(Object.assign({
                 width: 24,
                 height: 4,
-                color: THEME_COLOR
+                color: ''
             }, this.barConfigs)),
 
             tabClosable: this.closable || this.closable !== false

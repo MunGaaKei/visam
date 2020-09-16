@@ -25,7 +25,7 @@ export default {
     return {
       sidebarHidden: window.innerWidth < 980,
       sidebarWidth: '200px',
-      menus: menu
+      menus: menu,
     }
   },
   components: {

@@ -1,7 +1,8 @@
 <template>
   <label class="vsm-checkbox-label">
     <input type="checkbox"
-      class="vsm-checkbox vsm-checkbox-normal"
+      class="vsm-checkbox"
+      :class="[css]"
       :name="name"
       @change="change"
     >
@@ -14,6 +15,13 @@ export default {
     name: 'vsmCheckbox',
     props: {
       name: String,
+      type: {
+        type: String,
+        default: 'normal',
+        validator ( t ) {
+          return ['normal', 'slide', 'text'].includes(t);
+        }
+      }
     },
     model: {
       prop: 'checked',
@@ -22,6 +30,11 @@ export default {
     methods: {
       change (e) {
         this.$emit('change', e.target.checked);
+      }
+    },
+    computed: {
+      css () {
+        return `vsm-checkbox-${this.type}`;
       }
     }
 }
