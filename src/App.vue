@@ -62,4 +62,12 @@ export default {
 .panel {
   padding: var(--gap) 0;
 }
+.widget {
+  margin-right: var(--gap);
+  padding-right: var(--gap);
+  border-right: 1px solid #808080;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 </style>

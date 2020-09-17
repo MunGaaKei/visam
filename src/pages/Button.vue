@@ -7,7 +7,7 @@
         <div class="codes">
             <vsm-tabs :tabs="codeTabs" :active="activeTab0" @change="switchTab($event, 0)">
                 <div class="panel vsm-cols" v-show="activeTab0 === 0">
-                    <div class="vsm-col-6">
+                    <div class="vsm-col-6 widget">
                         <vsm-button
                         :round="round"
                         :reverse="reverse"
@@ -23,6 +23,7 @@
                         <vsm-checkbox v-model="plain" type="slide">Plain</vsm-checkbox>
                         <vsm-checkbox v-model="block" type="slide">Block</vsm-checkbox>
                         <vsm-checkbox v-model="loading" type="slide">Loading</vsm-checkbox>
+                        <vsm-checkbox v-model="disabled" type="slide">Disabled</vsm-checkbox>
                     </div>
                 </div>
                 <div v-show="activeTab0 === 1" class="panel">
@@ -63,27 +64,57 @@ export default {
             params: Object.freeze([{
                 prop: 'link',
                 type: 'String',
-                opts: '——',
+                opts: '—',
                 def: 'null',
-                desc: '链接内容，设置改属性时按钮标签名为&lt;a>'
+                desc: '链接内容，设置改属性时按钮标签名为&lt;a>，否则为&lt;button>'
             }, {
-                prop: 'link',
+                prop: 'type',
                 type: 'String',
-                opts: '——',
-                def: 'null',
-                desc: '属性说明'
+                opts: 'button, submit, reset',
+                def: 'button',
+                desc: '当标签为&lt;button>时属性type的值'
             }, {
-                prop: 'link',
+                prop: 'color',
                 type: 'String',
-                opts: '——',
+                opts: 'red, blue, green, yellow, black, white',
                 def: 'null',
-                desc: '属性说明'
+                desc: '按钮颜色，值不为空时渲染成 .vsm-${color} 类'
             }, {
-                prop: 'link',
-                type: 'String',
-                opts: '——',
-                def: 'null',
-                desc: '属性说明'
+                prop: 'round',
+                type: 'Boolean',
+                opts: '—',
+                def: 'false',
+                desc: '按钮圆角'
+            }, {
+                prop: 'reverse',
+                type: 'Boolean',
+                opts: '—',
+                def: 'false',
+                desc: '按钮反色'
+            }, {
+                prop: 'plain',
+                type: 'Boolean',
+                opts: '—',
+                def: 'false',
+                desc: '按钮仅显示文本，hover时才显示颜色'
+            }, {
+                prop: 'block',
+                type: 'Boolean',
+                opts: '—',
+                def: 'false',
+                desc: '按钮块级显示'
+            }, {
+                prop: 'loading',
+                type: 'Boolean',
+                opts: '—',
+                def: 'false',
+                desc: '按钮为加载状态'
+            }, {
+                prop: 'disabled',
+                type: 'Boolean',
+                opts: '—',
+                def: 'false',
+                desc: '按钮禁用状态'
             }])
         }
     }

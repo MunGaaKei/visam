@@ -38,6 +38,7 @@ export default {
 
 <style>
 .params {
+  margin-top: calc(var(--gap)/-2);
   max-height: 60vh;
   overflow-x: hidden;
 }
@@ -47,7 +48,6 @@ export default {
 }
 .p-prop {
   color: var(--blue);
-  font-size: 1.25em;
 }
 .p-def {
   text-align: right;

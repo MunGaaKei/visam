@@ -42,9 +42,6 @@ export default {
       ]);
     },
     computed: {
-      href () {
-        return false;
-      },
       btnColor () {
         return this.color? `vsm-${this.color}`: false;
       }

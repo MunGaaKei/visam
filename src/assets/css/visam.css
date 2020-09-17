@@ -266,6 +266,10 @@ h4 { font-size: 1rem; }
     border-color: transparent;
     color: var(--theme-color-reverse);
 }
+.vsm-btn:disabled {
+    opacity: .5;
+    pointer-events: none;
+}
 
 .vsm-tabs-navs {
     position: relative;
@@ -437,19 +441,19 @@ h4 { font-size: 1rem; }
 }
 .vsm-loading:before,
 .vsm-loading:after {
-    content: '●';
-    font-size: 2em;
+    content: '⬤';
+    font-size: .8em;
     line-height: 1;
     color: inherit;
     transform: scale(0);
     transition: var(--transition);
 }
 .vsm-loading:before {
-    margin: auto -.4em auto 0;
+    margin: auto -1em auto 0;
     animation: loading 1s linear infinite;
 }
 .vsm-loading:after {
-    margin: auto 0 auto -.4em;
+    margin: auto 0 auto -1em;
     opacity: .8;
     animation: loading 1s linear .15s infinite;
 }
