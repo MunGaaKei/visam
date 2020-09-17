@@ -69,12 +69,11 @@ h4 { font-size: 1rem; }
 .iconfont{ font-size: 1em; }
 ::selection{background-color:#ffd57b !important;color:#2a2a2a !important}
 
-.vsm-windows::-webkit-scrollbar{ width: 6px; height: 6px; }
-.vsm-windows::-webkit-scrollbar-button,
-.vsm-windows::-webkit-scrollbar-corner{ display: none; }
-.vsm-windows::-webkit-scrollbar-track{ background-color: inherit; }
-.vsm-windows::-webkit-scrollbar-thumb{ background-color: var(--color); border: 1px solid transparent; cursor: pointer; }
-.vsm-windows::-webkit-scrollbar-thumb:hover{ background: #a0a0a0; }
+.vsm-windows *::-webkit-scrollbar{ width: 6px; height: 6px; }
+.vsm-windows *::-webkit-scrollbar-button,
+.vsm-windows *::-webkit-scrollbar-corner{ display: none; }
+.vsm-windows *::-webkit-scrollbar-track{ background-color: inherit; }
+.vsm-windows *::-webkit-scrollbar-thumb{ background-color: #c2c2c2; border: 1px solid transparent; cursor: pointer; }
 
 .vsm-container {
     position: absolute;
