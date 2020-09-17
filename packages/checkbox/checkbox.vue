@@ -2,7 +2,9 @@
   <label class="vsm-checkbox-label">
     <input type="checkbox"
       class="vsm-checkbox"
-      :class="[css]"
+      :class="[css, {
+        'vsm-round': round
+      }]"
       :name="name"
       @change="change"
     >
@@ -21,7 +23,8 @@ export default {
         validator ( t ) {
           return ['normal', 'slide', 'text'].includes(t);
         }
-      }
+      },
+      round: Boolean,
     },
     model: {
       prop: 'checked',

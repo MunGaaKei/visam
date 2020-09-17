@@ -4,13 +4,8 @@ export default {
     props: {
       type: String,
       link: String,
-
-      color: {
-        type: String,
-        default: ''
-      },
-
-      reverse: Boolean | String,
+      color: String,
+      reverse: Boolean,
       round: Boolean,
       plain: Boolean,
       block: Boolean,

@@ -2,7 +2,7 @@
   <ul :class="{ 'vsm-tree': root }">
       <li v-for="(item, i) in list" :key="i">
 
-        <a :href="item.href"
+        <router-link :to="{ path: item.href }"
             class="vsm-tree-node"
             :class="{ 'vsm-tree-open': item.open }"
             @click.stop="toggle(item)"
@@ -11,7 +11,7 @@
             <span v-if="item.icon" node-icon>{{ item.icon }}</span>
             <span node-name>{{ item.name }}</span>
             <span v-if="item.children" :node-open="item.open" v-html="toggler"></span>
-        </a>
+        </router-link>
 
         <vsm-tree
             v-if="item.children"

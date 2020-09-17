@@ -11,7 +11,7 @@
                 @click="switchTab(i, $event)"
             >
                 <span v-html="label? nav[label]: nav"></span>
-                <a v-if="tabClosable"
+                <a v-if="closable"
                 @click.stop="closeTab(i)"
                 class="iconfont icon-close vsm-close"></a>
             </div>
@@ -45,14 +45,9 @@ export default {
             default: 0
         },
 
-        vertical: {
-            type: String | Boolean,
-            default: false
-        },
-        center: {
-            type: String | Boolean,
-            default: false
-        },
+        closable: Boolean,
+        vertical: Boolean,
+        center: Boolean,
 
         bar: {
             type: Boolean,
@@ -65,10 +60,6 @@ export default {
             }
         },
 
-        closable: {
-            type: Boolean | String,
-            default: false
-        }
     },
     data () {
         return {
@@ -86,8 +77,6 @@ export default {
                 height: 4,
                 color: ''
             }, this.barConfigs)),
-
-            tabClosable: this.closable || this.closable !== false
         }
     },
     methods: {

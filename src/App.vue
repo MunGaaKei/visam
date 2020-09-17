@@ -42,10 +42,6 @@ export default {
 }
 </script>
 
-<!-- <style src="@/assets/css/iconfont/iconfont.css"></style> -->
-
-<style src="@/assets/css/visam.css"></style>
-
 <style lang="scss">
 .page {
   height: 100%;

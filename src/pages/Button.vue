@@ -15,10 +15,9 @@
                         :loading="loading"
                         :color="color"
                         :block="block"
-                        :disabled="disabled"
-                        link="javascript:;">默认按钮</vsm-button>
+                        :disabled="disabled">默认按钮</vsm-button>
                     </div>
-                    <div class="vsm-n vsm-rows vsm-col-right">
+                    <div class="vsm-n vsm-rows vsm-right">
                         <vsm-checkbox v-model="round" type="slide">Round</vsm-checkbox>
                         <vsm-checkbox v-model="reverse" type="slide">Reverse</vsm-checkbox>
                         <vsm-checkbox v-model="plain" type="slide">Plain</vsm-checkbox>
@@ -40,10 +39,8 @@
             </vsm-tabs>
         </div>
 
-        <h3 class="section-title">参数</h3>
-        <vsm-table :data="[]">
-
-        </vsm-table>
+        <h3 class="section-title">参数设置</h3>
+        <Params :params="params"></Params>
 
     </div>
 </template>
@@ -63,11 +60,32 @@ export default {
 
             activeTab0: 0,
 
+            params: Object.freeze([{
+                prop: 'link',
+                type: 'String',
+                opts: '——',
+                def: 'null',
+                desc: '链接内容，设置改属性时按钮标签名为&lt;a>'
+            }, {
+                prop: 'link',
+                type: 'String',
+                opts: '——',
+                def: 'null',
+                desc: '属性说明'
+            }, {
+                prop: 'link',
+                type: 'String',
+                opts: '——',
+                def: 'null',
+                desc: '属性说明'
+            }, {
+                prop: 'link',
+                type: 'String',
+                opts: '——',
+                def: 'null',
+                desc: '属性说明'
+            }])
         }
     }
 }
 </script>
-
-<style lang="scss">
-
-</style>

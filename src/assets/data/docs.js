@@ -9,7 +9,8 @@ const menu = [{
       href: '/button'
     }, {
       name: '多选框',
-      href: '/checkbox'
+      href: '/checkbox',
+      checked: true
     }, {
       name: '标签页',
       href: '/tab'

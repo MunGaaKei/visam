@@ -3,14 +3,12 @@ import App from './App.vue'
 import router from './router'
 Vue.config.productionTip = false
 
-import vsm from '@/index'
-Vue.use(vsm)
+import visam from '../packages'
+Vue.use(visam)
 
 import Highlight from './assets/js/highlight';
 Vue.use(Highlight);
 
-import util from './assets/js/util';
-Vue.prototype.$util = util;
 Vue.prototype.$bus = new Vue();
 
 import mixin from './mixin/mixin';

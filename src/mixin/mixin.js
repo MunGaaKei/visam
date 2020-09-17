@@ -1,3 +1,5 @@
+import Params from '@/components/Params';
+
 export default {
   data () {
     return {
@@ -11,5 +13,8 @@ export default {
     switchTab (i, tab) {
       this[`activeTab${tab}`] = i;
     }
+  },
+  components: {
+    Params
   }
 }

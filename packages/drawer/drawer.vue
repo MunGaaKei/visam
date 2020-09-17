@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { throttle } from '@/assets/js/visam'
+import { throttle } from '../utils'
 
 const listenerResize = context => throttle(() => {
     context.responsive = window.innerWidth < context.breakpoint;
@@ -29,10 +29,7 @@ export default {
             type: Number | String,
             default: 1920
         },
-        hidden: {
-            type: Boolean,
-            default: false
-        },
+        hidden: Boolean,
         position: {
             type: String,
             default: 'left'
