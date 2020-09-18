@@ -17,7 +17,7 @@ export default {
       }
     },
     render (h) {
-      const $loading = h('div', {
+      const $loading = h('span', {
         class: 'vsm-loading',
         on: {
           click: (e) => e.stopPropagation()

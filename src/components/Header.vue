@@ -39,11 +39,12 @@ export default {
   justify-content: center;
   padding: 0 var(--gap);
 }
-.vue {
-  color: #3fb982;
-}
-.masiv {
-  color: var(--theme-color);
+.header h1 {
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #3fb982 0%, var(--theme-color) 100%);
+  font-weight: 900;
 }
 .sidebar-toggler {
   margin: 0 6px 0 0;

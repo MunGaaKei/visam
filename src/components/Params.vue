@@ -4,26 +4,27 @@
           v-for="(p, i) in params"
           :key="i">
           <div class="vsm-col-2">
-              <h4 class="p-cap">属性</h4>
-              <h4 class="p-prop" v-html="p.prop"></h4>
+              <h4 class="cap">属性</h4>
+              <h4 class="prop" v-html="p.prop"></h4>
           </div>
           <div class="vsm-col-2">
-              <h4 class="p-cap">类型</h4>
+              <h4 class="cap">类型</h4>
               <h4 v-html="p.type"></h4>
           </div>
           <div class="vsm-col-4">
-              <h4 class="p-cap">可选值</h4>
+              <h4 class="cap">可选值</h4>
               <h4 v-html="p.opts"></h4>
           </div>
           <div class="vsm-col-2 p-def">
-              <h4 class="p-cap">默认值</h4>
+              <h4 class="cap">默认值</h4>
               <h4 v-html="p.def"></h4>
           </div>
           <div class="vsm-col-x">
-              <h4 class="p-cap">说明</h4>
-              <p v-html="p.desc"></p>
+              <h4 class="cap">说明</h4>
+              <p class="desc" v-html="p.desc"></p>
           </div>
       </div>
+      <div v-if="!params.length" class="null">Null</div>
   </div>
 </template>
 
@@ -36,26 +37,40 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .params {
-  margin-top: calc(var(--gap)/-2);
+  margin: 8px 0 40px;
   max-height: 60vh;
   overflow-x: hidden;
 }
-.p-cap {
+.cap {
   margin-bottom: .2em;
   color: #808080;
 }
-.p-prop {
+.cap + h4 {
+  font-style: italic;
+}
+.cap + .prop {
   color: var(--blue);
 }
-.p-def {
+.def {
   text-align: right;
 }
+.desc {
+  margin-top: .5em;
+}
 .params-row {
-  padding: 1em 1em 1em 0;
+  padding: 10px;
   border-bottom: 1px solid #80808022;
   overflow: hidden;
+  border-radius: var(--radius);
   transition: var(--transition);
+}
+.params-row:hover {
+  background: rgba(0,0,0,.05);
+}
+.null {
+  padding: 1em;
+  font-style: italic;
 }
 </style>

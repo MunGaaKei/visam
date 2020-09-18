@@ -41,7 +41,10 @@
         </div>
 
         <h3 class="section-title">参数设置</h3>
-        <Params :params="params"></Params>
+        <vsm-tabs :tabs="paramTabs" :active="activeTab1" @change="switchTab($event, 1)">
+            <Params v-show="activeTab1 === 0" :params="params"></Params>
+            <Params v-show="activeTab1 === 1" :params="events"></Params>
+        </vsm-tabs>
 
     </div>
 </template>
@@ -60,6 +63,7 @@ export default {
             disabled: false,
 
             activeTab0: 0,
+            activeTab1: 0,
 
             params: Object.freeze([{
                 prop: 'link',
@@ -115,7 +119,8 @@ export default {
                 opts: '—',
                 def: 'false',
                 desc: '按钮禁用状态'
-            }])
+            }]),
+            events: Object.freeze([])
         }
     }
 }

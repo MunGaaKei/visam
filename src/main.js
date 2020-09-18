@@ -3,8 +3,7 @@ import App from './App.vue'
 import router from './router'
 Vue.config.productionTip = false
 
-import visam from '../packages'
-Vue.use(visam)
+import './index'
 
 import Highlight from './assets/js/highlight';
 Vue.use(Highlight);

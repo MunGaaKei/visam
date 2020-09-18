@@ -14,6 +14,7 @@
     --transition-duration: .24s;
     --transition: var(--transition-duration) ease;
     --shadow: 0 4px 12px rgba(0,0,0,.15);
+    --scrollbar: #e1e1e1;
 
     --input: #ececec;
     --input-hover: #f1f1f1;
@@ -39,7 +40,7 @@
     --red-vice: #f71735;
 }
 .theme-dark {
-    --background: #2a2a2a;
+    --background: #313131;
     --color: #fff;
 
     --theme-color: #ffd832;
@@ -49,6 +50,7 @@
 
     --input: #6a6a6a;
     --input-hover: #4a4a4a;
+    --scrollbar: #5a5a5a;
 }
 
   
@@ -70,10 +72,7 @@ h4 { font-size: 1rem; }
 ::selection{background-color:#ffd57b !important;color:#2a2a2a !important}
 
 .vsm-windows *::-webkit-scrollbar{ width: 6px; height: 6px; }
-.vsm-windows *::-webkit-scrollbar-button,
-.vsm-windows *::-webkit-scrollbar-corner{ display: none; }
-.vsm-windows *::-webkit-scrollbar-track{ background-color: inherit; }
-.vsm-windows *::-webkit-scrollbar-thumb{ background-color: #c2c2c2; border: 1px solid transparent; cursor: pointer; }
+.vsm-windows *::-webkit-scrollbar-thumb{ background-color: var(--scrollbar); border: 1px solid transparent; cursor: pointer; }
 
 .vsm-container {
     position: absolute;
@@ -472,7 +471,7 @@ h4 { font-size: 1rem; }
     transition: var(--transition);
 }
 .vsm-gapped {
-    margin: calc(var(--gap)/-2);
+    margin: 0 calc(var(--gap)/-2);
 }
 .vsm-gapped > [class*='vsm-col-'],
 .vsm-gapped > .vsm-n {

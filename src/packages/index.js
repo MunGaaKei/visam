@@ -1,9 +1,8 @@
-import visam from './visam';
-
 import vsmButton from './button';
 import vsmCheckbox from './checkbox';
 import vsmDrawer from './drawer';
 import vsmPane from './pane';
+import vsmSelect from './select';
 import vsmTable from './table';
 import vsmTabs from './tabs';
 import vsmTree from './tree';
@@ -13,6 +12,7 @@ const components = [
     vsmCheckbox,
     vsmDrawer,
     vsmPane,
+    vsmSelect,
     vsmTable,
     vsmTabs,
     vsmTree

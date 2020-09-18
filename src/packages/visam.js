@@ -1,4 +1,4 @@
-import '../src/assets/css/visam.css';
+import '@/assets/css/visam.css';
 
 import Vue from 'vue';
 

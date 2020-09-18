@@ -10,6 +10,7 @@
 
       <div class="vsm-n page" :style="paddingLeft">
         <router-view />
+        <Footer></Footer>
       </div>
     </div>
   </div>
@@ -17,6 +18,7 @@
 
 <script>
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import { menu } from '@/assets/data/docs'
 
 export default {
@@ -29,7 +31,8 @@ export default {
     }
   },
   components: {
-    Header
+    Header,
+    Footer
   },
   computed: {
     paddingLeft () {
@@ -65,7 +68,6 @@ export default {
 .widget {
   margin-right: var(--gap);
   padding-right: var(--gap);
-  border-right: 1px solid #808080;
   display: flex;
   align-items: center;
   justify-content: center;

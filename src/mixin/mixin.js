@@ -6,6 +6,10 @@ export default {
       codeTabs: [
         '<i class="iconfont icon-app"></i>',
         '<i class="iconfont icon-script"></i>'
+      ],
+      paramTabs: [
+        '属性',
+        '事件'
       ]
     }
   },
