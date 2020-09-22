@@ -330,7 +330,32 @@ h4 { font-size: 1rem; }
     will-change: transform;
     pointer-events: none;
 }
-
+/* https://www.jianshu.com/p/59c45d7e9a76 */
+.vsm-table {
+    overflow: auto;
+}
+.vsm-table table {
+    min-width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+.vsm-table thead th {
+    background: rgba(0,0,0,.1);
+}
+.vsm-table th,
+.vsm-table td {
+    position: relative;
+    padding: 10px 12px;
+    background: inherit;
+    border: 1px solid transparent;
+    transition: var(--transition);
+}
+.vsm-table tr {
+    transition: var(--transition);
+}
+.vsm-table tr:hover td {
+    background: rgba(0,0,0,.05);
+}
 
 .vsm-black {
     background: var(--black);

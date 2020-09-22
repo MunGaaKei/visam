@@ -14,6 +14,9 @@ const menu = [{
     }, {
       name: '标签页',
       href: '/tab'
+    }, {
+      name: '表格',
+      href: '/table'
     }]
   }];
 

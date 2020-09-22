@@ -44,7 +44,6 @@ export default {
   background-clip: text;
   color: transparent;
   background-image: linear-gradient(to right, #3fb982 0%, var(--theme-color) 100%);
-  font-weight: 900;
 }
 .sidebar-toggler {
   margin: 0 6px 0 0;
