@@ -73,7 +73,6 @@ export default {
             }
         },
         tdClass () {
-            console.log(this.stickyRight);
             return {
                 
             }

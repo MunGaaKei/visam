@@ -61,13 +61,13 @@ export default {
 }
 .params-row {
   padding: 10px;
-  border-bottom: 1px solid #80808022;
+  border-bottom: 1px solid var(--theme-color-hover);
   overflow: hidden;
   border-radius: var(--radius);
   transition: var(--transition);
 }
 .params-row:hover {
-  background: rgba(0,0,0,.05);
+  background: var(--theme-color-hover);
 }
 .null {
   padding: 1em;

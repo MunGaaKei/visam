@@ -92,7 +92,10 @@ export default {
           }
         }, {
           title: '操作',
-          key: 'option'
+          key: 'option',
+          render: (h, context) => {
+            return h('vsm-button', '编辑');
+          }
         }],
         
       }
