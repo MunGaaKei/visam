@@ -336,25 +336,51 @@ h4 { font-size: 1rem; }
 }
 .vsm-table table {
     min-width: 100%;
-    border-collapse: collapse;
     text-align: left;
-}
-.vsm-table thead th {
-    background: rgba(0,0,0,.1);
+    border-spacing: 0;
 }
 .vsm-table th,
 .vsm-table td {
     position: relative;
     padding: 10px 12px;
-    background: inherit;
-    border: 1px solid transparent;
+    border: 1px solid var(--background);
     transition: var(--transition);
+    white-space: nowrap;
+    background: var(--background);
 }
 .vsm-table tr {
     transition: var(--transition);
 }
 .vsm-table tr:hover td {
-    background: rgba(0,0,0,.05);
+    background: #f1f1f1;
+}
+th.vsm-sticky-left,
+td.vsm-sticky-left,
+th.vsm-sticky-right,
+td.vsm-sticky-right,
+.vsm-sticky-row th,
+.vsm-sticky-row td {
+    position: sticky;
+    z-index: 1;
+}
+.vsm-sticky-row th,
+.vsm-sticky-row td {
+    top: 0;
+}
+th.vsm-sticky-left,
+td.vsm-sticky-left {
+    left: 0;
+}
+th.vsm-sticky-right,
+td.vsm-sticky-right {
+    right: 0;
+}
+.vsm-sticky-row th,
+.vsm-sticky-row td {
+    z-index: 2;
+}
+.vsm-sticky-row .vsm-sticky-left {
+    z-index: 3;
 }
 
 .vsm-black {
