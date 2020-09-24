@@ -1,27 +1,26 @@
-import vsmButton from './button';
-import vsmCheckbox from './checkbox';
-import vsmDrawer from './drawer';
-import vsmPane from './pane';
-import vsmSelect from './select';
-import vsmTable from './table';
-import vsmTabs from './tabs';
-import vsmTree from './tree';
+import Button from './button';
+import Checkbox from './checkbox';
+import Drawer from './drawer';
+import Select from './select';
+import Table from './table';
+import Tabs from './tabs';
+import Tree from './tree';
 
 const components = [
-    vsmButton,
-    vsmCheckbox,
-    vsmDrawer,
-    vsmPane,
-    vsmSelect,
-    vsmTable,
-    vsmTabs,
-    vsmTree
-]
+    Button.button,
+    Button.buttonGroup,
+    Checkbox,
+    Drawer,
+    Select,
+    Table,
+    Tabs,
+    Tree
+];
 
 const install = function(Vue, options) {
     components.map(component => {
         Vue.component(component.name, component);
-    })
+    });
 }
 
 export default {

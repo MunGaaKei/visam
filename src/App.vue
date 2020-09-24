@@ -62,6 +62,12 @@ export default {
 .codes {
   margin: 1rem auto;
 }
+.codes .vsm-tabs-navs {
+  position: sticky;
+  top: 0;
+  background: var(--background);
+  border-radius: 0;
+}
 .panel {
   padding: var(--gap) 0;
 }

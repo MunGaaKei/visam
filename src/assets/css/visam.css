@@ -449,6 +449,19 @@ td.vsm-sticky-right {
     background: var(--yellow-vice);
     color: var(--black);
 }
+.vsm-white {
+    background: var(--white);
+    color: var(--black);
+}
+.vsm-white.vsm-reverse {
+    background: transparent;
+    color: var(--white);
+    border-color: var(--white);
+}
+.vsm-btn.vsm-white:hover {
+    background: var(--white-vice);
+    color: var(--black);
+}
 
 .vsm-tree {
     position: relative;
