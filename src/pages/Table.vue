@@ -4,7 +4,7 @@
 
       <h3 class="section-title">使用</h3>
       <div class="codes">
-        <vsm-tabs :tabs="codeTabs" :active="activeTab0" @change="switchTab($event, 0)">
+        <vsm-tabs :tabs="codeTabs" :active="activeTab0">
           <div class="panel" v-show="activeTab0 === 0">
             <vsm-table :data="tableData"
               :header="tableHeader"
@@ -69,7 +69,7 @@ export default {
           title: '操作',
           key: 'option',
           render: (h, context) => {
-            return h('div', [
+            return h('vsm-group', [
               h('vsm-button', '编辑'),
               h('vsm-button', {
                 'class': 'vsm-blue'
@@ -102,37 +102,44 @@ export default {
           name: '张三',
           gender: 0,
           phone: '123456789',
-          address: '广东省广州市海珠区怡乐路36号'
+          address: '广东省广州市海珠区怡乐路36号',
+          bio: '一段很长很长很长很长的自我介绍'
         }, {
           name: '李四',
           gender: 1,
           phone: '123456789',
-          address: '广东省广州市海珠区怡乐路37号'
+          address: '广东省广州市海珠区怡乐路37号',
+          bio: '一段很长很长很长很长的自我介绍'
         }, {
           name: '王五',
           gender: 0,
           phone: '123456789',
-          address: '广东省广州市海珠区怡乐路37号'
+          address: '广东省广州市海珠区怡乐路37号',
+          bio: '一段很长很长很长很长的自我介绍'
         }, {
           name: '赵六',
           gender: 1,
           phone: '123456789',
-          address: '广东省广州市海珠区怡乐路37号'
+          address: '广东省广州市海珠区怡乐路37号',
+          bio: '一段很长很长很长很长的自我介绍'
         }, {
           name: '吴七',
           gender: 1,
           phone: '123456789',
-          address: '广东省广州市海珠区怡乐路37号'
+          address: '广东省广州市海珠区怡乐路37号',
+          bio: '一段很长很长很长很长的自我介绍'
         }, {
           name: '周八',
           gender: 1,
           phone: '123456789',
-          address: '广东省广州市海珠区怡乐路37号'
+          address: '广东省广州市海珠区怡乐路37号',
+          bio: '一段很长很长很长很长的自我介绍'
         }, {
           name: '孙九',
           gender: 0,
           phone: '123456789',
-          address: '广东省广州市海珠区怡乐路37号'
+          address: '广东省广州市海珠区怡乐路37号',
+          bio: '一段很长很长很长很长的自我介绍'
         }],
 
         tableHeader: [{
@@ -156,17 +163,13 @@ export default {
           key: 'address',
           title: '地址'
         }, {
-          title: '其它信息',
-          render: (h) => {
-            return h('div', {
-              style: 'width: 20em;'
-            });
-          }
+          title: '自我介绍',
+          key: 'bio'
         }, {
           title: '操作',
           key: 'option',
           render: (h, context) => {
-            return h('vsm-button-group', [
+            return h('vsm-group', [
               h('vsm-button', {
                 'class': 'vsm-blue'
               }, ['编辑']),

@@ -25,7 +25,7 @@ export default {
       });
 
       return h(this.link? 'a': 'button', {
-        staticClass: 'vsm-btn',
+        staticClass: 'vsm-btn vsm-group-item',
         class: [{
           'vsm-plain': this.plain,
           'vsm-reverse': this.reverse,

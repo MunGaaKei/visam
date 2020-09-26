@@ -17,6 +17,10 @@ const routes = [{
   name: 'Drawer',
   component: () => import('@/pages/Drawer')
 }, {
+  path: '/form',
+  name: 'Form',
+  component: () => import('@/pages/Form')
+}, {
   path: '/tab',
   name: 'Tab',
   component: () => import('@/pages/Tab')

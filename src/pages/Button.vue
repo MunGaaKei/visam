@@ -3,9 +3,8 @@
         <h2>按钮</h2>
 
         <h3 class="section-title">基础</h3>
-
         <div class="codes">
-            <vsm-tabs :tabs="codeTabs" :active="activeTab0" @change="switchTab($event, 0)">
+            <vsm-tabs :tabs="codeTabs" v-model="activeTab0">
                 <div class="panel vsm-cols" v-show="activeTab0 === 0">
                     <div class="vsm-col-6 widget">
                         <vsm-button
@@ -40,10 +39,44 @@
             </vsm-tabs>
         </div>
 
+        <h3 class="section-title">按钮组</h3>
+        <div class="codes">
+            <vsm-tabs :tabs="codeTabs" v-model="activeTab1">
+                <div class="panel" v-show="activeTab1 === 0">
+                    <vsm-group>
+                        <vsm-button color="black">黑色</vsm-button>
+                        <vsm-button color="blue">蓝色</vsm-button>
+                        <vsm-button color="red">红色</vsm-button>
+                        <vsm-button color="yellow">黄色</vsm-button>
+                        <vsm-button color="green">绿色</vsm-button>
+                        <vsm-button color="white">白色</vsm-button>
+                    </vsm-group>
+                </div>
+                <div v-show="activeTab1 === 1" class="panel">
+<pre v-highlight>
+<code class="html">
+&lt;vsm-group&gt;
+    &lt;vsm-button color="black"&gt;黑色&lt;/vsm-button&gt;
+    &lt;vsm-button color="blue"&gt;蓝色&lt;/vsm-button&gt;
+    &lt;vsm-button color="red"&gt;红色&lt;/vsm-button&gt;
+    &lt;vsm-button color="yellow"&gt;黄色&lt;/vsm-button&gt;
+    &lt;vsm-button color="green"&gt;绿色&lt;/vsm-button&gt;
+    &lt;vsm-button color="white"&gt;白色&lt;/vsm-button&gt;
+&lt;/vsm-group&gt;
+&lt;script>
+
+&lt;/script>
+
+</code>
+</pre>
+                </div>
+            </vsm-tabs>
+        </div>
+
         <h3 class="section-title">参数设置</h3>
-        <vsm-tabs :tabs="paramTabs" :active="activeTab1" @change="switchTab($event, 1)">
-            <Params v-show="activeTab1 === 0" :params="params"></Params>
-            <Params v-show="activeTab1 === 1" :params="events"></Params>
+        <vsm-tabs :tabs="paramTabs" v-model="activeTab2">
+            <Params v-show="activeTab2 === 0" :params="params"></Params>
+            <Params v-show="activeTab2 === 1" :params="events"></Params>
         </vsm-tabs>
 
     </div>
@@ -64,6 +97,7 @@ export default {
 
             activeTab0: 0,
             activeTab1: 0,
+            activeTab2: 0,
 
             params: Object.freeze([{
                 prop: 'link',

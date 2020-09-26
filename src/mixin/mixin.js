@@ -14,9 +14,7 @@ export default {
     }
   },
   methods: {
-    switchTab (i, tab) {
-      this[`activeTab${tab}`] = i;
-    }
+    
   },
   components: {
     Params

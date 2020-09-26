@@ -8,7 +8,7 @@
     --theme-color-reverse: #212121;
     --theme-color-hover: #ebf4ff;
 
-    --gap: 12px;
+    --gap: 20px;
     
     --radius: 2px;
     --transition-duration: .24s;
@@ -18,8 +18,6 @@
 
     --input: #ececec;
     --input-hover: #f1f1f1;
-    --input-focus: #f3f3f3;
-    --input-color: inherit;
 
     --black: #1a1a1a;
     --black-vice: #000;
@@ -49,8 +47,8 @@
     --theme-color-hover: #3a3a3a;
     --shadow: 0 0 0 2px rgba(255,255,255,.1);
 
-    --input: #6a6a6a;
-    --input-hover: #4a4a4a;
+    --input: #4a4a4a;
+    --input-hover: #5a5a5a;
     --scrollbar: #5a5a5a;
 }
 
@@ -153,6 +151,41 @@ h4 { font-size: 1rem; }
     background: var(--background);
 }
 
+.vsm-label-inline,
+.vsm-label-input {
+    flex: 1 1 100%;
+    margin: calc(var(--gap)/2);
+    border-radius: var(--radius);
+}
+.vsm-label-inline {
+    display: flex;
+    align-items: center;
+}
+.vsm-label-inline > .vsm-label {
+    padding-bottom: 0;
+}
+.vsm-label {
+    display: block;
+    padding: 0 .5em .6em 0;
+    white-space: nowrap;
+    font-weight: 600;
+}
+.vsm-input {
+    position: relative;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: inherit;
+    background: var(--input);
+    color: inherit;
+    outline: none;
+    transition: var(--transition);
+}
+.vsm-input:hover {
+    background: var(--input-hover);
+}
+
 .vsm-checkbox,
 .vsm-radio {
     position: relative;
@@ -192,7 +225,7 @@ h4 { font-size: 1rem; }
 }
 .vsm-checkbox-slide {
     margin-right: 0.5em;
-    height: 1.2em;
+    height: 1.3em;
     width: 3em;
 }
 .vsm-checkbox:checked {
@@ -217,15 +250,14 @@ h4 { font-size: 1rem; }
     transform: rotate(45deg);
 }
 .vsm-checkbox-slide:after {
-    left: 50%; top: 0;
-    width: 50%; height: 130%;
+    left: 0; top: 0;
+    width: 50%; height: 100%;
     background: var(--background);
     box-shadow: var(--shadow);
     border-radius: inherit;
-    transform: translate(0, -11.54%);
 }
 .vsm-checkbox-slide:checked:after {
-    transform: translate(-105%, -11.54%);
+    transform: translate(100%, 0);
 }
 
 .vsm-btn {
@@ -270,6 +302,7 @@ h4 { font-size: 1rem; }
     opacity: .5;
     pointer-events: none;
 }
+
 
 .vsm-tabs-navs {
     position: relative;
@@ -326,12 +359,12 @@ h4 { font-size: 1rem; }
     z-index: 1;
     bottom: 0;
     background: var(--theme-color);
-    border-radius: inherit;
+    border-radius: var(--radius);
     transition: var(--transition) .1s;
     will-change: transform;
     pointer-events: none;
 }
-/* https://www.jianshu.com/p/59c45d7e9a76 */
+
 .vsm-table {
     overflow: auto;
 }
@@ -340,17 +373,17 @@ h4 { font-size: 1rem; }
     text-align: left;
     border-spacing: 0;
 }
+.vsm-table thead th {
+    background: var(--theme-color-hover);
+}
 .vsm-table th,
 .vsm-table td {
     position: relative;
-    padding: 10px 16px;
+    padding: 8px 12px;
     border: 1px solid var(--background);
     transition: var(--transition);
     background: var(--background);
     white-space: nowrap;
-}
-.vsm-table tr {
-    transition: var(--transition);
 }
 .vsm-table tr:hover td {
     background: var(--theme-color-hover);
@@ -469,7 +502,7 @@ td.vsm-sticky-right {
 }
 .vsm-tree-node {
     display: flex;
-    padding: 6px var(--gap);
+    padding: 6px 16px;
 }
 .vsm-tree-node > [node-name] {
     flex: 1 1 0;
@@ -483,10 +516,25 @@ td.vsm-sticky-right {
     padding: 0;
     overflow: hidden;
     transition: var(--transition);
+    transform: translate(-12px, 0);
 }
 .vsm-tree-open + ul {
     height: unset;
-    padding: 0 0 0 var(--gap);
+    transform: none;
+}
+
+.vsm-group {
+    display: flex;
+    flex: 1 1 100%;
+    border-radius: var(--radius);
+}
+.vsm-group > .vsm-group-item:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.vsm-group > .vsm-group-item:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 .vsm-reverse > .vsm-loading,

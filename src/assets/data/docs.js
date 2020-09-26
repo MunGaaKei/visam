@@ -6,11 +6,20 @@ const menu = [{
     open: true,
     children: [{
       name: '按钮',
-      href: '/button'
+      href: '/button',
     }, {
       name: '多选框',
       href: '/checkbox',
       checked: true
+    }, {
+      name: '表单',
+      href: '/form',
+    }, {
+      name: '组合',
+      href: '/group',
+    }, {
+      name: '下拉框',
+      href: '/select',
     }, {
       name: '标签页',
       href: '/tab'

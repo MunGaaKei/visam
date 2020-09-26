@@ -57,13 +57,14 @@ export default {
   }
 }
 .section-title {
-  margin: 40px 0 20px;
+  margin: 80px 0 12px;
 }
 .codes {
   margin: 1rem auto;
 }
 .codes .vsm-tabs-navs {
   position: sticky;
+  z-index: 1;
   top: 0;
   background: var(--background);
   border-radius: 0;

@@ -5,7 +5,7 @@
         <router-link :to="{ path: item.href }"
             class="vsm-tree-node"
             :class="{ 'vsm-tree-open': item.open }"
-            @click.stop="toggle(item)"
+            @click.native="toggle(item, $event)"
         >
             <span v-if="checkable" :node-check="item.checked">{{ item.checked? '■': '□' }}</span>
             <span v-if="item.icon" node-icon>{{ item.icon }}</span>
@@ -62,7 +62,8 @@ export default {
                 node.children && this.setDefaults(node.children);
             });
         },
-        toggle ( node ) {
+        toggle ( node, e ) {
+            e.stopPropagation();
             node.open = !node.open;
         }
     },

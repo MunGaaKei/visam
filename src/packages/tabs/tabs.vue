@@ -59,7 +59,10 @@ export default {
                 return {}
             }
         },
-
+    },
+    model: {
+        prop: 'active',
+        event: 'change'
     },
     data () {
         return {
