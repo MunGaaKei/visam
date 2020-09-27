@@ -2,13 +2,14 @@
   <div class="vsm-content">
     <h2>标签页</h2>
     <h3 class="section-title">基本</h3>
-    <vsm-tabs
-      :tabs="tabs"
-      label="name"
-      :active="activeTab"
-      @change="listener">
-      
-    </vsm-tabs>
+    <div class="codes">
+      <vsm-tabs
+        :tabs="tabs"
+        label="name"
+        v-model="activeTab">
+        
+      </vsm-tabs>
+    </div>
 
 
     <h3 class="section-title">参数</h3>

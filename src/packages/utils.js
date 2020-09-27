@@ -13,7 +13,7 @@ const throttle = (
   var t;
   var f = true;
 
-  return function(){
+  return function () {
       var args = arguments;
       var self = this;
       t && clearTimeout(t);
@@ -27,6 +27,20 @@ const throttle = (
   }
 }
 
+/**
+ * 获取默认值
+ * @param {*} value
+ * @param {array} arr
+ * @param {*} def
+ * @return *
+**/
+const getDefault = (
+  value,
+  arr = [],
+  def
+) => arr.includes(value)? value: def;
+
 export {
-  throttle
+  throttle,
+  getDefault
 }

@@ -2,12 +2,12 @@
   <label :class="Classes">
       <span v-if="label" class="vsm-label" v-html="label"></span>
       <div class="vsm-group">
-        <slot name="before" class="vsm-group-item"></slot>
+        <slot name="before"></slot>
         <input :type="type"
             class="vsm-input vsm-group-item"
             :placeholder="placeholder"
             :readonly="readonly">
-        <slot name="after" class="vsm-group-item"></slot>
+        <slot name="after"></slot>
       </div>
   </label>
 </template>
