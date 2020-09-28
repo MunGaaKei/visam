@@ -100,11 +100,11 @@ export default {
             activeTab2: 0,
 
             params: Object.freeze([{
-                prop: 'link',
-                type: 'String',
+                prop: 'to',
+                type: 'String, Object',
                 opts: '—',
                 def: 'null',
-                desc: '链接内容，设置改属性时按钮标签名为&lt;a>，否则为&lt;button>'
+                desc: '链接内容，设置改属性时按钮标签以&lt;router-link>形式渲染，否则为&lt;button>'
             }, {
                 prop: 'type',
                 type: 'String',

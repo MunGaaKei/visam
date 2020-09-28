@@ -1,9 +1,11 @@
 <script>
+import { getDefault } from '../utils';
+
 export default {
     name: 'vsmButton',
     props: {
       type: String,
-      link: String,
+      to: String | Object,
       color: String,
       reverse: Boolean,
       round: Boolean,
@@ -13,7 +15,7 @@ export default {
     },
     data () {
       return {
-
+        btnType: this.type
       }
     },
     render (h) {
@@ -24,14 +26,20 @@ export default {
         }
       });
 
-      return h(this.link? 'a': 'button', {
-        staticClass: 'vsm-btn vsm-group-item',
+      return h(this.tag, {
+        staticClass: 'vsm-btn',
+        props: {
+          to: this.to
+        },
+        attrs: {
+          type: this.btnType
+        },
         class: [{
           'vsm-plain': this.plain,
           'vsm-reverse': this.reverse,
           'vsm-round': this.round,
           'vsm-col-x': this.block,
-          'vsm-btn-loading': this.loading
+          'vsm-btn-loading': this.loading,
         }, this.btnColor],
         on: {
           ...this.$listeners
@@ -42,9 +50,23 @@ export default {
       ]);
     },
     computed: {
+      tag () {
+        let tag = 'button';
+        if ( this.to ) {
+          tag = 'router-link';
+          this.btnType = false;
+        } else {
+          this.btnType = getDefault(this.btnType, ['button', 'submit', 'reset'], 'button');
+        }
+        return tag;
+      },
+
       btnColor () {
         return this.color? `vsm-${this.color}`: false;
       }
+    },
+    beforeCreate () {
+      console.log(this.$parent);
     }
 }
 </script>

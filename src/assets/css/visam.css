@@ -1,23 +1,23 @@
 :root {
     --font: normal 400 14px/1.5 -apple-system, BlinkMacSystemFont, Oxygen, Ubuntu, Cantarell, Consolas, 'Open Sans', 'Helvetica Neue', sans-serif;
-    --background: #fff;
+    --background: #f3f3f3;
     --color: #2a2a2a;
 
     --theme-color: #c0dba6;
     --theme-color-vice: #cfebb5;
     --theme-color-reverse: #212121;
-    --theme-color-hover: #ebf4ff;
+    --theme-color-hover: #e1e1e1;
 
     --gap: 20px;
     
-    --radius: 2px;
+    --radius: 4px;
     --transition-duration: .24s;
     --transition: var(--transition-duration) ease;
-    --shadow: 0 4px 12px rgba(0,0,0,.1);
+    --shadow: 0 4px 12px rgba(0,0,0,.15);
     --scrollbar: #e1e1e1;
 
-    --input: #ececec;
-    --input-hover: #f1f1f1;
+    --input: #e6e6e6;
+    --input-hover: #dfdfdf;
 
     --black: #1a1a1a;
     --black-vice: #000;
@@ -39,7 +39,7 @@
 }
 .theme-dark {
     --background: #313131;
-    --color: #fff;
+    --color: #f3f3f3;
 
     --theme-color: #ffd832;
     --theme-color-vice: #fcea4d;
@@ -251,13 +251,14 @@ h4 { font-size: 1rem; }
 }
 .vsm-checkbox-slide:after {
     left: 0; top: 0;
-    width: 50%; height: 100%;
+    width: 50%; height: 110%;
     background: var(--background);
     box-shadow: var(--shadow);
     border-radius: inherit;
+    transform: translate(0, -10%);
 }
 .vsm-checkbox-slide:checked:after {
-    transform: translate(100%, 0);
+    transform: translate(105%, -10%);
 }
 
 .vsm-btn {
@@ -528,11 +529,13 @@ td.vsm-sticky-right {
     flex: 1 1 100%;
     border-radius: var(--radius);
 }
-.vsm-group > .vsm-group-item:not(:last-child) {
+.vsm-group > .vsm-group-item:not(:last-child),
+.vsm-group > .vsm-btn:not(:last-child) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
-.vsm-group > .vsm-group-item:not(:first-child) {
+.vsm-group > .vsm-group-item:not(:first-child),
+.vsm-group > .vsm-btn:not(:first-child) {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
