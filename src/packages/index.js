@@ -4,6 +4,7 @@ import Drawer from './drawer';
 import Form from './form';
 import Group from './group';
 import Input from './input';
+import Radio from './radio';
 import Select from './select';
 import Table from './table';
 import Tabs from './tabs';
@@ -16,6 +17,7 @@ const components = [
     Form,
     Group,
     Input,
+    Radio,
     Select,
     Table,
     Tabs,

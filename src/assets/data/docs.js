@@ -8,10 +8,6 @@ const menu = [{
       name: '按钮',
       href: '/button',
     }, {
-      name: '多选框',
-      href: '/checkbox',
-      checked: true
-    }, {
       name: '表单',
       href: '/form',
     }, {
