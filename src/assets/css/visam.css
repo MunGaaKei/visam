@@ -3,21 +3,21 @@
     --background: #f3f3f3;
     --color: #2a2a2a;
 
-    --theme-color: #c0dba6;
-    --theme-color-vice: #cfebb5;
+    --theme-color: #94ba6f;
+    --theme-color-vice: #a5c981;
     --theme-color-reverse: #212121;
     --theme-color-hover: #e1e1e1;
 
     --gap: 20px;
     
-    --radius: 4px;
+    --radius: 2px;
     --transition-duration: .24s;
     --transition: var(--transition-duration) ease;
     --shadow: 0 4px 12px rgba(0,0,0,.15);
     --scrollbar: #e1e1e1;
 
-    --input: #e6e6e6;
-    --input-hover: #dfdfdf;
+    --input: #dfdfdf;
+    --input-hover: #e6e6e6;
 
     --black: #1a1a1a;
     --black-vice: #000;
@@ -164,9 +164,11 @@ h4 { font-size: 1rem; }
 .vsm-label-inline > .vsm-label {
     padding: 6px .5em 6px 0;
 }
+.vsm-label-input > .vsm-label {
+    padding: 0 0 .5em 0;
+}
 .vsm-label {
     display: block;
-    padding: 0 0 6px 0;
     white-space: nowrap;
     font-weight: 600;
 }
@@ -193,7 +195,7 @@ h4 { font-size: 1rem; }
 	outline: 0;
 	-webkit-appearance: none;
 	-moz-appearance: none;
-	-ms-appearance:none;
+	-ms-appearance: none;
 	appearance: none;
     cursor: inherit;
 }
@@ -226,7 +228,7 @@ h4 { font-size: 1rem; }
 .vsm-checkbox-slide {
     margin-right: 0.5em;
     height: 1.3em;
-    width: 3em;
+    width: 2.5em;
 }
 .vsm-checkbox:checked {
     background: var(--theme-color);
@@ -240,7 +242,7 @@ h4 { font-size: 1rem; }
     color: var(--theme-color);
 }
 .vsm-checkbox-normal:after {
-    left: 34%; top: 15%;
+    left: 34%; top: 18%;
 	height: 50%; width: 20%;
     border-bottom: 1.5px solid var(--background);
     border-right: 1.5px solid var(--background);
@@ -251,14 +253,40 @@ h4 { font-size: 1rem; }
 }
 .vsm-checkbox-slide:after {
     left: 0; top: 0;
-    width: 50%; height: 110%;
+    width: 56%; height: 112%;
     background: var(--background);
     box-shadow: var(--shadow);
     border-radius: inherit;
-    transform: translate(0, -10%);
+    transform: translate(0, -6%);
 }
 .vsm-checkbox-slide:checked:after {
-    transform: translate(105%, -10%);
+    transform: translate(78%, -6%);
+}
+
+.vsm-radio {
+    margin-right: .4em;
+    height: 1em;
+    width: 1em;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: var(--input);
+}
+.vsm-radio:after {
+    content: '\20';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 50%;
+    height: 50%;
+    border-radius: inherit;
+    transition: var(--transition);
+    transform: translate(-50%, -50%) scale(0);
+    background: var(--background);
+}
+.vsm-radio:checked {
+    background: var(--theme-color);
+}
+.vsm-radio:checked:after {
+    transform: translate(-50%, -50%);
 }
 
 .vsm-btn {

@@ -1,7 +1,9 @@
 <template>
-  <label :class="Classes">
-      <input type="radio">
-      <slot></slot>
+  <label class="vsm-radio-label">
+      <input type="radio" class="vsm-radio" :name="name" :value="value">
+      <span class="vsm-label">
+          <slot></slot>
+      </span>
   </label>
 </template>
 
@@ -9,7 +11,10 @@
 export default {
     name: 'vsmRadio',
     props: {
-        inline: Boolean
+        inline: Boolean,
+        name: String,
+        value: String | Number,
+        
     },
     data () {
         return {

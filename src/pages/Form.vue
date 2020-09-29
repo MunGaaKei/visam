@@ -25,9 +25,11 @@
       <div class="codes">
           <vsm-tabs :tabs="codeTabs" v-model="activeTab1">
               <div class="panel" v-show="activeTab1 === 0">
-                  <vsm-radio>同意</vsm-radio>
-                  <vsm-radio>同意并保存</vsm-radio>
-                  <vsm-radio>下次一定</vsm-radio>
+                  <vsm-group>
+                    <vsm-radio v-model="agreed" name="agreed" value="0">同意</vsm-radio>
+                    <vsm-radio v-model="agreed" name="agreed" value="1">同意并保存</vsm-radio>
+                    <vsm-radio v-model="agreed" name="agreed" value="2">下次一定</vsm-radio>
+                  </vsm-group>
               </div>
           </vsm-tabs>
       </div>
@@ -45,6 +47,7 @@ export default {
             activeTab3: 0,
             activeTab4: 0,
 
+            agreed: 0
             
         }
     }
