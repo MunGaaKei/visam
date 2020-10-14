@@ -4,6 +4,7 @@ import Dialog from './dialog';
 import Drawer from './drawer';
 import Form from './form';
 import Group from './group';
+import Icon from './icon';
 import Input from './input';
 import Radio from './radio';
 import Select from './select';
@@ -18,6 +19,7 @@ const components = [
     Drawer,
     Form,
     Group,
+    Icon,
     Input,
     Radio,
     Select,

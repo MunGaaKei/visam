@@ -1,3 +1,4 @@
+import '@/assets/css/iconfont/iconfont.css';
 import '@/assets/css/visam.css';
 
 import Vue from 'vue';

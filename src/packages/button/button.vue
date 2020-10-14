@@ -65,9 +65,6 @@ export default {
         return this.color? `vsm-${this.color}`: false;
       }
     },
-    beforeCreate () {
-      console.log(this.$parent);
-    }
 }
 </script>
 

@@ -11,6 +11,7 @@
     --theme-color-hover: #e1e1e1;
 
     --gap: 20px;
+    --padding: 6px 12px;
     
     --radius: 2px;
     --transition-duration: .24s;
@@ -178,10 +179,10 @@ h4 { font-size: 1rem; }
 .vsm-input {
     position: relative;
     box-sizing: border-box;
-    padding: 6px 12px;
+    padding: var(--padding);
     width: 100%;
     border: 1px solid transparent;
-    border-radius: inherit;
+    border-radius: var(--radius);
     background: var(--input);
     color: inherit;
     outline: none;
@@ -189,6 +190,12 @@ h4 { font-size: 1rem; }
 }
 .vsm-input:hover {
     background: var(--input-hover);
+}
+.vsm-input-prepend,
+.vsm-input-append {
+    padding: var(--padding);
+    border: 1px solid transparent;
+    background: var(--input);
 }
 
 .vsm-checkbox,
@@ -278,8 +285,8 @@ h4 { font-size: 1rem; }
     content: '\20';
     position: absolute;
     top: 50%; left: 50%;
-    width: 50%;
-    height: 50%;
+    width: 60%;
+    height: 60%;
     border-radius: inherit;
     transition: var(--transition);
     transform: translate(-50%, -50%) scale(0);
@@ -289,7 +296,7 @@ h4 { font-size: 1rem; }
     background: var(--theme-color);
 }
 .vsm-radio:checked:after {
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .vsm-btn {
@@ -298,7 +305,7 @@ h4 { font-size: 1rem; }
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 6px 12px;
+    padding: var(--padding);
     border-radius: var(--radius);
     background: var(--theme-color);
     color: var(--theme-color-reverse);
@@ -583,15 +590,12 @@ td.vsm-sticky-right {
 .vsm-group {
     display: flex;
     flex: 1 1 100%;
-    border-radius: var(--radius);
 }
-.vsm-group > .vsm-group-item:not(:last-child),
-.vsm-group > .vsm-btn:not(:last-child) {
+.vsm-group > .vsm-group-item:not(:last-child) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
-.vsm-group > .vsm-group-item:not(:first-child),
-.vsm-group > .vsm-btn:not(:first-child) {
+.vsm-group > .vsm-group-item:not(:first-child) {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }

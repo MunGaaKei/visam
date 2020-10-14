@@ -1,14 +1,14 @@
 <template>
   <label :class="Classes">
       <span v-if="label" class="vsm-label" v-html="label"></span>
-      <div class="vsm-group">
-        <slot name="before"></slot>
+      <vsm-group>
+        <slot name="prepend"></slot>
         <input :type="type"
-            class="vsm-input vsm-group-item"
+            class="vsm-input"
             :placeholder="placeholder"
             :readonly="readonly">
-        <slot name="after"></slot>
-      </div>
+        <slot name="append"></slot>
+      </vsm-group>
   </label>
 </template>
 
@@ -19,7 +19,6 @@ export default {
         inline: Boolean,
 
         label: String,
-        labelWidth: String,
         
         placeholder: String,
         type: {
@@ -33,6 +32,20 @@ export default {
             return {
                 'vsm-label-inline': this.inline,
                 'vsm-label-input': !this.inline
+            }
+        }
+    },
+    mounted () {
+        this.bindGroupClass();
+    },
+    methods: {
+        bindGroupClass () {
+            let $s = this.$slots;
+            for (let k in $s) {
+                $s[k].forEach(node => {
+                    node.elm.classList.add('vsm-group-item');
+                    node.elm.classList.add('vsm-input-'+ k);
+                });
             }
         }
     }

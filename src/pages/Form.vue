@@ -8,13 +8,19 @@
               <div class="panel" v-show="activeTab0 === 0">
                 <vsm-form>
                     <vsm-group>
-                        <vsm-input label="用户名："></vsm-input>
+                        <vsm-input label="用户名：">
+                            <vsm-button color="black" slot="append">查询</vsm-button>
+                        </vsm-input>
                         <vsm-input label="密码：" type="password"></vsm-input>
                     </vsm-group>
                     <vsm-group>
                         <vsm-input inline label="邮箱：" type="email">
-                            <vsm-button color="blue" slot="after">校验</vsm-button>
+                            <vsm-icon icon="mail" slot="prepend"></vsm-icon>
+                            <span slot="append">.com</span>
                         </vsm-input>
+                    </vsm-group>
+                    <vsm-group>
+                        <vsm-radio>一把多亏了房间</vsm-radio>
                     </vsm-group>
                 </vsm-form>
               </div>
