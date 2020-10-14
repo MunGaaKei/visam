@@ -13,6 +13,10 @@ const routes = [{
   name: 'Button',
   component: () => import('@/pages/Button')
 }, {
+  path: '/dialog',
+  name: 'Dialog',
+  component: () => import('@/pages/Dialog')
+}, {
   path: '/drawer',
   name: 'Drawer',
   component: () => import('@/pages/Drawer')

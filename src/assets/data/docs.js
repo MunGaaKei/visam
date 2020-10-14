@@ -8,6 +8,9 @@ const menu = [{
       name: '按钮',
       href: '/button',
     }, {
+      name: '对话框',
+      href: '/dialog',
+    }, {
       name: '表单',
       href: '/form',
     }, {

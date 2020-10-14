@@ -1,10 +1,12 @@
 :root {
     --font: normal 400 14px/1.5 -apple-system, BlinkMacSystemFont, Oxygen, Ubuntu, Cantarell, Consolas, 'Open Sans', 'Helvetica Neue', sans-serif;
-    --background: #f3f3f3;
+    --background: #f6f6f6;
+    --background-vice: #ececec;
     --color: #2a2a2a;
+    --color-vice: #808080;
 
-    --theme-color: #94ba6f;
-    --theme-color-vice: #a5c981;
+    --theme-color: #FAEA62;
+    --theme-color-vice: #faec2a;
     --theme-color-reverse: #212121;
     --theme-color-hover: #e1e1e1;
 
@@ -39,6 +41,7 @@
 }
 .theme-dark {
     --background: #313131;
+    --background-vice: #4a4a4a;
     --color: #f3f3f3;
 
     --theme-color: #ffd832;
@@ -148,7 +151,7 @@ h4 { font-size: 1rem; }
 .vsm-drawer-inner {
     box-sizing: border-box;
     transition: var(--transition);
-    background: var(--background);
+    background: var(--background-vice);
 }
 
 .vsm-label-inline,
@@ -308,6 +311,7 @@ h4 { font-size: 1rem; }
     vertical-align: middle;
     white-space: nowrap;
     outline: none;
+    font-weight: 500;
 }
 .vsm-btn-loading {
     pointer-events: none;
@@ -353,7 +357,7 @@ h4 { font-size: 1rem; }
     align-items: center;
     flex-shrink: 0;
     padding: 8px 10px;
-    opacity: 0.4;
+    color: var(--color-vice);
     border-radius: inherit;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -364,7 +368,7 @@ h4 { font-size: 1rem; }
 }
 .vsm-tabs-nav:hover,
 .vsm-tab-active {
-    opacity: 1;
+    color: var(--color);
 }
 .vsm-tabs-nav .vsm-close {
     position: absolute;
@@ -550,6 +554,30 @@ td.vsm-sticky-right {
 .vsm-tree-open + ul {
     height: unset;
     transform: none;
+}
+
+.vsm-backdrop {
+    position: fixed;
+    z-index: 100;
+    left: 0; right: 0; top: 0; bottom: 0;
+    padding: var(--gap);
+    display: flex;
+    overflow: auto;
+    background: rgba(0,0,0,.5);
+    pointer-events: none;
+    opacity: 0;
+    transition: var(--transition);
+}
+.vsm-backdrop.vsm-on {
+    pointer-events: initial;
+    opacity: 1;
+}
+.vsm-dialog {
+    margin: auto;
+    background: var(--background);
+}
+.vsm-dialog-header {
+    padding: var(--padding);
 }
 
 .vsm-group {
