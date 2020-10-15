@@ -47,6 +47,6 @@ export default {
   background-image: linear-gradient(to right, #3fb982 0%, var(--theme-color) 100%);
 }
 .sidebar-toggler {
-  margin: 0 6px 0 0;
+  margin: 0 12px 0 0;
 }
 </style>

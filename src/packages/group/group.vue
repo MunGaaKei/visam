@@ -1,12 +1,16 @@
 <template>
   <div class="vsm-group">
-      <slot></slot>
+    <span v-if="label" class="vsm-label" v-html="label"></span>
+    <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
     name: 'vsmGroup',
+    props: {
+      label: String
+    },
     methods: {
       bindGroupClass () {
           let $s = this.$slots;

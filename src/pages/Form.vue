@@ -19,8 +19,14 @@
                             <span slot="append">.com</span>
                         </vsm-input>
                     </vsm-group>
+                    <vsm-group label="性别：">
+                        <vsm-radio name="gender" v-model="gender" value="0">男</vsm-radio>
+                        <vsm-radio name="gender" v-model="gender" value="1">女</vsm-radio>
+                    </vsm-group>
                     <vsm-group>
-                        <vsm-radio>一把多亏了房间</vsm-radio>
+                        <vsm-checkbox v-model="habit" name="habit" value="0">足球</vsm-checkbox>
+                        <vsm-checkbox v-model="habit" name="habit" value="1">篮球</vsm-checkbox>
+                        <vsm-checkbox v-model="habit" name="habit" value="2">排球</vsm-checkbox>
                     </vsm-group>
                 </vsm-form>
               </div>
@@ -52,8 +58,11 @@ export default {
             activeTab2: 0,
             activeTab3: 0,
             activeTab4: 0,
-
-            agreed: 0
+            
+            gender: 0,
+            habit: 0,
+            
+            agreed: 0,
             
         }
     }

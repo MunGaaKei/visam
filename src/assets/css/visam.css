@@ -2,13 +2,13 @@
     --font: normal 400 14px/1.5 -apple-system, BlinkMacSystemFont, Oxygen, Ubuntu, Cantarell, Consolas, 'Open Sans', 'Helvetica Neue', sans-serif;
     --background: #f6f6f6;
     --background-vice: #ececec;
-    --color: #2a2a2a;
-    --color-vice: #808080;
+    --color: #262223;
+    --color-vice: #a1a1a1;
 
-    --theme-color: #FAEA62;
-    --theme-color-vice: #faec2a;
+    --theme-color: #8ae2bf;
+    --theme-color-vice: #76caa9;
     --theme-color-reverse: #212121;
-    --theme-color-hover: #e1e1e1;
+    --theme-color-hover: #eaeaea;
 
     --gap: 20px;
     --padding: 6px 12px;
@@ -17,7 +17,7 @@
     --transition-duration: .24s;
     --transition: var(--transition-duration) ease;
     --shadow: 0 4px 12px rgba(0,0,0,.15);
-    --scrollbar: #e1e1e1;
+    --scrollbar: #dadada;
 
     --input: #dfdfdf;
     --input-hover: #e6e6e6;
@@ -44,6 +44,7 @@
     --background: #313131;
     --background-vice: #4a4a4a;
     --color: #f3f3f3;
+    --color-vice: #6a6a6a;
 
     --theme-color: #ffd832;
     --theme-color-vice: #fcea4d;
@@ -171,6 +172,9 @@ h4 { font-size: 1rem; }
 .vsm-label-input > .vsm-label {
     padding: 0 0 .5em 0;
 }
+.vsm-group > .vsm-label {
+    margin-left: calc(var(--gap)/2);
+}
 .vsm-label {
     display: block;
     white-space: nowrap;
@@ -195,6 +199,7 @@ h4 { font-size: 1rem; }
 .vsm-input-append {
     padding: var(--padding);
     border: 1px solid transparent;
+    border-radius: var(--radius);
     background: var(--input);
 }
 
@@ -229,16 +234,18 @@ h4 { font-size: 1rem; }
     background: var(--input);
 }
 .vsm-checkbox-normal {
-    margin-right: 0.5em;
     height: 1.2em;
     width: 1.2em;
     overflow: hidden;
     border: 1px solid transparent;
 }
 .vsm-checkbox-slide {
-    margin-right: 0.5em;
-    height: 1.3em;
-    width: 2.5em;
+    height: 1.4em;
+    width: 2.6em;
+}
+.vsm-checkbox-slide + span,
+.vsm-checkbox-normal + span {
+    margin-left: 0.5em;
 }
 .vsm-checkbox:checked {
     background: var(--theme-color);
@@ -262,15 +269,13 @@ h4 { font-size: 1rem; }
     transform: rotate(45deg);
 }
 .vsm-checkbox-slide:after {
-    left: 0; top: 0;
-    width: 56%; height: 112%;
+    left: 2px; top: 2px; bottom: 2px;
+    width: calc(50% - 2px);
     background: var(--background);
-    box-shadow: var(--shadow);
     border-radius: inherit;
-    transform: translate(0, -6%);
 }
 .vsm-checkbox-slide:checked:after {
-    transform: translate(78%, -6%);
+    transform: translate(100%, 0);
 }
 
 .vsm-radio {
@@ -330,8 +335,8 @@ h4 { font-size: 1rem; }
 }
 .vsm-btn.vsm-reverse {
     background: transparent;
-    border-color: var(--theme-color);
-    color: var(--theme-color);
+    border-color: var(--theme-color-vice);
+    color: var(--theme-color-vice);
 }
 .vsm-btn:hover {
     background: var(--theme-color-vice);
@@ -581,7 +586,10 @@ td.vsm-sticky-right {
 }
 .vsm-dialog {
     margin: auto;
+    max-width: 100%;
     background: var(--background);
+    border-radius: var(--radius);
+    overflow: hidden;
 }
 .vsm-dialog-header {
     padding: var(--padding);
@@ -589,6 +597,7 @@ td.vsm-sticky-right {
 
 .vsm-group {
     display: flex;
+    align-items: center;
     flex: 1 1 100%;
 }
 .vsm-group > .vsm-group-item:not(:last-child) {
