@@ -1,6 +1,5 @@
 <template>
   <div class="vsm-group">
-    <span v-if="label" class="vsm-label" v-html="label"></span>
     <slot></slot>
   </div>
 </template>

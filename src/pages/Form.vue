@@ -13,16 +13,14 @@
                         </vsm-input>
                         <vsm-input label="密码：" type="password"></vsm-input>
                     </vsm-group>
-                    <vsm-group>
-                        <vsm-input inline label="邮箱：" type="email">
-                            <vsm-icon icon="mail" slot="prepend"></vsm-icon>
-                            <span slot="append">.com</span>
-                        </vsm-input>
-                    </vsm-group>
-                    <vsm-group label="性别：">
-                        <vsm-radio name="gender" v-model="gender" value="0">男</vsm-radio>
-                        <vsm-radio name="gender" v-model="gender" value="1">女</vsm-radio>
-                    </vsm-group>
+
+                    <vsm-input inline label="邮箱：" type="email">
+                        <vsm-icon icon="mail" slot="prepend"></vsm-icon>
+                        <span slot="append">.com</span>
+                    </vsm-input>
+
+                    <vsm-radio name="gender" v-model="gender" :options="genderOptions" label="性别："></vsm-radio>
+
                     <vsm-group>
                         <vsm-checkbox v-model="habit" name="habit" value="0">足球</vsm-checkbox>
                         <vsm-checkbox v-model="habit" name="habit" value="1">篮球</vsm-checkbox>
@@ -60,6 +58,13 @@ export default {
             activeTab4: 0,
             
             gender: 0,
+            genderOptions: [{
+                label: '男',
+                value: 0
+            }, {
+                label: '女',
+                value: 1
+            }],
             habit: 0,
             
             agreed: 0,

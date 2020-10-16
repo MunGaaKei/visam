@@ -1,4 +1,5 @@
 import Button from './button';
+import checkbox from './checkbox';
 import Checkbox from './checkbox';
 import Dialog from './dialog';
 import Drawer from './drawer';
@@ -14,7 +15,8 @@ import Tree from './tree';
 
 const components = [
     Button,
-    Checkbox,
+    Checkbox.Checkbox,
+    Checkbox.CheckboxGroup,
     Dialog,
     Drawer,
     Form,

@@ -10,7 +10,7 @@
     --theme-color-reverse: #212121;
     --theme-color-hover: #eaeaea;
 
-    --gap: 20px;
+    --gap: 16px;
     --padding: 6px 12px;
     
     --radius: 2px;
@@ -278,6 +278,10 @@ h4 { font-size: 1rem; }
     transform: translate(100%, 0);
 }
 
+.vsm-radio-group {
+    display: flex;
+    align-items: baseline;
+}
 .vsm-radio {
     margin-right: .4em;
     height: 1em;
@@ -290,8 +294,7 @@ h4 { font-size: 1rem; }
     content: '\20';
     position: absolute;
     top: 50%; left: 50%;
-    width: 60%;
-    height: 60%;
+    width: 50%; height: 50%;
     border-radius: inherit;
     transition: var(--transition);
     transform: translate(-50%, -50%) scale(0);
