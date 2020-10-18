@@ -1,12 +1,20 @@
 <template>
-  <label :class="Classes">
+  <label :class="[
+        inline? 'vsm-label-inline': 'vsm-label-input',
+    ]">
       <span v-if="label" class="vsm-label" v-html="label"></span>
       <vsm-group>
         <slot name="prepend"></slot>
-        <input :type="type"
-            class="vsm-input"
+        <input class="vsm-input"
+            :class="{
+                'vsm-disabled': disabled
+            }"
+            v-model="v"
+            :type="type"
             :placeholder="placeholder"
-            :readonly="readonly">
+            :readonly="readonly"
+            :disabled="disabled"
+            @input="handleInput">
         <slot name="append"></slot>
       </vsm-group>
   </label>
@@ -19,6 +27,10 @@ export default {
         inline: Boolean,
 
         label: String,
+        value: {
+            type: String | Number,
+            default: ''
+        },
         
         placeholder: String,
         type: {
@@ -26,13 +38,11 @@ export default {
             default: 'text'
         },
         readonly: Boolean,
+        disabled: Boolean,
     },
-    computed: {
-        Classes () {
-            return {
-                'vsm-label-inline': this.inline,
-                'vsm-label-input': !this.inline
-            }
+    data () {
+        return {
+            v: this.value
         }
     },
     mounted () {
@@ -47,6 +57,9 @@ export default {
                     node.elm.classList.add('vsm-input-'+ k);
                 });
             }
+        },
+        handleInput ( e ) {
+            this.$emit('input', this.v, e);
         }
     }
 }

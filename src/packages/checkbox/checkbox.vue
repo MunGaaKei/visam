@@ -16,6 +16,8 @@
 export default {
     name: 'vsmCheckbox',
     props: {
+      value: String | Number | Array,
+
       name: String,
       type: {
         type: String,
@@ -27,8 +29,16 @@ export default {
       round: Boolean,
     },
     model: {
-      prop: 'checked',
+      prop: 'value',
       event: 'change'
+    },
+    data () {
+      return {
+        v: this.value
+      }
+    },
+    created () {
+      console.log(this.value, typeof this.value);
     },
     methods: {
       change (e) {

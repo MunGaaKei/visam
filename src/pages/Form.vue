@@ -11,7 +11,7 @@
                         <vsm-input label="用户名：">
                             <vsm-button color="black" slot="append">查询</vsm-button>
                         </vsm-input>
-                        <vsm-input label="密码：" type="password"></vsm-input>
+                        <vsm-input label="密码：" type="password" v-model="password"></vsm-input>
                     </vsm-group>
 
                     <vsm-input inline label="邮箱：" type="email">
@@ -19,13 +19,18 @@
                         <span slot="append">.com</span>
                     </vsm-input>
 
-                    <vsm-radio name="gender" v-model="gender" :options="genderOptions" label="性别："></vsm-radio>
+                    <vsm-radio inline optionInline
+                        v-model="gender"
+                        name="gender"
+                        :options="genderOptions"
+                        label="性别："
+                        @change="sexChange"></vsm-radio>
 
-                    <vsm-group>
-                        <vsm-checkbox v-model="habit" name="habit" value="0">足球</vsm-checkbox>
-                        <vsm-checkbox v-model="habit" name="habit" value="1">篮球</vsm-checkbox>
-                        <vsm-checkbox v-model="habit" name="habit" value="2">排球</vsm-checkbox>
-                    </vsm-group>
+                    <vsm-checkbox
+                        v-model="habit"
+                        :options="habitOptions"
+                        label="兴趣："></vsm-checkbox>
+
                 </vsm-form>
               </div>
           </vsm-tabs>
@@ -35,11 +40,7 @@
       <div class="codes">
           <vsm-tabs :tabs="codeTabs" v-model="activeTab1">
               <div class="panel" v-show="activeTab1 === 0">
-                  <vsm-group>
-                    <vsm-radio v-model="agreed" name="agreed" value="0">同意</vsm-radio>
-                    <vsm-radio v-model="agreed" name="agreed" value="1">同意并保存</vsm-radio>
-                    <vsm-radio v-model="agreed" name="agreed" value="2">下次一定</vsm-radio>
-                  </vsm-group>
+
               </div>
           </vsm-tabs>
       </div>
@@ -56,6 +57,8 @@ export default {
             activeTab2: 0,
             activeTab3: 0,
             activeTab4: 0,
+
+            password: '',
             
             gender: 0,
             genderOptions: [{
@@ -63,12 +66,29 @@ export default {
                 value: 0
             }, {
                 label: '女',
-                value: 1
+                value: 1,
+                disabled: true
             }],
-            habit: 0,
+
+            habit: [],
+            habitOptions: [{
+                label: '足球',
+                value: 0,
+            }, {
+                label: '篮球',
+                value: 1,
+            }, {
+                label: '排球',
+                value: 2,
+            }],
             
             agreed: 0,
             
+        }
+    },
+    methods: {
+        sexChange (v, e) {
+            console.log(v, e, this.gender);
         }
     }
 }

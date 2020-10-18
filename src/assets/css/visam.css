@@ -13,7 +13,7 @@
     --gap: 16px;
     --padding: 6px 12px;
     
-    --radius: 2px;
+    --radius: 3px;
     --transition-duration: .24s;
     --transition: var(--transition-duration) ease;
     --shadow: 0 4px 12px rgba(0,0,0,.15);
@@ -178,7 +178,8 @@ h4 { font-size: 1rem; }
 .vsm-label {
     display: block;
     white-space: nowrap;
-    font-weight: 600;
+    align-self: baseline;
+    border: 1px solid transparent;
 }
 .vsm-input {
     position: relative;
@@ -216,9 +217,9 @@ h4 { font-size: 1rem; }
 }
 .vsm-checkbox-label,
 .vsm-radio-label {
-    margin: calc(var(--gap)/2);
     display: flex;
     align-items: center;
+    margin: calc(var(--gap)/4) calc(var(--gap)/2);
     cursor: pointer;
     user-select: none;
 }
@@ -280,7 +281,6 @@ h4 { font-size: 1rem; }
 
 .vsm-radio-group {
     display: flex;
-    align-items: baseline;
 }
 .vsm-radio {
     margin-right: .4em;
@@ -600,7 +600,6 @@ td.vsm-sticky-right {
 
 .vsm-group {
     display: flex;
-    align-items: center;
     flex: 1 1 100%;
 }
 .vsm-group > .vsm-group-item:not(:last-child) {
@@ -612,6 +611,10 @@ td.vsm-sticky-right {
     border-bottom-left-radius: 0;
 }
 
+.vsm-disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
 .vsm-reverse > .vsm-loading,
 .vsm-plain > .vsm-loading {
     background: var(--background);
