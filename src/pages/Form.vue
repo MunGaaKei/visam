@@ -8,13 +8,13 @@
               <div class="panel" v-show="activeTab0 === 0">
                 <vsm-form>
                     <vsm-group>
-                        <vsm-input label="用户名：">
+                        <vsm-input label="用户名">
                             <vsm-button color="black" slot="append">查询</vsm-button>
                         </vsm-input>
-                        <vsm-input label="密码：" type="password" v-model="password"></vsm-input>
+                        <vsm-input label="密码" type="password"></vsm-input>
                     </vsm-group>
 
-                    <vsm-input inline label="邮箱：" type="email">
+                    <vsm-input inline label="邮箱" type="email">
                         <vsm-icon icon="mail" slot="prepend"></vsm-icon>
                         <span slot="append">.com</span>
                     </vsm-input>
@@ -23,13 +23,20 @@
                         v-model="gender"
                         name="gender"
                         :options="genderOptions"
-                        label="性别："
-                        @change="sexChange"></vsm-radio>
+                        label="性别"></vsm-radio>
 
-                    <vsm-checkbox
+                    <vsm-checkbox inline optionInline
                         v-model="habit"
                         :options="habitOptions"
-                        label="兴趣："></vsm-checkbox>
+                        label="兴趣"></vsm-checkbox>
+
+                    <vsm-checkbox inline
+                        v-model="habit"
+                        :options="habitOptions"
+                        @change="handleChange"
+                        label="兴趣"></vsm-checkbox>
+
+                    <vsm-checkbox v-model="agreed" @change="handleChange">已阅读并同意以下条款</vsm-checkbox>
 
                 </vsm-form>
               </div>
@@ -58,19 +65,16 @@ export default {
             activeTab3: 0,
             activeTab4: 0,
 
-            password: '',
-            
             gender: 0,
             genderOptions: [{
                 label: '男',
                 value: 0
             }, {
                 label: '女',
-                value: 1,
-                disabled: true
+                value: 1
             }],
 
-            habit: [],
+            habit: [1],
             habitOptions: [{
                 label: '足球',
                 value: 0,
@@ -79,16 +83,16 @@ export default {
                 value: 1,
             }, {
                 label: '排球',
-                value: 2,
+                value: false,
             }],
             
-            agreed: 0,
+            agreed: false,
             
         }
     },
     methods: {
-        sexChange (v, e) {
-            console.log(v, e, this.gender);
+        handleChange (v, e) {
+            console.log(v, e, this.habit, this.agreed);
         }
     }
 }

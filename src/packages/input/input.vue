@@ -14,6 +14,7 @@
             :placeholder="placeholder"
             :readonly="readonly"
             :disabled="disabled"
+            spellcheck="false"
             @input="handleInput">
         <slot name="append"></slot>
       </vsm-group>

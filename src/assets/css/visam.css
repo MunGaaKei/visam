@@ -164,22 +164,21 @@ h4 { font-size: 1rem; }
 }
 .vsm-label-inline {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 .vsm-label-inline > .vsm-label {
-    padding: 6px .5em 6px 0;
+    padding: var(--padding);
+    padding-left: 0;
 }
 .vsm-label-input > .vsm-label {
-    padding: 0 0 .5em 0;
-}
-.vsm-group > .vsm-label {
-    margin-left: calc(var(--gap)/2);
+    padding: 0 0 .5em;
+    border: 1px solid transparent;
 }
 .vsm-label {
     display: block;
     white-space: nowrap;
     align-self: baseline;
-    border: 1px solid transparent;
+    box-sizing: border-box;
 }
 .vsm-input {
     position: relative;
@@ -219,7 +218,8 @@ h4 { font-size: 1rem; }
 .vsm-radio-label {
     display: flex;
     align-items: center;
-    margin: calc(var(--gap)/4) calc(var(--gap)/2);
+    margin: var(--padding);
+    margin-left: 0;
     cursor: pointer;
     user-select: none;
 }
@@ -238,7 +238,6 @@ h4 { font-size: 1rem; }
     height: 1.2em;
     width: 1.2em;
     overflow: hidden;
-    border: 1px solid transparent;
 }
 .vsm-checkbox-slide {
     height: 1.4em;
@@ -279,13 +278,10 @@ h4 { font-size: 1rem; }
     transform: translate(100%, 0);
 }
 
-.vsm-radio-group {
-    display: flex;
-}
 .vsm-radio {
     margin-right: .4em;
-    height: 1em;
-    width: 1em;
+    height: 1.1em;
+    width: 1.1em;
     border-radius: 50%;
     flex-shrink: 0;
     background: var(--input);

@@ -2,7 +2,7 @@
     <div :class="[
         inline? 'vsm-label-inline': 'vsm-label-input'
     ]">
-        <span class="vsm-label" v-html="label"></span>
+        <span v-if="label" class="vsm-label" v-html="label"></span>
         <div :class="[
             optionInline? 'vsm-cols': 'vsm-rows'
         ]">
