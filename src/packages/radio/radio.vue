@@ -38,6 +38,10 @@ export default {
         inline: Boolean,
         optionInline: Boolean,
     },
+    model: {
+        prop: 'value',
+        event: 'change'
+    },
     data () {
         return {
             v: this.value
@@ -45,8 +49,12 @@ export default {
     },
     methods: {
         handleChange (e) {
-            this.$emit('input', this.v, e);
             this.$emit('change', this.v, e);
+        }
+    },
+    watch: {
+        value ( nv ) {
+            this.v = nv;
         }
     }
 }

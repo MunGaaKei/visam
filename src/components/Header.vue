@@ -2,9 +2,11 @@
   <header class="header vsm-cols">
       <a @click="toggleSidebar" class="sidebar-toggler iconfont icon-menu"></a>
       <h1><a href="/"><span class="vue">V</span>ISA<span class="masiv">M</span></a></h1>
-      <!-- <vsm-checkbox v-model="themeDark" type="text" @change="toggleTheme">
-        <i class="iconfont icon-theme"></i>
-      </vsm-checkbox> -->
+      <span>
+        <vsm-checkbox v-model="themeDark" type="text" @change="toggleTheme">
+          <i class="iconfont icon-theme"></i>
+        </vsm-checkbox>
+      </span>
   </header>
 </template>
 

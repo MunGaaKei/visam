@@ -9,13 +9,14 @@
         optionInline? 'vsm-cols': 'vsm-rows'
     ]">
 
-      <template v-if="Array.isArray(value)">
+      <template v-if="options">
         <label v-for="(opt, i) in options" :key="i" class="vsm-checkbox-label">
           <input type="checkbox" class="vsm-checkbox"
+            ref="checkbox"
             :class="[css]"
+            v-model="v"
             :name="name"
             :value="opt.value"
-            :checked="value.includes(opt.value)"
             :disabled="opt.disabled"
             @change="handleChange">
           <span v-html="opt.label"></span>
@@ -26,9 +27,9 @@
         <label class="vsm-checkbox-label">
           <input type="checkbox" class="vsm-checkbox"
             :class="[css]"
+            v-model="v"
             :value="v"
             :name="name"
-            :checked="v"
             @change="handleChange">
           <span><slot></slot></span>
         </label>
@@ -59,7 +60,11 @@ export default {
       inline: Boolean,
       optionInline: Boolean,
       round: Boolean,
-      max: Number,
+      max: Number | String,
+    },
+    model: {
+      prop: 'value',
+      event: 'change'
     },
     data () {
       return {
@@ -70,23 +75,18 @@ export default {
     },
     methods: {
       handleChange (e) {
-        let { checked, value } = e.target;
-
-        if ( this.options ) {
-          if ( !Array.isArray(this.v) ) this.v = [];
-          console.log(this.v, value );
-        } else {
-          this.v = checked;
-        }
-
-        this.$emit('input', this.v);
-        this.$emit('change', this.v);
+        this.$emit('change', this.v, e);
       }
     },
     computed: {
       css () {
         return `vsm-checkbox-${this.type}`;
       }
+    },
+    watch: {
+        value ( nv ) {
+            this.v = nv;
+        }
     }
 }
 </script>

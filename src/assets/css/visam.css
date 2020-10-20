@@ -195,6 +195,11 @@ h4 { font-size: 1rem; }
 .vsm-input:hover {
     background: var(--input-hover);
 }
+.vsm-textarea {
+    transition: background-color var(--transition);
+    max-width: 100%;
+    resize: none;
+}
 .vsm-input-prepend,
 .vsm-input-append {
     padding: var(--padding);
