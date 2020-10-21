@@ -1,6 +1,6 @@
 :root {
     --font: normal 400 14px/1.5 -apple-system, BlinkMacSystemFont, Oxygen, Ubuntu, Cantarell, Consolas, 'Open Sans', 'Helvetica Neue', sans-serif;
-    --background: #f6f6f6;
+    --background: #f3f3f3;
     --background-vice: #ececec;
     --color: #262223;
     --color-vice: #a1a1a1;
@@ -13,14 +13,14 @@
     --gap: 16px;
     --padding: 6px 12px;
     
-    --radius: 3px;
+    --radius: 6px;
     --transition-duration: .24s;
     --transition: var(--transition-duration) ease;
     --shadow: 0 4px 12px rgba(0,0,0,.15);
     --scrollbar: #dadada;
 
-    --input: #dfdfdf;
-    --input-hover: #e6e6e6;
+    --input: #e3e3e3;
+    --input-hover: #eaeaea;
 
     --black: #1a1a1a;
     --black-vice: #000;
@@ -195,6 +195,13 @@ h4 { font-size: 1rem; }
 .vsm-input:hover {
     background: var(--input-hover);
 }
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+.vsm-input[type=number] {
+    -moz-appearance: textfield;
+}
 .vsm-textarea {
     transition: background-color var(--transition);
     max-width: 100%;
@@ -204,10 +211,53 @@ h4 { font-size: 1rem; }
 .vsm-input-append {
     padding: var(--padding);
     border: 1px solid transparent;
-    border-radius: var(--radius);
     background: var(--input);
 }
-
+.vsm-input-spinner {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    background: var(--input);
+    font-size: .8em;
+    overflow: hidden;
+}
+.vsm-input-spinner > a {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 .6em;
+}
+.vsm-input-spinner > a:hover {
+    background: var(--theme-color);
+    color: var(--theme-color-reverse);
+}
+.vsm-select {
+    position: relative;
+}
+.vsm-select-options {
+    position: absolute;
+    z-index: 10;
+    top: 100%; left: 0;
+    box-sizing: border-box;
+    min-width: 100%;
+    height: 200px;
+    background: var(--background);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    overflow: auto;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(8px, 0);
+}
+.vsm-select.vsm-on {
+}
+.vsm-select.vsm-on .vsm-select-options {
+    opacity: 1;
+    transform: translate(0, 0);
+    pointer-events: unset;
+}
 .vsm-checkbox,
 .vsm-radio {
     position: relative;
@@ -602,6 +652,10 @@ td.vsm-sticky-right {
 .vsm-group {
     display: flex;
     flex: 1 1 100%;
+    border-radius: var(--radius);
+}
+.vsm-group-item {
+    border-radius: inherit;
 }
 .vsm-group > .vsm-group-item:not(:last-child) {
     border-top-right-radius: 0;

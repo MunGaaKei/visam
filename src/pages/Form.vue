@@ -8,7 +8,7 @@
               <div class="panel" v-show="activeTab0 === 0">
                 <vsm-form>
                     <vsm-group>
-                        <vsm-input label="用户名" v-model="text" @keyup="handleInput">
+                        <vsm-input label="用户名" v-model="text">
                             <vsm-button color="black" slot="append">
                                 <vsm-icon icon="search"></vsm-icon>
                             </vsm-button>
@@ -18,8 +18,12 @@
 
                     <vsm-input inline label="邮箱" type="email">
                         <span slot="prepend">📧</span>
-                        <span slot="append">.com</span>
+                        <span slot="append">@qq.com</span>
                     </vsm-input>
+
+                    <vsm-input inline label="年龄" :max="120" value="24" type="number" class="vsm-col-2"></vsm-input>
+
+                    <vsm-select inline label="户籍类型" class="vsm-col-3"></vsm-select>
 
                     <vsm-radio inline optionInline
                         v-model="gender"

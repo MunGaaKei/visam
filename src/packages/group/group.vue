@@ -15,7 +15,16 @@ export default {
           let $s = this.$slots;
           for (let k in $s) {
               $s[k].forEach(node => {
-                  node.elm.classList.add('vsm-group-item');
+                if ( !node.isComment ) {
+                  let { elm, data } = node;
+
+                  elm.classList.add('vsm-group-item');
+
+                  if ( data.slot === 'prepend' || data.slot === 'append' ) {
+                    elm.classList.add(`vsm-input-${data.slot}`);
+                  }
+
+                }
               });
           }
       }
