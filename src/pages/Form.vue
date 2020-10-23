@@ -21,9 +21,12 @@
                         <span slot="append">@qq.com</span>
                     </vsm-input>
 
-                    <vsm-input inline label="年龄" :max="120" value="24" type="number" class="vsm-col-2"></vsm-input>
+                    <vsm-input inline label="年龄" :max="120" value="24" type="number" class="vsm-col-3"></vsm-input>
 
-                    <vsm-select inline label="户籍类型" class="vsm-col-3"></vsm-select>
+                    <vsm-select inline label="兴趣" class="vsm-col-5"
+                        v-model="habit"
+                        readonly
+                        :options="habitOptions"></vsm-select>
 
                     <vsm-radio inline optionInline
                         v-model="gender"
@@ -35,8 +38,6 @@
                         v-model="habit"
                         :options="habitOptions"
                         label="兴趣"></vsm-checkbox>
-
-                    <vsm-checkbox v-model="agreed">已阅读并同意以下条款 📄</vsm-checkbox>
 
                     <vsm-input label="备注" type="textarea" v-model="memo" resize></vsm-input>
 
@@ -78,7 +79,8 @@ export default {
                 value: 1
             }],
 
-            habit: [1],
+            habit: ['football', 'basketball'],
+            habit1: 'football',
             habitOptions: [{
                 label: '⚽',
                 value: 'football',
@@ -90,7 +92,17 @@ export default {
                 value: 'volleyball',
             }],
             
-            agreed: true,
+
+            domicileOptions: [{
+                label: '城镇户籍',
+                value: 2
+            }, {
+                label: '农业户籍',
+                value: 1
+            }, {
+                label: '其它',
+                value: 0
+            }],
 
             memo: ''
             

@@ -13,6 +13,10 @@ const menu = [{
     }, {
       name: '表单',
       href: '/form',
+      children: [{
+        name: '输入框',
+        href: '/input'
+      }]
     }, {
       name: '组合',
       href: '/group',

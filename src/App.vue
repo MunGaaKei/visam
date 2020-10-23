@@ -36,7 +36,7 @@ export default {
   },
   computed: {
     paddingLeft () {
-      return this.sidebarHidden? '': `padding-left: ${this.sidebarWidth}`;
+      return this.sidebarHidden || window.innerWidth < 780? '': `padding-left: ${this.sidebarWidth}`;
     }
   },
   mounted () {

@@ -13,7 +13,7 @@
     --gap: 16px;
     --padding: 6px 12px;
     
-    --radius: 6px;
+    --radius: 4px;
     --transition-duration: .24s;
     --transition: var(--transition-duration) ease;
     --shadow: 0 4px 12px rgba(0,0,0,.15);
@@ -218,7 +218,6 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: column;
     flex-shrink: 0;
     background: var(--input);
-    font-size: .8em;
     overflow: hidden;
 }
 .vsm-input-spinner > a {
@@ -227,6 +226,7 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: column;
     justify-content: center;
     padding: 0 .6em;
+    font-size: .8em;
 }
 .vsm-input-spinner > a:hover {
     background: var(--theme-color);
@@ -241,7 +241,7 @@ input[type=number]::-webkit-outer-spin-button {
     top: 100%; left: 0;
     box-sizing: border-box;
     min-width: 100%;
-    height: 200px;
+    max-height: 40vh;
     background: var(--background);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
@@ -249,9 +249,18 @@ input[type=number]::-webkit-outer-spin-button {
     overflow: auto;
     opacity: 0;
     pointer-events: none;
-    transform: translate(8px, 0);
 }
-.vsm-select.vsm-on {
+.vsm-select-options > li {
+    padding: var(--padding);
+    cursor: pointer;
+    transition: var(--transition);
+}
+.vsm-select-options > li:hover {
+    background: var(--theme-color-hover);
+}
+.vsm-select-options > li.vsm-selected {
+    background: var(--theme-color);
+    color: var(--theme-color-reverse);
 }
 .vsm-select.vsm-on .vsm-select-options {
     opacity: 1;

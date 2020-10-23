@@ -7,10 +7,25 @@ export default {
         '<i class="iconfont icon-app"></i>',
         '<i class="iconfont icon-script"></i>'
       ],
-      paramTabs: [
-        '属性',
-        '事件'
-      ]
+      paramsHeader: [{
+        key: 'prop',
+        title: '属性',
+        render: (h, ctx) => h('b', {
+          class: 'vsm-blue vsm-reverse'
+        }, ctx.data.prop)
+      }, {
+        key: 'desc',
+        title: '说明'
+      }, {
+        key: 'type',
+        title: '类型'
+      }, {
+        key: 'options',
+        title: '可选值'
+      }, {
+        key: 'default',
+        title: '默认值'
+      }]
     }
   },
   methods: {

@@ -16,17 +16,15 @@
                             'vsm-sticky-left': stickyLeft === td.key,
                             'vsm-sticky-right': stickyRight === td.key
                         }, tdClass]">
-                            <template v-if="'render' in td">
-                                <Render :render="td.render" :data="tr" :col="prop" :row="i"></Render>
-                            </template>
-                            <template v-else>{{ tr[td.key] }}</template>
+                            <Render v-if="'render' in td" :render="td.render" :data="tr" :col="prop" :row="i"></Render>
+                            <Render v-else :text="tr[td.key]"></Render>
                         </td>
                     </template>
                     <template v-else>
                         <td v-for="(td, prop) in tr" :key="prop" :class="[{
                             'vsm-sticky-left': stickyLeft === td.key,
                             'vsm-sticky-right': stickyRight === td.key
-                        }, tdClass]">{{ td }}</td>
+                        }, tdClass]" v-html="td"></td>
                     </template>
                 </tr>
             </tbody>

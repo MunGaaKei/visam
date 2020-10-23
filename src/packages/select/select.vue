@@ -10,25 +10,32 @@
         :class="{ 'vsm-on': show }">
 
         <input type="text" class="vsm-input vsm-group-item"
-          v-model="v"
           :name="name"
+          :value="v"
           :placeholder="placeholder"
           :readonly="readonly"
           :disabled="disabled"
           :autocomplete="autocomplete"
           :spellcheck="spellcheck"
           :autofocus="autofocus"
-          @click.self="handleClick"
+          @click.self="toggle"
         >
 
-        <div class="vsm-input-spinner vsm-group-item">
-          <a @click.prevent="handleClick"><i class="iconfont icon-down"></i></a>
-          
-          <ul class="vsm-select-options" ref="options">
-            
-          </ul>
+        <ul class="vsm-select-options" ref="options"
+          :style="cssText">
+          <li v-for="(opt, i) in options" :key="i"
+            :class="{
+              'vsm-disabled': opt.disabled,
+              'vsm-selected': v.includes(typeof opt ==='string'? opt: opt.value)
+            }"
+            v-html="typeof opt ==='string'? opt: opt.label"
+            @click.prevent="select(opt)"></li>
+        </ul>
 
+        <div class="vsm-input-spinner vsm-group-item">
+          <a @click.prevent="toggle"><i class="iconfont icon-down"></i></a>
         </div>
+
       </div>
       <slot name="append"></slot>
     </vsm-group>
@@ -59,12 +66,19 @@ export default {
     readonly: Boolean,
     disabled: Boolean,
     options: Array,
-    showOptions: Boolean
+    showOptions: Boolean,
+
+    multiple: Boolean,
+    spliter: {
+      type: String,
+      default: ','
+    },
   },
   data () {
     return {
       v: this.value,
-      show: this.showOptions
+      show: this.showOptions,
+      cssText: ''
     }
   },
   watch: {
@@ -73,10 +87,17 @@ export default {
     }
   },
   methods: {
-    handleClick (e) {
-      console.log(this.show);
+    toggle () {
       this.show = !this.show;
-      this.$emit('click', e);
+    },
+    select (opt) {
+      console.log(this.v, opt);
+      
+      this.show = false;
+    },
+    setValue (nv) {
+      
+      this.v = nv;
     }
   }
 }

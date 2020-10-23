@@ -28,7 +28,6 @@
           <input type="checkbox" class="vsm-checkbox"
             :class="[css]"
             v-model="v"
-            :value="v"
             :name="name"
             @change="handleChange">
           <span><slot></slot></span>
