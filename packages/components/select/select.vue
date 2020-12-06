@@ -13,10 +13,12 @@
         <div v-if="multiple"
           class="vsm-input vsm-input-like vsm-group-item"
         >
-          <input type="text"
-            v-show="show || !displayValue.length"
-            :readonly="readonly"
+          <input type="text" ref="input"
+            v-model="multipleValue"
+            v-show="!displayValue.length || (filter && show)"
+            :readonly="!filter"
             :placeholder="placeholder"
+            :disabled="disabled"
             class="vsm-select-input"
             v-on="listeners">
           <template v-if="multiple">
@@ -40,6 +42,8 @@
           :spellcheck="spellcheck"
           :autofocus="autofocus"
           :placeholder="placeholder"
+          :disabled="disabled"
+          :pattern="pattern"
           v-on="listeners">
 
         <ul v-if="opts"
@@ -81,12 +85,11 @@ export default {
     },
     placeholder: String,
     name: String,
-    type: {
-        type: String,
-        default: 'text'
-    },
     pattern: String,
-    autocomplete: Boolean,
+    autocomplete: {
+      type: String,
+      default: 'on'
+    },
     spellcheck: Boolean,
     autofocus: Boolean,
     readonly: Boolean,
@@ -98,23 +101,24 @@ export default {
     showOptions: Boolean,
 
     multiple: Boolean,
-    spliter: {
-      type: String,
-      default: ','
-    },
+    top: Boolean,
 
-    filter: {
-      type: Function | Boolean,
+    filter: Boolean,
+    filterDelay: {
+      type: Number | String,
+      default: 200
     }
   },
   data () {
     return {
       currentValue: this.value || (this.multiple? []: ''),
       show: this.showOptions,
-      cssText: '',
       editable: this.readonly? false: 'plain-text',
       closable: true,
-      displayOptions: []
+      opts: [],
+      displayOptions: [],
+      multipleValue: '',
+      filterTimer: false,
     }
   },
   computed: {
@@ -123,18 +127,21 @@ export default {
         return Object.assign({}, this.$listeners, {
             input (e) { vm.$emit('input', vm.currentValue, e); },
             click (e) {
-              e.stopPropagation();
               vm.toggle();
-            }
+              if (vm.multiple && vm.show) {
+                vm.$nextTick(() => {
+                  e.target.focus();
+                });
+              }
+              vm.$emit('click', e);
+            },
+            keyup (e) {
+              if (vm.filter) {
+                vm.triggerFilter();
+              }
+              vm.$emit('keyup', e);
+            },
         });
-    },
-    opts () {
-      return this.options.map(opt => {
-        return (typeof opt === 'string' || typeof opt === 'number')? {
-          label: opt,
-          value: opt
-        }: opt;
-      });
     },
     displayValue () {
       if (this.multiple) {
@@ -147,6 +154,9 @@ export default {
       } else {
         return this.opts.find(opt => opt.value === this.currentValue) || { label: '' };
       }
+    },
+    cssText () {
+      return this.top? 'top: auto; bottom: 100%;': '';
     }
   },
   methods: {
@@ -168,11 +178,12 @@ export default {
           this.currentValue.push(opt.value);
         }
         this.setValue(this.currentValue, e);
+        this.$refs.input.focus();
       } else {
         this.setValue(opt.value, e);
         this.show = false;
       }
-
+      this.$emit('select', opt, e);
     },
     setValue (value, e) {
       this.currentValue = value;
@@ -184,26 +195,50 @@ export default {
       }
     },
     handleClick (e) {
-      console.log(111);
       this.closable = false;
       document.documentElement.click();
       this.closable = true;
     },
-    handleInput (e) {
-      // console.log();
-      console.log(e, this.currentValue);
+    triggerFilter () {
+      this.filterTimer && clearTimeout(this.filterTimer);
+      this.filterTimer = setTimeout(() => {
+        this.displayOptions = this.opts.filter(this.defaultFilter);
+        this.$emit('filter', this.displayOptions);
+      }, this.filterDelay);
     },
     defaultFilter (opt) {
-      return opt.label.includes(this.currentValue) || opt.value.includes(this.currentValue);
+      let value = this.multiple? this.multipleValue: this.currentValue;
+      value = value.trim();
+      let found = opt.label.includes(value) || opt.value.includes(value);
+      if (opt.keywords) {
+        found = opt.keywords.includes(value) || found;
+      }
+      return found;
+    },
+    formatOptions (options) {
+      return options.map(opt => {
+        return (typeof opt === 'string' || typeof opt === 'number')? {
+          label: opt,
+          value: opt
+        }: opt;
+      });
     }
   },
   watch: {
     value (value) {
       this.currentValue = value;
+    },
+    show (value) {
+      this.$emit('toggle', value);
+    },
+    options (value) {
+      this.opts = this.formatOptions(value);
+      this.displayOptions = this.opts.concat();
     }
   },
   created () {
-    this.displayOptions = this.opts;
+    this.opts = this.formatOptions(this.options);
+    this.displayOptions = this.opts.concat();
   },
   beforeMount () {
     document.addEventListener('click', this.collapse);

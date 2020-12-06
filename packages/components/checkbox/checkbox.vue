@@ -10,16 +10,22 @@
     ]">
 
       <template v-if="options">
-        <label v-for="(opt, i) in options" :key="i" class="vsm-checkbox-label">
-          <input type="checkbox" class="vsm-checkbox"
+        <label v-for="(opt, i) in opts"
+          :key="i"
+          class="vsm-checkbox-label"
+          :class="{
+            'vsm-round': round
+          }">
+          <input type="checkbox"
+            class="vsm-checkbox"
             ref="checkbox"
             :class="[css]"
             v-model="currentValue"
             :name="name"
-            :value="typeof opt === 'string'? opt: opt.value"
+            :value="opt.value"
             :disabled="opt.disabled"
             v-on="listeners">
-          <span v-html="typeof opt === 'string'? opt: opt.label"></span>
+          <span v-html="opt.label"></span>
         </label>
       </template>
       
@@ -52,7 +58,7 @@ export default {
         type: String,
         default: 'normal',
         validator ( t ) {
-          return ['normal', 'slide', 'text'].includes(t);
+          return ['normal', 'slide', 'text', 'button', 'textless'].includes(t);
         }
       },
 
@@ -68,12 +74,19 @@ export default {
     data () {
       return {
         currentValue: this.value,
+        opts: []
       }
     },
     computed: {
       listeners () {
           const vm = this;
           return Object.assign({}, this.$listeners, {
+            click (e) {
+              if (vm.opts.length && vm.currentValue.length >= vm.max && e.target.checked) {
+                e.preventDefault();
+              }
+              vm.$emit('click', e);
+            },
             change (e) {
               vm.$emit('change', vm.currentValue, e);
             }
@@ -81,16 +94,33 @@ export default {
       },
       css () {
         return `vsm-checkbox-${this.type}`;
-      }
+      },
     },
     methods: {
       setValue (value) {
-        this.currentValuev = value;
+        if (this.max && this.options && value.length > this.max) {
+          return false;
+        }
+        this.currentValue = value;
+      },
+      formatOptions () {
+        this.opts = this.options.map(opt => {
+          return (typeof opt === 'string' || typeof opt === 'number')? {
+            label: opt,
+            value: opt
+          }: opt;
+        });
       }
+    },
+    created () {
+      if (this.options) this.formatOptions();
     },
     watch: {
       value (value) {
         this.setValue(value);
+      },
+      options (value) {
+        this.formatOptions();
       }
     }
 }

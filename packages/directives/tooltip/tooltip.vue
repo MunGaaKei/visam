@@ -8,7 +8,7 @@
         ]"
         :style="cssText"
     >
-        <div v-html="html"></div>
+        <div class="vsm-tooltip-content" v-html="html"></div>
         <span class="vsm-tooltip-caret" :style="caretCssText"></span>
     </div>
 </template>

@@ -28,6 +28,36 @@ const throttle = (
 }
 
 /**
+ * 防抖函数
+ * @param {function} fn
+ * @param {number} ms
+ * @param {boolean} immediate
+ * @return {function}
+**/
+function debounce( fn, ms, immediate ){
+  var t;
+  var f = true;
+  ms || (ms = 250);
+
+  return function(){
+  var args = arguments;
+  var self = this;
+    if( immediate ){
+      if( f ){
+        fn.apply(self, args);
+        f = false;
+      } else {
+        t && clearTimeout(t);
+        t = setTimeout(function(){ f = true; }, ms);
+      }
+    } else {
+      t && clearTimeout(t);
+      t = setTimeout(function(){ fn.apply(self, args); }, ms);
+    }
+  }
+}
+
+/**
  * 获取默认值
  * @param {*} value
  * @param {array} arr
@@ -43,5 +73,6 @@ const getDefault = (
 
 export {
   throttle,
+  debounce,
   getDefault
 }

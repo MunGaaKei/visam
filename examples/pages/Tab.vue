@@ -16,8 +16,8 @@
     <br>
     <div class="vsm-cols">
       <div class="vsm-col-3">
-        <vsm-select v-model="color" :options="colorOptions" label="颜色" inline></vsm-select>
-        <vsm-select v-model="align" :options="alignOptions" label="位置" inline></vsm-select>
+        <vsm-select v-model="color" :options="colorOptions" label="颜色" inline readonly placeholder="默认"></vsm-select>
+        <vsm-select v-model="align" :options="alignOptions" label="位置" inline readonly placeholder="默认居左"></vsm-select>
       </div>
       <vsm-checkbox v-model="tabProps" :options="tabOptions" type="slide"></vsm-checkbox>
 

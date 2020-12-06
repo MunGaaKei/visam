@@ -1,7 +1,8 @@
 <template>
   <label :class="[
         inline? 'vsm-label-inline': 'vsm-label-input',
-    ]">
+    ]"
+        :style="width? `width:${width}`: ''">
       <span v-if="label" class="vsm-label" v-html="label"></span>
 
       <textarea v-if="type === 'textarea'"
@@ -19,6 +20,7 @@
         :autofocus="autofocus"
         :resize="resize"
         :rows="rows"
+        :pattern="pattern"
         v-on="listeners"
         ></textarea>
       <vsm-group v-else>
@@ -39,6 +41,7 @@
             :autocomplete="autocomplete"
             :spellcheck="spellcheck"
             :autofocus="autofocus"
+            :pattern="pattern"
             v-on="listeners">
         <div v-if="type === 'number'" class="vsm-spinners vsm-group-item">
             <a class="iconfont icon-add vsm-spinner" @click="increase"></a>
@@ -50,6 +53,7 @@
 </template>
 
 <script>
+import vsmGroup from '../group';
 export default {
     name: 'vsmInput',
     props: {
@@ -65,6 +69,7 @@ export default {
             type: String,
             default: 'text'
         },
+        width: String,
         pattern: String,
         autocomplete: Boolean,
         spellcheck: Boolean,
@@ -117,6 +122,9 @@ export default {
         value (value) {
             this.setValue(value);
         }
+    },
+    components: {
+        vsmGroup
     }
 }
 </script>

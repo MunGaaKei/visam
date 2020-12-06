@@ -9,7 +9,7 @@
         <div class="vsm-slider-bar"
             ref="bar"
             @mousedown="handleClick">
-            <div v-if="step" class="vsm-slider-division">
+            <div v-if="part" class="vsm-slider-division">
                 <a class="vsm-slider-point vsm-slider-value"
                     v-for="(p, i) in points"
                     :key="i"
@@ -68,9 +68,9 @@ export default {
             type: Number | String,
             default: 0
         },
-        step: {
+        part: {
             type: Number | String | Array,
-            default: 1
+            default: 1,
         },
         forceStep: Boolean,
         unit: String
@@ -116,15 +116,13 @@ export default {
         points () {
             let i = 1;
             let arr = [];
-            if (typeof this.step === 'number') {
-                let part = this.dif / this.step;
-                arr.push(this.min);
-                for (; i < this.step; i++) {
-                    arr.push(i * part + this.min);
+            if (typeof this.part === 'number') {
+                let num = this.dif / this.part;
+                for (; i < this.part; i++) {
+                    arr.push(i * num + this.min);
                 }
-                arr.push(this.max);
             } else {
-                arr = this.step.concat();
+                arr = this.part.concat();
             }
             return arr;
         }
@@ -153,7 +151,6 @@ export default {
         slideEnd (e) {
             e.stopPropagation();
             this.slideCursor = null;
-            console.log(1);
             this.forceStep && this.forceValues();
         },
         sliding (e) {
@@ -203,6 +200,7 @@ export default {
             return result;
         },
         forceValues () {
+            if (this.part === 1) return;
             let value = this.currentValue;
             if (this.isRange) {
                 value = value.concat();

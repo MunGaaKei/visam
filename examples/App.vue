@@ -4,7 +4,9 @@
       v-model="sidebarHidden"
       class="drawer"
       :breakpoint="breakpoint">
-      <vsm-tree :list="menus" :style="`width:${sidebarWidth}`"></vsm-tree>
+      <vsm-tree :list="menus"
+        :style="`width:${sidebarWidth}`"
+        @item-click="handleMenuClick"></vsm-tree>
     </vsm-drawer>
 
     <Header :sidebarHidden="sidebarHidden" @sidebar-toggle="sidebarToggle"></Header>
@@ -26,7 +28,7 @@ export default {
   data () {
     return {
       sidebarHidden: window.innerWidth < 980,
-      sidebarWidth: '200px',
+      sidebarWidth: '240px',
       menus: menu,
       breakpoint: 780
     }
@@ -43,6 +45,9 @@ export default {
   methods: {
     sidebarToggle (hidden) {
       this.sidebarHidden = hidden;
+    },
+    handleMenuClick (node, e) {
+      console.log(node);
     }
   }
 }
@@ -54,10 +59,29 @@ export default {
   overflow-x: hidden;
 }
 .section-title {
+  position: relative;
   margin: 80px 0 12px;
+  &:before {
+    position: absolute;
+    z-index: -1;
+    bottom: 6px;
+    content: '\20';
+    width: 1.5em;
+    height: 6px;
+    background: var(--yellow);
+  }
 }
-.drawer .vsm-drawer-inner {
-  background: var(--theme-color-hover);
+.drawer {
+  .vsm-drawer-inner {
+    background: var(--theme-color-hover);
+  }
+  .vsm-tree-node-name {
+    display: flex;
+    > i {
+      margin-left: 1em;
+      opacity: 0.4;
+    }
+  }
 }
 .widget {
   margin-right: var(--gap);

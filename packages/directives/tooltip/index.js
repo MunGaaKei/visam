@@ -20,7 +20,7 @@ class TooltipInstance {
                 gap: 12,
                 delay: 0,
                 events: true,
-                // selector: ''
+                selector: ''
             }, data),
             watch: {
                 display (value) {
@@ -74,6 +74,9 @@ class TooltipInstance {
 
     setPosition (target) {
         let { tooltip } = this;
+        if (tooltip.selector) {
+            target = target.querySelector(tooltip.selector) || target;
+        }
         let rectTar = target.getBoundingClientRect();
         let rectSrc = tooltip.$el.getBoundingClientRect();
         let $pa = target.offsetParent;
@@ -128,14 +131,14 @@ class TooltipInstance {
         if (['top', 'left', 'right', 'bottom'].includes(position)) {
             if (position === 'top') {
                 top = target.offsetTop - gap - rectSrc.height;
-                caretTop = rectSrc.height - 1;
+                caretTop = rectSrc.height - 2;
                 rotate = 225;
             } else if (position === 'bottom') {
                 top = target.offsetTop + gap + rectTar.height;
                 caretTop = 1;
             } else if (position === 'left') {
                 left = target.offsetLeft - gap - rectSrc.width;
-                caretLeft = rectSrc.width - 1;
+                caretLeft = rectSrc.width - 2;
                 rotate = 135;
             } else if (position === 'right') {
                 left = target.offsetLeft + rectTar.width + gap;
@@ -145,11 +148,11 @@ class TooltipInstance {
         } else {
             top = target.offsetTop - gap*2 - rectSrc.height;
             if (top > 0) {
-                caretTop = rectSrc.height - 1;
+                caretTop = rectSrc.height - 2;
                 top += gap;
                 rotate = 225;
             } else {
-                caretTop = 1;
+                caretTop = 2;
                 top = target.offsetTop + rectTar.height + gap;
             }
         }
@@ -173,15 +176,19 @@ const Tooltip = {
         let instance = new TooltipInstance($el, binding);
         let { tooltip } = instance;
         $el.$tooltip = instance;
+        let $tarEl = $el;
+        if (tooltip.selector) {
+            $tarEl = $el.querySelector(tooltip.selector) || $el;
+        }
         
         if (tooltip.events) {
-            $el.addEventListener(
+            $tarEl.addEventListener(
                 tooltip.show,
                 instance.init.bind($el, instance),
                 binding.modifiers.capture
             );
     
-            $el.addEventListener(
+            $tarEl.addEventListener(
                 tooltip.hide,
                 instance.destroy.bind($el, instance),
                 binding.modifiers.capture
@@ -215,14 +222,18 @@ const Tooltip = {
     unbind ($el) {
         let instance = $el.$tooltip;
         let { tooltip } = instance;
+        let $tarEl = $el;
+        if (tooltip.selector) {
+            $tarEl = $el.querySelector(tooltip.selector) || $el;
+        }
         
         if (tooltip.events) {
-            $el.removeEventListener(
+            $tarEl.removeEventListener(
                 tooltip.show,
                 instance.init
             );
     
-            $el.removeEventListener(
+            $tarEl.removeEventListener(
                 tooltip.hide,
                 instance.destroy
             );

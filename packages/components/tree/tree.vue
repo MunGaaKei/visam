@@ -1,15 +1,21 @@
 <template>
-  <ul :class="{ 'vsm-tree': root }">
+  <ul :class="{
+      'vsm-tree': root,
+      'vsm-tree-padding': padding
+    }">
       <li v-for="(item, i) in list" :key="i">
 
         <router-link :to="{ path: item.href }"
-            class="vsm-tree-node"
-            :class="{ 'vsm-tree-open': item.open }"
+            :class="[
+                'vsm-tree-node',
+                { 'vsm-tree-open': item.open }
+            ]"
+            @click="handleItemClick(item, $event)"
         >
             <span v-if="checkable" :node-check="item.checked">{{ item.checked? '■': '□' }}</span>
-            <span v-if="item.icon" node-icon>{{ item.icon }}</span>
-            <span node-name>{{ item.name }}</span>
-            <span v-if="item.children" :node-open="item.open" v-html="toggler" @click.stop="toggle(item, $event)"></span>
+            <span class="vsm-tree-node-icon" v-if="item.icon" node-icon v-html="item.icon"></span>
+            <span class="vsm-tree-node-name" v-html="item.name" @click="toggle(item, $event)"></span>
+            <span class="vsm-tree-toggler" v-if="item.children" v-html="toggler" @click.stop="toggle(item, $event)"></span>
         </router-link>
 
         <vsm-tree
@@ -44,7 +50,8 @@ export default {
         toggler: {
             type: String,
             default: '<i class="iconfont icon-down"></i>'
-        }
+        },
+        padding: Boolean
     },
     data () {
         return {
@@ -62,9 +69,12 @@ export default {
             });
         },
         toggle ( node, e ) {
-            e.preventDefault();
-            e.stopPropagation();
             node.open = !node.open;
+        },
+        handleItemClick ( node, e ) {
+            // e.preventDefault();
+            console.log(node);
+            this.$emit('item-click', node, e);
         }
     },
     created () {

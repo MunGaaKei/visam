@@ -10,7 +10,7 @@
                 :class="{
                     'vsm-disabled': opt.disabled
                 }"
-                v-for="(opt, i) in options"
+                v-for="(opt, i) in opts"
                 :key="i">
                 <input type="radio" class="vsm-radio"
                     v-model="currentValue"
@@ -44,12 +44,21 @@ export default {
     },
     data () {
         return {
-            currentValue: this.value
+            currentValue: this.value,
+            opts: []
         }
     },
     methods: {
         setValue (value, e) {
             this.currentValue = value;
+        },
+        formatOptions () {
+            this.opts = this.options.map(opt => {
+            return (typeof opt === 'string' || typeof opt === 'number')? {
+                label: opt,
+                value: opt
+            }: opt;
+            });
         }
     },
     computed: {
@@ -62,9 +71,15 @@ export default {
             });
         },
     },
+    created () {
+      if (this.options) this.formatOptions();
+    },
     watch: {
         value (value) {
             this.setValue(value);
+        },
+        options (value) {
+            this.formatOptions();
         }
     }
 }

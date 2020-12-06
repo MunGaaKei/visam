@@ -20,7 +20,7 @@
                             @click="handleCellClick(tr, i, prop, $event)"
                             @dblclick="handleCellDblClick(tr, i, prop, $event)">
                             <Render v-if="'render' in td" :render="td.render" :data="tr" :col="prop" :row="i"></Render>
-                            <template v-else>{{ tr[td.key] }}</template>
+                            <div v-else v-html="tr[td.key]"></div>
                         </td>
                     </template>
                     <template v-else>

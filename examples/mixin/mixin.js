@@ -21,7 +21,8 @@ export default {
         title: '可选值'
       }, {
         key: 'default',
-        title: '默认值'
+        title: '默认值',
+        sticky: 'right'
       }],
       colorOptions: [
         { label: '默认', value: '' },

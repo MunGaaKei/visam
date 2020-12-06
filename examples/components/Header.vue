@@ -1,10 +1,10 @@
 <template>
   <header class="header vsm-cols">
-      <a @click="toggleSidebar" class="sidebar-toggler iconfont icon-menu"></a>
-      <a class="header-item iconfont icon-github"></a>
+      <a v-tooltip:right="'目录'" @click="toggleSidebar" class="sidebar-toggler iconfont icon-menu"></a>
+      <a href="https://github.com/MunGaaKei/visam-vue" class="header-item iconfont icon-github" target="_blank" v-tooltip:bottom="'github'"></a>
       <span>
         <vsm-checkbox v-model="themeDark" type="text" @change="toggleTheme">
-          <i class="iconfont icon-theme"></i>
+          <i class="iconfont icon-theme" v-tooltip="'切换主题'"></i>
         </vsm-checkbox>
       </span>
       <h1><a href="/"><span class="vue">V</span>ISA<span class="masiv">M</span></a></h1>

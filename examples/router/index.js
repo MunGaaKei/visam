@@ -44,6 +44,50 @@ const routes = [{
   path: '/table',
   name: 'Table',
   component: () => import('@/pages/Table')
+}, {
+  path: '/checkbox',
+  name: 'Checkbox',
+  component: () => import('@/pages/Checkbox')
+}, {
+  path: '/radio',
+  name: 'Radio',
+  component: () => import('@/pages/Radio')
+}, {
+  path: '/slide',
+  name: 'Slide',
+  component: () => import('@/pages/Slide')
+}, {
+  path: '/swiper',
+  name: 'Swiper',
+  component: () => import('@/pages/Swiper')
+}, {
+  path: '/tooltip',
+  name: 'Tooltip',
+  component: () => import('@/pages/Tooltip')
+}, {
+  path: '/tree',
+  name: 'Tree',
+  component: () => import('@/pages/Tree')
+}, {
+  path: '/page',
+  name: 'Page',
+  component: () => import('@/pages/Page')
+}, {
+  path: '/dropdown',
+  name: 'Dropdown',
+  component: () => import('@/pages/Dropdown')
+}, {
+  path: '/datetime',
+  name: 'Datetime',
+  component: () => import('@/pages/Datetime')
+}, {
+  path: '/lazy',
+  name: 'Lazy',
+  component: () => import('@/pages/Lazy')
+}, {
+  path: '/drag',
+  name: 'Drag',
+  component: () => import('@/pages/Drag')
 }]
 
 const router = new VueRouter({

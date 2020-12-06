@@ -42,7 +42,7 @@ export default {
             sel.addRange(range);
             document.execCommand('copy', false, true);
             this.$notice({
-                html: '👌 复制成功',
+                html: '👌 已复制到粘贴板',
                 overwrite: true,
                 color: 'blue',
                 fromtop: false
