@@ -4,9 +4,9 @@
       v-model="sidebarHidden"
       class="drawer"
       :breakpoint="breakpoint">
-      <vsm-tree :list="menus"
+      <vsm-tree :list="menu"
         :style="`width:${sidebarWidth}`"
-        @item-click="handleMenuClick"></vsm-tree>
+        @node-click="handleMenuClick"></vsm-tree>
     </vsm-drawer>
 
     <Header :sidebarHidden="sidebarHidden" @sidebar-toggle="sidebarToggle"></Header>
@@ -29,7 +29,7 @@ export default {
     return {
       sidebarHidden: window.innerWidth < 980,
       sidebarWidth: '240px',
-      menus: menu,
+      menu,
       breakpoint: 780
     }
   },
@@ -47,7 +47,7 @@ export default {
       this.sidebarHidden = hidden;
     },
     handleMenuClick (node, e) {
-      console.log(node);
+      this.$router.push(node.href);
     }
   }
 }
@@ -73,7 +73,7 @@ export default {
 }
 .drawer {
   .vsm-drawer-inner {
-    background: var(--theme-color-hover);
+    background: #e9e9e9;
   }
   .vsm-tree-node-name {
     display: flex;
@@ -81,6 +81,16 @@ export default {
       margin-left: 1em;
       opacity: 0.4;
     }
+  }
+}
+.theme-dark {
+  .drawer {
+    .vsm-drawer-inner {
+      background: #232323;
+    }
+  }
+  .section-title:before {
+    background: var(--red);
   }
 }
 .widget {

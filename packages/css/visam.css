@@ -357,6 +357,9 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: inherit;
     background: var(--input);
 }
+.vsm-checkbox:disabled {
+    cursor: not-allowed;
+}
 .vsm-checkbox-normal,
 .vsm-checkbox-textless {
     height: 1.2em;
@@ -399,6 +402,12 @@ input[type=number]::-webkit-outer-spin-button {
 .vsm-checkbox-normal:checked:after,
 .vsm-checkbox-textless:checked:after {
     transform: rotate(45deg);
+}
+.vsm-checkbox-indeterminated:after {
+    left: 50%; top: 50%;
+    height: 2px; width: 50%;
+    background: var(--background);
+    transform: translate(-50%, -50%);
 }
 .vsm-checkbox-slide:after {
     left: 2px; top: 2px; bottom: 2px;
@@ -764,7 +773,6 @@ input[type=number]::-webkit-outer-spin-button {
 .vsm-table td {
     position: relative;
     padding: 8px 12px;
-    /* border: 1px solid var(--background); */
     transition: var(--transition);
     background: var(--background);
     white-space: nowrap;
@@ -932,28 +940,47 @@ td.vsm-sticky-right {
 }
 .vsm-tree-node {
     display: flex;
-    padding: 6px 16px;
+    padding: var(--padding);
+    border-radius: var(--radius);
+}
+.vsm-tree-checkbox,
+.vsm-tree-node-icon {
+    margin-right: .5em;
+    border-radius: var(--radius);
 }
 .vsm-tree-node-name {
     flex: 1 1 0;
 }
-.vsm-tree-node:hover {
-    background-color: var(--theme-color-hover);
+.vsm-tree-node:hover,
+.vsm-tree-node.vsm-tree-selected {
+    background: var(--theme-color-hover);
 }
 .vsm-tree-node + ul {
     box-sizing: border-box;
     height: 0;
-    padding: 0 0 0 1em;
+    padding: 0 0 0 1.6em;
     overflow: hidden;
     transition: var(--transition);
-    transform: translate(var(--gap), 0);
+    transform: translate(-.5em, 0);
 }
 .vsm-tree-open + ul {
+    position: relative;
     height: unset;
     transform: none;
 }
+.vsm-tree-guide ul:before {
+    content: '\20';
+    position: absolute;
+    left: 1.25em; top: .2em; bottom: .2em;
+    border-left: 1px dashed var(--color-vice);
+}
 .vsm-tree-toggler {
     margin-left: 1em;
+    transform: scale(.8) rotate(90deg);
+    transition: var(--transition);
+}
+.vsm-tree-open > .vsm-tree-toggler {
+    transform: scale(.8);
 }
 
 .vsm-backdrop {
