@@ -47,7 +47,7 @@ export default {
       this.sidebarHidden = hidden;
     },
     handleMenuClick (node, e) {
-      this.$router.push(node.href);
+      node.href && this.$router.push(node.href);
     }
   }
 }

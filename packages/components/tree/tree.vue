@@ -6,7 +6,7 @@
       <li v-for="(item, i) in list" :key="i">
 
         <a
-            @click.stop="handleNodeClick(item, $event)"
+            @click="handleNodeClick(item, $event)"
             :class="[
                 'vsm-tree-node',
                 { 'vsm-tree-open': item.open || expandAll },

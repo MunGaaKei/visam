@@ -2,7 +2,7 @@
   <label :class="[
     inline? 'vsm-label-inline': 'vsm-label-input',
   ]"
-  @click.stop="handleClick">
+  ref="label">
     <span v-if="label" class="vsm-label" v-html="label"></span>
 
     <vsm-group>
@@ -127,6 +127,7 @@ export default {
         return Object.assign({}, this.$listeners, {
             input (e) { vm.$emit('input', vm.currentValue, e); },
             click (e) {
+              vm.closable = false;
               vm.toggle();
               if (vm.multiple && vm.show) {
                 vm.$nextTick(() => {
@@ -134,6 +135,7 @@ export default {
                 });
               }
               vm.$emit('click', e);
+              vm.closable = true;
             },
             keyup (e) {
               if (vm.filter) {
@@ -189,15 +191,11 @@ export default {
       this.currentValue = value;
       this.$emit('input', value, e);
     },
-    collapse () {
-      if (this.closable) {
+    collapse (e) {
+      if (!this.show || !this.closable) return;
+      if (!this.$refs.label.contains(e.target)) {
         this.show = false;
       }
-    },
-    handleClick (e) {
-      this.closable = false;
-      document.documentElement.click();
-      this.closable = true;
     },
     triggerFilter () {
       this.filterTimer && clearTimeout(this.filterTimer);
@@ -227,9 +225,6 @@ export default {
   watch: {
     value (value) {
       this.currentValue = value;
-    },
-    show (value) {
-      this.$emit('toggle', value);
     },
     options (value) {
       this.opts = this.formatOptions(value);

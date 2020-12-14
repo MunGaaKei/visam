@@ -2,6 +2,7 @@ import './js/visam';
 
 import Button from './components/button';
 import Checkbox from './components/checkbox';
+import Cols from './components/cols';
 import Datetime from './components/datetime';
 import Dialog from './components/dialog';
 import Drawer from './components/drawer';
@@ -26,6 +27,7 @@ import Notice from './components/notice';
 
 const components = [
     Button,
+    Cols,
     Checkbox,
     Datetime,
     Dialog,

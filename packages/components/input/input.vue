@@ -33,6 +33,7 @@
                 'vsm-disabled': disabled,
             }"
             v-model="currentValue"
+            :value="value"
             :name="name"
             :type="type"
             :placeholder="placeholder"

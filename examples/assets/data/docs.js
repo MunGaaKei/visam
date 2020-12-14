@@ -29,6 +29,9 @@ const menu = [{
       name: '消息提醒<i>notice</i>',
       href: '/notice',
     }, {
+      name: '分页<i>page</i>',
+      href: '/page',
+    }, {
       name: '单选框<i>radio</i>',
       href: '/radio',
     }, {

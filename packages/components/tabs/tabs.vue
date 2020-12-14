@@ -5,7 +5,7 @@
         }">
         <div class="vsm-tabs-navs"
             :class="[
-                align? `vsm-tabs-align-${align}`: '',
+                align? `vsm-align-${align}`: '',
             ]"
             :style="background? `background:${background};`: ''"
             @mousedown="dragStart"
