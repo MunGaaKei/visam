@@ -1,9 +1,10 @@
 import './js/visam';
 
 import Button from './components/button';
+import Calendar from './components/calendar';
 import Checkbox from './components/checkbox';
+import { Collapse, CollapseItem } from './components/collapse';
 import Cols from './components/cols';
-import Datetime from './components/datetime';
 import Dialog from './components/dialog';
 import Drawer from './components/drawer';
 import Dropdown from './components/dropdown';
@@ -15,21 +16,24 @@ import List from './components/list';
 import Radio from './components/radio';
 import Select from './components/select';
 import Slider from './components/slider';
-import Swiper from './components/swiper';
+import { Swiper, SwiperItem } from './components/swiper';
 import Table from './components/table';
 import Tabs from './components/tabs';
 import Tree from './components/tree';
 import Page from './components/page';
 
 import Tooltip from './directives/tooltip';
+import Lazy from './directives/lazy';
 
 import Notice from './components/notice';
 
 const components = [
     Button,
+    Calendar,
+    Collapse,
+    CollapseItem,
     Cols,
     Checkbox,
-    Datetime,
     Dialog,
     Drawer,
     Dropdown,
@@ -42,6 +46,7 @@ const components = [
     Select,
     Slider,
     Swiper,
+    SwiperItem,
     Table,
     Tabs,
     Tree,
@@ -50,7 +55,7 @@ const components = [
 
 const directives = [
     Tooltip,
-
+    Lazy
 ];
 
 const install = function(Vue, options) {
@@ -71,5 +76,6 @@ const install = function(Vue, options) {
 export default {
     install,
     ...components,
-    ...directives
+    ...directives,
+    version: '1.0'
 }

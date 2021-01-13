@@ -5,7 +5,7 @@
         <h3 class="section-title">基础</h3>
         <p>其中<b>平白显示</b>会使<b>边框</b>失效。</p>
         <br>
-        <div class="vsm-cols">
+        <vsm-cols>
             <div class="vsm-n widget">
                 <vsm-button
                     :round="btnProps.includes('round')"
@@ -22,7 +22,7 @@
                 <vsm-select label="属性" inline placeholder="属性配置" v-model="btnProps" :options="btnOptions" readonly multiple></vsm-select>
                 <vsm-select label="颜色" inline placeholder="颜色" v-model="color" :options="colorOptions" readonly></vsm-select>
             </div>
-        </div>
+        </vsm-cols>
         
         <Codes :codes="btnCode" show></Codes>
 

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/pages/Home'
+import Docs from '@/pages/Docs'
 
 Vue.use(VueRouter)
 
@@ -9,85 +10,143 @@ const routes = [{
   name: 'Home',
   component: Home
 }, {
-  path: '/button',
-  name: 'Button',
-  component: () => import('@/pages/Button')
-}, {
-  path: '/dialog',
-  name: 'Dialog',
-  component: () => import('@/pages/Dialog')
-}, {
-  path: '/drawer',
-  name: 'Drawer',
-  component: () => import('@/pages/Drawer')
-}, {
-  path: '/form',
-  name: 'Form',
-  component: () => import('@/pages/Form')
-}, {
-  path: '/input',
-  name: 'Input',
-  component: () => import('@/pages/Input')
-}, {
-  path: '/notice',
-  name: 'Notice',
-  component: () => import('@/pages/Notice')
-}, {
-  path: '/select',
-  name: 'Select',
-  component: () => import('@/pages/Select')
-}, {
-  path: '/tab',
-  name: 'Tab',
-  component: () => import('@/pages/Tab')
-}, {
-  path: '/table',
-  name: 'Table',
-  component: () => import('@/pages/Table')
-}, {
-  path: '/checkbox',
-  name: 'Checkbox',
-  component: () => import('@/pages/Checkbox')
-}, {
-  path: '/radio',
-  name: 'Radio',
-  component: () => import('@/pages/Radio')
-}, {
-  path: '/slide',
-  name: 'Slide',
-  component: () => import('@/pages/Slide')
-}, {
-  path: '/swiper',
-  name: 'Swiper',
-  component: () => import('@/pages/Swiper')
-}, {
-  path: '/tooltip',
-  name: 'Tooltip',
-  component: () => import('@/pages/Tooltip')
-}, {
-  path: '/tree',
-  name: 'Tree',
-  component: () => import('@/pages/Tree')
-}, {
-  path: '/page',
-  name: 'Page',
-  component: () => import('@/pages/Page')
-}, {
-  path: '/dropdown',
-  name: 'Dropdown',
-  component: () => import('@/pages/Dropdown')
-}, {
-  path: '/datetime',
-  name: 'Datetime',
-  component: () => import('@/pages/Datetime')
-}, {
-  path: '/lazy',
-  name: 'Lazy',
-  component: () => import('@/pages/Lazy')
-}, {
-  path: '/drag',
-  name: 'Drag',
-  component: () => import('@/pages/Drag')
+  path: '/docs',
+  name: 'Docs',
+  component: Docs,
+  children: [{
+    path: 'button',
+    name: 'Button',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Button')
+    }
+  }, {
+    path: 'dialog',
+    name: 'Dialog',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Dialog')}
+  }, {
+    path: 'drawer',
+    name: 'Drawer',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Drawer')}
+  }, {
+    path: 'form',
+    name: 'Form',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Form')}
+  }, {
+    path: 'input',
+    name: 'Input',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Input')}
+  }, {
+    path: 'notice',
+    name: 'Notice',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Notice')}
+  }, {
+    path: 'select',
+    name: 'Select',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Select')}
+  }, {
+    path: 'start',
+    name: 'Start',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Start')}
+  }, {
+    path: 'tab',
+    name: 'Tab',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Tab')}
+  }, {
+    path: 'table',
+    name: 'Table',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Table')}
+  }, {
+    path: 'checkbox',
+    name: 'Checkbox',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Checkbox')}
+  }, {
+    path: 'radio',
+    name: 'Radio',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Radio')}
+  }, {
+    path: 'slide',
+    name: 'Slide',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Slide')}
+  }, {
+    path: 'swiper',
+    name: 'Swiper',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Swiper')}
+  }, {
+    path: 'tooltip',
+    name: 'Tooltip',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Tooltip')}
+  }, {
+    path: 'tree',
+    name: 'Tree',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Tree')}
+  }, {
+    path: 'page',
+    name: 'Page',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Page')}
+  }, {
+    path: 'dropdown',
+    name: 'Dropdown',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Dropdown')}
+  }, {
+    path: 'calendar',
+    name: 'Calendar',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Calendar')}
+  }, {
+    path: 'lazy',
+    name: 'Lazy',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Lazy')}
+  }, {
+    path: 'drag',
+    name: 'Drag',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Drag')}
+  }, {
+    path: 'collapse',
+    name: 'Collapse',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Collapse')}
+  }]
 }]
 
 const router = new VueRouter({

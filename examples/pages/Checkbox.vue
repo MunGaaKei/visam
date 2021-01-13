@@ -13,7 +13,7 @@
       <p>v-model需要绑定一个数组类型。</p>
       <p>值：{{ values }}</p>
       <br>
-      <div class="vsm-cols">
+      <vsm-cols>
         <vsm-checkbox
             v-model="values"
             :options="options"
@@ -31,7 +31,7 @@
                 inline></vsm-radio>
             <vsm-checkbox type="slide" v-model="otherProps" :options="otherOptions"></vsm-checkbox>
         </div>
-      </div>
+      </vsm-cols>
       <Codes :codes="codes1" show></Codes>
 
       <h3 class="section-title">参数说明</h3>

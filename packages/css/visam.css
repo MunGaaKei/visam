@@ -258,7 +258,9 @@ input[type=number]::-webkit-outer-spin-button {
 .vsm-spinners .vsm-spinner:hover {
     background: var(--theme-color-vice);
 }
-.vsm-select {
+.vsm-calendar-input,
+.vsm-select,
+.vsm-tree {
     position: relative;
 }
 .vsm-select-input {
@@ -530,6 +532,88 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: inherit;
     background: var(--background);
 }
+.vsm-calendar {
+    position: absolute;
+    z-index: 10;
+    top: 100%;
+    display: flex;
+    text-align: center;
+    user-select: none;
+    pointer-events: none;
+    transition: var(--transition);
+    transform: translate(8px, 0);
+    opacity: 0;
+}
+.vsm-calendar.vsm-on {
+    pointer-events: unset;
+    opacity: 1;
+    transform: none;
+}
+.vsm-calendar-inner {
+    position: relative;
+    box-sizing: border-box;
+    width: 228px;
+    padding: 2px;
+    border-radius: var(--radius);
+    background: var(--background);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+.vsm-calendar-dates {
+    display: flex;
+    flex-wrap: wrap;
+}
+.vsm-calendar-header { 
+    display: flex;
+    justify-content: space-between;
+}
+.vsm-calendar-header .icon-left {
+    margin-left: auto;
+}
+.vsm-calendar-header .vsm-calendar-item,
+.vsm-calendar-panel .vsm-calendar-item {
+    width: unset;
+    padding: 0 8px;
+}
+.vsm-calendar-item {
+    display: block;
+    margin: 2px;
+    width: 28px;
+    line-height: 28px;
+    border-radius: var(--radius);
+}
+a.vsm-calendar-item:hover {
+    background: var(--theme-color-hover);
+}
+a.vsm-calendar-item.vsm-on {
+    background: var(--theme-color-active);
+    color: var(--theme-color-reverse);
+    box-shadow: inset var(--shadow);
+}
+.vsm-calendar-panel {
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    padding: 2px;
+    background: inherit;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.vsm-calendar-years {
+    display: flex;
+    flex-direction: column;
+}
+.vsm-calendar-months {
+    margin-bottom: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.vsm-calendar-months .vsm-calendar-item {
+    width: 56px;
+    padding: 0;
+}
 
 .vsm-btn {
     position: relative;
@@ -763,6 +847,41 @@ input[type=number]::-webkit-outer-spin-button {
     box-shadow: var(--shadow);
 }
 
+.vsm-collapse {
+    border-radius: var(--radius);
+}
+.vsm-collapse-item + .vsm-collapse-item {
+    border-top: 1px solid var(--theme-color-hover);
+}
+.vsm-collapse-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .6em var(--gap);
+    opacity: .6;
+    transition: var(--transition);
+    cursor: default;
+    font-weight: 500;
+}
+.vsm-collapse-icon {
+    font-weight: 400;
+    user-select: none;
+}
+.vsm-collapse-content {
+    padding: 0 var(--gap);
+    height: 0;
+    overflow: hidden;
+    transition: var(--transition);
+}
+.vsm-on > .vsm-collapse-header,
+.vsm-collapse-header:hover {
+    opacity: 1;
+}
+.vsm-on > .vsm-collapse-content {
+    padding: 4px var(--gap) 1em;
+    height: unset;
+}
+
 .vsm-tooltip {
     position: absolute;
     z-index: 100;
@@ -975,9 +1094,6 @@ td.vsm-sticky-right {
     background: var(--background);
 }
 
-.vsm-tree {
-    position: relative;
-}
 .vsm-tree-node {
     display: flex;
     padding: var(--padding);
@@ -1112,6 +1228,123 @@ td.vsm-sticky-right {
 }
 
 
+.vsm-swiper {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    touch-action: pan-x pan-y;
+}
+.vsm-swiper-track {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.vsm-swiper-flow {
+    display: flex;
+    align-items: center;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.vsm-swiper-flow::-webkit-scrollbar { display: none; }
+.vsm-swiper-flow > .vsm-swiper-item {
+    flex: none;
+}
+.vsm-swiper-list {
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+}
+.vsm-swiper-cards > .vsm-swiper-item {
+    position: absolute;
+    z-index: -1;
+    left: 20%;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+}
+.vsm-swiper-cards > .vsm-swiper-prev {
+    left: 0;
+    transform: translate(-10%, 0) scale(.8);
+}
+.vsm-swiper-cards > .vsm-swiper-next {
+    left: 40%;
+    transform: translate(10%, 0) scale(.8);
+}
+.vsm-swiper-cards > .vsm-swiper-prev,
+.vsm-swiper-cards > .vsm-swiper-next {
+    z-index: 1;
+}
+.vsm-swiper-cards > .vsm-swiper-active {
+    z-index: 2;
+    transform: scale(1);
+}
+.vsm-swiper-fade > .vsm-swiper-item {
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    opacity: 0;
+}
+.vsm-swiper-fade > .vsm-swiper-active {
+    opacity: 1;
+}
+.vsm-swiper-item {
+    box-sizing: border-box;
+    flex: 1 1 100%;
+    overflow: hidden;
+    border-radius: var(--radius);
+    transition: var(--transition);
+}
+.vsm-swiper-arrow {
+    position: absolute;
+    z-index: 3;
+    top: 50%; left: var(--gap);
+    padding: 4px 8px;
+    border-radius: var(--radius);
+    background: var(--theme-color);
+    color: var(--theme-color-reverse);
+    transform: translate(0, -50%);
+}
+.vsm-swiper-arrow:hover {
+    background: var(--theme-color-vice);
+}
+.vsm-swiper-arrow-next {
+    left: auto;
+    right: var(--gap);
+}
+.vsm-swiper-hover > .vsm-swiper-arrow {
+    opacity: 0;
+}
+.vsm-swiper-hover:hover > .vsm-swiper-arrow {
+    opacity: 1;
+}
+.vsm-swiper-verticle {
+    flex-direction: column;
+    align-items: unset;
+}
+.vsm-swiper-indicator {
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+.vsm-swiper-indicator > a {
+    margin: 4px;
+    width: 12px;
+    height: 8px;
+    background: var(--theme-color-hover);
+    color: transparent;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+.vsm-swiper-indicator > .vsm-swiper-active {
+    background: var(--theme-color);
+}
+
 .vsm-align-center {
     justify-content: center;
 }
@@ -1207,6 +1440,7 @@ td.vsm-sticky-right {
 .vsm-right { margin-left: auto; }
 
 .vsm-round { border-radius: 100px; }
+.vsm-transless { transition: none !important; }
 
 @keyframes loading { 50% { transform: scale(1); } }
 @keyframes bounce {

@@ -60,6 +60,8 @@ export default {
   position: relative;
   margin: 1rem auto;
   tab-size: 4;
+  background: rgba(0,0,0,.02);
+  border-radius: var(--radius);
   > pre {
       max-height: 400px;
       overflow: auto;
@@ -69,6 +71,7 @@ export default {
   > a {
     display: inline-flex;
     align-items: center;
+    margin-left: .4em;
     padding: 4px 6px;
     font-size: 1.2em;
     user-select: none;

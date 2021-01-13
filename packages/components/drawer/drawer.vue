@@ -27,7 +27,7 @@ export default {
     props: {
         breakpoint: {
             type: Number | String,
-            default: 1920
+            default: 1940
         },
         hidden: Boolean,
         position: {

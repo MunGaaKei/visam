@@ -16,7 +16,7 @@
       <h3 class="section-title">规定方向</h3>
       <p>通过点击向右弹出自定义内容，点击内容不会隐藏下拉框。</p>
       <br>
-      <vsm-dropdown position="right" :hide-on-click="false">
+      <vsm-dropdown position="right" :hide-on-content-click="false">
           <vsm-button color="blue">向右弹出</vsm-button>
           <vsm-input placeholder="请输入" slot="content" width="150px">
               <vsm-button slot="append">
@@ -62,11 +62,17 @@ export default {
                 default: 'false',
                 desc: '鼠标移入移出控制显示隐藏，默认为点击'
             }, {
-                prop: 'hide-on-click',
+                prop: 'hide-on-content-click',
                 type: 'Boolean',
                 options: '',
                 default: 'true',
                 desc: '点击下拉内容时是否隐藏'
+            }, {
+                prop: 'hide-on-outside-click',
+                type: 'Boolean',
+                options: '',
+                default: 'true',
+                desc: '点击外部区域时是否隐藏'
             }, {
                 prop: 'position',
                 type: 'String',
@@ -109,7 +115,7 @@ export default {
     :list="list"
     ></vsm-tree>
 </vsm-dropdown>`,
-            codes1: `<vsm-dropdown position="right" :hide-on-click="false">
+            codes1: `<vsm-dropdown position="right" :hide-on-content-click="false">
     <vsm-button color="blue">向右弹出</vsm-button>
     <vsm-input placeholder="请输入" slot="content" width="150px">
         <vsm-button slot="append">

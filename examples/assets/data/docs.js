@@ -1,12 +1,18 @@
 const menu = [{
     name: '开始',
-    href: 'javascript:;'
+    href: '/start'
   }, {
     name: '组件<i>Components</i>',
     open: true,
     children: [{
       name: '按钮<i>button</i>',
       href: '/button',
+    }, {
+      name: '日期选择<i>calendar</i>',
+      href: '/calendar',
+    }, {
+      name: '折叠面板<i>collapse</i>',
+      href: '/collapse',
     }, {
       name: '多选框<i>checkbox</i>',
       href: '/checkbox',
@@ -16,12 +22,6 @@ const menu = [{
     }, {
       name: '对话框<i>dialog</i>',
       href: '/dialog',
-    }, {
-      name: '表单<i>form</i>',
-      href: '/form',
-    }, {
-      name: '组合<i>group</i>',
-      href: '/group',
     }, {
       name: '输入框<i>input</i>',
       href: '/input'
@@ -41,6 +41,9 @@ const menu = [{
       name: '滑块<i>slide</i>',
       href: '/slide',
     }, {
+      name: '轮播<i>swiper</i>',
+      href: '/swiper',
+    }, {
       name: '标签页<i>tab</i>',
       href: '/tab'
     }, {
@@ -55,6 +58,9 @@ const menu = [{
     children: [{
       name: '提示框<i>tooltip</i>',
       href: '/tooltip'
+    }, {
+      name: '懒加载<i>lazy</i>',
+      href: '/lazy',
     }]
   }];
 

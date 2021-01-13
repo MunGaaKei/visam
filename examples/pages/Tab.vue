@@ -44,8 +44,8 @@
       bar
       background="#212121"
       bar-color="#fafafa"
-      bar-width="7"
-      bar-height="7"
+      bar-width="12"
+      bar-height="6"
       color="white"
       plain
     >
@@ -325,8 +325,8 @@ export default {
   bar
   background="#212121"
   bar-color="#fafafa"
-  bar-width="7"
-  bar-height="7"
+  bar-width="12"
+  bar-height="6"
   color="white"
   plain
 >

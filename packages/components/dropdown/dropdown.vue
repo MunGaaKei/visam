@@ -39,7 +39,11 @@ export default {
         display: Boolean,
         hover: Boolean,
         position: String,
-        hideOnClick: {
+        hideOnContentClick: {
+            type: Boolean,
+            default: true
+        },
+        hideOnOutsideClick: {
             type: Boolean,
             default: true
         }
@@ -92,8 +96,7 @@ export default {
         },
         handleMenuClick (e) {
             this.$emit('content-click', e);
-            console.log(this.hideOnClick);
-            if (this.hideOnClick) {
+            if (this.hideOnContentClick) {
                 this.show = false;
                 this.$emit('toggle', this.show);
             }
@@ -111,17 +114,17 @@ export default {
         },
         collapse (e) {
             if (!this.show || !this.closable) return;
-            if (!this.$refs.rel.contains(e.target) || this.hideOnClick) {
+            if (!this.$refs.rel.contains(e.target) || this.hideOnContentClick) {
                 this.show = false;
                 this.$emit('toggle', this.show);
             }
         }
     },
     beforeMount () {
-        document.addEventListener('click', this.collapse);
+        this.hideOnOutsideClick && document.addEventListener('click', this.collapse);
     },
     beforeDestroy () {
-        document.removeEventListener('click', this.collapse);
+        this.hideOnOutsideClick && document.removeEventListener('click', this.collapse);
     }
 }
 </script>
