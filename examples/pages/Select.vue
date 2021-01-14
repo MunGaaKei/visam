@@ -54,7 +54,7 @@ export default {
             }, 'Bar', 'Baz', 'Qux'],
             options1: ['Foo', 'Bar', 'Baz', 'Qux'],
             params: [{
-                prop: 'v-model',
+                prop: 'value | v-model',
                 type: 'String | Array | Number',
                 options: '',
                 default: '',

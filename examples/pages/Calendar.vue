@@ -34,7 +34,7 @@ export default {
 }
 </\script>`,
             params: Object.freeze([{
-                prop: 'v-model',
+                prop: 'value | v-model',
                 type: 'String',
                 options: '',
                 default: '',

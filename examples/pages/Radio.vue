@@ -39,7 +39,7 @@ export default {
             ],
             otherProps: [],
             params: Object.freeze([{
-                prop: 'v-model',
+                prop: 'value | v-model',
                 type: 'Number | String | Array | Boolean',
                 options: '',
                 default: '',

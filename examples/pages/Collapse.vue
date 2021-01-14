@@ -51,7 +51,7 @@ export default {
     </vsm-collapse-item>
 </vsm-collapse>`,
             params: Object.freeze([{
-                prop: 'active',
+                prop: 'active | v-model',
                 type: 'Number | Array',
                 options: '',
                 default: '[]',

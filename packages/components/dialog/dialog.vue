@@ -1,9 +1,10 @@
 <template>
   <div
-    :class="[
-      { 'vsm-on': display },
-      { 'vsm-backdrop': backdrop }
-    ]"
+    :class="{
+      'vsm-on': display,
+      'vsm-backdrop': backdrop,
+      'vsm-blur': blur
+    }"
     @click.self="handleBackdropClick">
     <div class="vsm-dialog"
       ref="dialog"
@@ -52,7 +53,8 @@ export default {
     escClosable: {
       type: Boolean,
       default: true
-    }
+    },
+    blur: Boolean,
   },
   model: {
     prop: 'show',

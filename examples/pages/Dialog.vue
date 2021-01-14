@@ -22,6 +22,7 @@
       :close-button="dialogProps.includes('closeButton')"
       :confirm="confirm"
       :cancel="cancel"
+      :blur="dialogProps.includes('blur')"
       @confirm="handleConfirm"
       :width="w">
         <vsm-form>
@@ -58,16 +59,17 @@ export default {
         { label: '关闭按钮', value: 'closeButton' },
         { label: '遮罩层', value: 'backdrop' },
         { label: '遮罩层可关闭', value: 'backdropClosable' },
+        { label: '遮罩层模糊', value: 'blur' },
         { label: '可关闭', value: 'closable' },
       ],
       width: 400,
 
       params: [{
-        prop: 'show',
+        prop: 'show | v-model',
         type: 'Boolean',
         options: '',
         default: 'false',
-        desc: 'v-model属性，对话框是否显示'
+        desc: '对话框是否显示状态'
       }, {
         prop: 'title',
         type: 'String',
@@ -110,6 +112,12 @@ export default {
         options: '',
         default: 'false',
         desc: '遮罩层是否带有关闭功能'
+      }, {
+        prop: 'blur',
+        type: 'Boolean',
+        options: '',
+        default: 'false',
+        desc: '背景遮罩层是否模糊显示'
       }, {
         prop: 'esc-closable',
         type: 'Boolean',
@@ -205,6 +213,7 @@ export default {
   :backdrop="${this.dialogProps.includes('backdrop')}"
   :backdrop-closable="${this.dialogProps.includes('backdropClosable')}"
   :closable="${this.dialogProps.includes('closable')}"
+  :blur="${this.dialogProps.includes('blur')}"
   :close-button="${this.dialogProps.includes('closeButton')}"
   confirm="${this.confirm}"
   cancel="${this.cancel}"
@@ -254,7 +263,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

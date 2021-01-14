@@ -17,11 +17,14 @@ const menu = [{
       name: '多选框<i>checkbox</i>',
       href: '/checkbox',
     }, {
-      name: '下拉菜单<i>dropdown</i>',
-      href: '/dropdown',
-    }, {
       name: '对话框<i>dialog</i>',
       href: '/dialog',
+    }, {
+      name: '抽屉<i>drawer</i>',
+      href: '/drawer',
+    }, {
+      name: '下拉菜单<i>dropdown</i>',
+      href: '/dropdown',
     }, {
       name: '输入框<i>input</i>',
       href: '/input'

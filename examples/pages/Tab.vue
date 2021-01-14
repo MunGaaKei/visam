@@ -130,7 +130,7 @@ export default {
           default: '[]',
           desc: '标签页数据'
         }, {
-          prop: 'v-model',
+          prop: 'active | v-model',
           type: 'Number',
           options: '',
           default: '0',

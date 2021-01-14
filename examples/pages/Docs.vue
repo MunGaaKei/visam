@@ -11,7 +11,7 @@
         @node-click="handleMenuClick"></vsm-tree>
     </vsm-drawer>
 
-    <vsm-cols verticle class="vsm-n">
+    <vsm-cols verticle class="vsm-n" style="overflow: hidden;">
       <Header :sidebar="sidebar" @sidebar-toggle="sidebarToggle"></Header>
       <div class="vsm-n page">
         <router-view name="child"></router-view>

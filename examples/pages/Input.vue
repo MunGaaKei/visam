@@ -79,7 +79,7 @@ export default {
 </vsm-input>`,
 
       params: [{
-        prop: 'v-model',
+        prop: 'value | v-model',
         desc: '绑定值',
         type: 'String | Number',
         options: '',

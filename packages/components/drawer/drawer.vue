@@ -2,9 +2,9 @@
     <div class="vsm-drawer"
         :class="[{
             'vsm-on': isActive,
-            'vsm-drawer-backdrop': responsive
+            'vsm-drawer-backdrop': responsive,
+            'vsm-blur': blur
         }]"
-        :style="`${blurEffect}`"
         @click="toggle">
         <div class="vsm-drawer-inner"
             :style="[innerTransform, innerPosition]"
@@ -88,9 +88,6 @@ export default {
             }
             return position;
         },
-        blurEffect () {
-            return this.blur? 'backdrop-filter: blur(12px);': '';
-        }
     },
     methods: {
         toggle (e) {

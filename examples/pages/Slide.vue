@@ -72,7 +72,7 @@ export default {
             marks: [0, 10, 30, 70, 100],
             force: true,
             params: [{
-                prop: 'v-model',
+                prop: 'value | v-model',
                 type: 'Number | Array',
                 options: '',
                 default: '',

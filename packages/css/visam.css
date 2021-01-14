@@ -21,8 +21,8 @@
     --shadow: 0 4px 12px rgba(0,0,0,.15);
     --scrollbar: #dadada;
 
-    --input: #dfdfdf;
-    --input-hover: #d9d9d9;
+    --input: #e3e3e3;
+    --input-hover: #e1e1e1;
 
     --black: #1a1a1a;
     --black-vice: #000;
@@ -705,7 +705,7 @@ a.vsm-calendar-item.vsm-on {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    padding: 6px 10px;
+    padding: 4px 10px;
     color: var(--color-vice);
     border: 1px solid transparent;
     border-radius: inherit;
@@ -1115,7 +1115,6 @@ td.vsm-sticky-right {
     display: flex;
     overflow: auto;
     background: rgba(0,0,0,.5);
-    backdrop-filter: blur(12px);
     pointer-events: none;
     opacity: 0;
     transition: var(--transition);
@@ -1373,13 +1372,15 @@ td.vsm-sticky-right {
 .vsm-nowrap {
     flex-wrap: nowrap;
 }
+.vsm-blur {
+    backdrop-filter: blur(12px);
+}
 .vsm-rows {
     display: flex;
     flex-direction: column;
 }
 [class*='vsm-col-'],
 .vsm-n {
-    overflow: auto;
     box-sizing: border-box;
     transition: var(--transition);
 }
