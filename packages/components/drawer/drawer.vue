@@ -1,27 +1,30 @@
 <template>
     <div class="vsm-drawer"
         :class="[{
-            'vsm-hidden': hidden,
+            'vsm-on': isActive,
             'vsm-drawer-backdrop': responsive
-        }, positionClass]"
+        }]"
+        :style="`${blurEffect}`"
         @click="toggle">
-        <div class="vsm-drawer-inner" @click.stop="stopPropagation">
+        <div class="vsm-drawer-inner"
+            :style="[innerTransform, innerPosition]"
+            @click.stop>
             <slot></slot>
         </div>
     </div>
 </template>
 
 <script>
-import { throttle } from '../../js/utils';
+import { debounce } from '../../js/utils';
 
-const listenerResize = context => throttle(() => {
+const listenerResize = context => debounce(() => {
     context.responsive = window.innerWidth < context.breakpoint;
 });
 
 export default {
     name: 'vsmDrawer',
     model: {
-        prop: 'hidden',
+        prop: 'show',
         event: 'toggle'
     },
     props: {
@@ -29,25 +32,70 @@ export default {
             type: Number | String,
             default: 1940
         },
-        hidden: Boolean,
+        show: Boolean,
         position: {
             type: String,
             default: 'left'
-        }
+        },
+        blur: Boolean,
     },
     data () {
         return {
-            positionClass: `vsm-drawer-${this.position}`,
-            responsive: false,
+            active: this.show,
+            windowWidth: 1941,
+            responsive: false,  // 是否进入小屏模式
             listenerResize: listenerResize(this)
         }
     },
-    methods: {
-        stopPropagation (e) {
-            e.stopPropagation();
+    computed: {
+        isActive () {
+            return this.active || !this.responsive;
         },
+        innerTransform () {
+            if (this.isActive) return false;
+            let offset = 'translate(-100%,0)';
+            switch (this.position) {
+                case 'top':
+                    offset = 'translate(0,-100%)';
+                    break;
+                case 'right':
+                    offset = 'translate(100%,0)';
+                    break;
+                case 'bottom':
+                    offset = 'translate(0,100%)';
+                    break;
+                default: break;
+            }
+            return {
+                transform: offset
+            };
+        },
+        innerPosition () {
+            let position = {};
+            switch (this.position) {
+                case 'top':
+                    position.width = '100%';
+                    position.marginBottom = 'auto';
+                    break;
+                case 'right':
+                    position.marginLeft = 'auto';
+                    break;
+                case 'bottom':
+                    position.width = '100%';
+                    position.marginTop = 'auto';
+                    break;
+                default: break;
+            }
+            return position;
+        },
+        blurEffect () {
+            return this.blur? 'backdrop-filter: blur(12px);': '';
+        }
+    },
+    methods: {
         toggle (e) {
-            this.$emit('toggle', true);
+            this.active = !this.active;
+            this.$emit('toggle', this.active);
         }
     },
     mounted () {
@@ -56,6 +104,11 @@ export default {
     },
     beforeDestroy () {
         window.removeEventListener('reisze', this.listenerResize);
+    },
+    watch: {
+        show (nv) {
+            this.active = nv;
+        }
     }
 }
 </script>

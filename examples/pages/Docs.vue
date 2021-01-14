@@ -1,22 +1,26 @@
 <template>
-  <div class="vsm-rows vsm-container" :style="offsetLeft">
-    
+  <vsm-cols nowrap class="vsm-container"
+    :style="offsetLeft">
     <vsm-drawer
-      v-model="sidebarHidden"
+      v-model="sidebar"
       class="drawer"
-      :breakpoint="breakpoint">
+      :breakpoint="breakpoint"
+      blur>
       <vsm-tree :list="menu"
         :style="`width:${sidebarWidth}`"
         @node-click="handleMenuClick"></vsm-tree>
     </vsm-drawer>
 
-    <Header :sidebarHidden="sidebarHidden" @sidebar-toggle="sidebarToggle"></Header>
-    <div class="vsm-n page">
-      <router-view name="child"></router-view>
-      <Footer></Footer>
-    </div>
+    <vsm-cols verticle class="vsm-n">
+      <Header :sidebar="sidebar" @sidebar-toggle="sidebarToggle"></Header>
+      <div class="vsm-n page">
+        <router-view name="child"></router-view>
+        <Footer></Footer>
+      </div>
+    </vsm-cols>
 
-  </div>
+  </vsm-cols>
+
 </template>
 
 <script>
@@ -28,7 +32,7 @@ export default {
   name: 'Docs',
   data () {
     return {
-      sidebarHidden: window.innerWidth < 980,
+      sidebar: window.innerWidth > 980,
       sidebarWidth: '240px',
       menu,
       breakpoint: 780
@@ -40,12 +44,12 @@ export default {
   },
   computed: {
     offsetLeft () {
-      return this.sidebarHidden || window.innerWidth < this.breakpoint? '': `padding-left: ${this.sidebarWidth}`;
+      return this.sidebar || this.breakpoint > window.innerWidth? '': `left: -${this.sidebarWidth}`;
     }
   },
   methods: {
-    sidebarToggle (hidden) {
-      this.sidebarHidden = hidden;
+    sidebarToggle ( show ) {
+      this.sidebar = show;
     },
     handleMenuClick (node, e) {
       if (node.href) {
@@ -78,9 +82,7 @@ export default {
   }
 }
 .drawer {
-  .vsm-drawer-inner {
-    background: #e9e9e9;
-  }
+  background: #e9e9e9;
   .vsm-tree-node-name {
     display: flex;
     > i {
@@ -91,9 +93,7 @@ export default {
 }
 .theme-dark {
   .drawer {
-    .vsm-drawer-inner {
-      background: #232323;
-    }
+    background: #232323;
   }
   .section-title:before {
     background: var(--red);

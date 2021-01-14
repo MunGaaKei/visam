@@ -12,15 +12,10 @@ export default {
       align: String,
       verticle: Boolean,
     },
-    data () {
-        return {
-
-        }
-    },
     computed: {
       classes () {
-        let names = this.align? `vsm-align-${this.align}`: '';
-        names += this.nowrap? 'vsm-nowrap': '';
+        let names = this.align? `vsm-align-${this.align} `: '';
+        names += this.nowrap? 'vsm-nowrap ': '';
         names += this.verticle? 'vsm-rows': 'vsm-cols';
         return names;
       }
