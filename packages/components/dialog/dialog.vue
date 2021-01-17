@@ -104,10 +104,12 @@ export default {
     setPosition () {
       if (!this.backdrop) {
         let $dialog = this.$refs.dialog;
-        let $pa = $dialog.offsetParent;
         let rect = $dialog.getBoundingClientRect();
-        let top = $pa.scrollTop + (rect.height >= $pa.clientHeight? 0: ($pa.clientHeight - rect.height)/2);
-        let left = $pa.scrollLeft + (rect.width >= $pa.clientWidth? 0: ($pa.clientWidth - rect.width)/2);
+        // let $pa = $dialog.offsetParent;
+        // let top = $pa.scrollTop + (rect.height >= $pa.clientHeight? 0: ($pa.clientHeight - rect.height)/2);
+        // let left = $pa.scrollLeft + (rect.width >= $pa.clientWidth? 0: ($pa.clientWidth - rect.width)/2);
+        let top = (window.innerHeight - rect.height) / 2;
+        let left = (window.innerWidth - rect.width) / 2;
         this.cssText = `left:${left}px;top:${top}px;${this.width?`width:${this.width};`:''}`;
       } else {
         this.cssText = this.width? `width:${this.width};`: '';

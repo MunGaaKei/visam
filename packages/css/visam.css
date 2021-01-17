@@ -90,6 +90,7 @@ h4 { font-size: 1rem; }
     transition: var(--transition);
 }
 .vsm-content {
+    position: relative;
     box-sizing: border-box;
     margin: 0 auto;
     padding: var(--gap);
@@ -1118,6 +1119,7 @@ td.vsm-sticky-right {
     pointer-events: none;
     opacity: 0;
     transition: var(--transition);
+    will-change: backdrop-filter;
 }
 .vsm-backdrop.vsm-on {
     pointer-events: initial;
@@ -1127,7 +1129,7 @@ td.vsm-sticky-right {
     position: static;
 }
 .vsm-dialog {
-    position: absolute;
+    position: fixed;
     left: 0; top: 0;
     z-index: 100;
     margin: auto;
@@ -1365,6 +1367,10 @@ td.vsm-sticky-right {
     opacity: .8;
     animation: loading 1s linear .15s infinite;
 }
+.vsm-lazyload {
+    opacity: 0;
+}
+
 .vsm-cols {
     display: flex;
     flex-wrap: wrap;

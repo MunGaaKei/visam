@@ -19,7 +19,9 @@
       :position="position"
       :blur="blur">
       <div class="drawer-content">
-        <h3>抽屉已打开</h3>
+        <h3>抽屉已打开 🤓</h3>
+        <br>
+        <vsm-button @click="toggle">关闭</vsm-button>
       </div>
     </vsm-drawer>
 
@@ -89,7 +91,9 @@ export default {
 ${this.position? ` \r\n  position="${this.position}"`: ''}\
 ${this.blur? ` \r\n  blur`: ''}>
     <div class="drawer-content">
-      <h3>抽屉已打开</h3>
+      <h3>抽屉已打开 🤓</h3>
+      <br>
+      <vsm-button @click="toggle">关闭</vsm-button>
     </div>
 </vsm-drawer>
 
@@ -99,7 +103,12 @@ export default {
     return {
       show: false,
     }
-  }
+  },
+  methods: {
+    toggle () {
+      this.show = !this.show;
+    }
+  },
 }
 </\script>
 

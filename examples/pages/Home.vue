@@ -4,7 +4,7 @@
       <h1 class="visam">VISAM</h1>
       <span class="version">1.0</span>
       <div class="icons">
-        <router-link v-tooltip="'使用文档'" to="/docs/button" class="iconfont icon-script"><i></i></router-link>
+        <a v-tooltip="'使用文档'" href="/docs/button" class="iconfont icon-script"><i></i></a>
         <a v-tooltip="'Github'" href="https://github.com/MunGaaKei/visam-vue" target="_blank" class="iconfont icon-github"></a>
       </div>
     </div>
