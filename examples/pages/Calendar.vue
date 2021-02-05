@@ -7,7 +7,7 @@
         v-model="date"
         width="228px"></vsm-calendar>
     
-      <Codes :codes="codes0" show></Codes>
+      <Codes :codes="codes0"></Codes>
 
       <h3 class="section-title">参数说明</h3>
       <vsm-table :data="params" :header="paramsHeader" stickyHeader></vsm-table>

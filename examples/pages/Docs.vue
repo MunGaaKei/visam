@@ -92,7 +92,7 @@ export default {
   }
 }
 .theme-dark {
-  .drawer {
+  .vsm-drawer {
     background: #232323;
   }
   .section-title:before {

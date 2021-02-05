@@ -12,7 +12,7 @@
       </div>
     </vsm-cols>
 
-    <Codes :codes="codes0" show></Codes>
+    <Codes :codes="codes0"></Codes>
 
 
     <vsm-drawer v-model="show"

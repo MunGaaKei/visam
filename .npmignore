@@ -1,8 +1,9 @@
 examples/
 public/
 packages/
-
+rollup.config.js
 vue.config.js
 babel.config.js
+package.json
 package-lock.json
 *.map

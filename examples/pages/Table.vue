@@ -10,7 +10,7 @@
         height="300px"
       ></vsm-table>
 
-      <Codes :codes="codes0" show></Codes>
+      <Codes :codes="codes0"></Codes>
 
       <h3 class="section-title">属性说明</h3>
       <vsm-table :data="params" :header="paramsHeader" sticky-header></vsm-table>

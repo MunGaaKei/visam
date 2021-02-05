@@ -1,4 +1,4 @@
-import Icon from './icon';
+import Icon from './icon.vue';
 
 Icon.install = Vue => Vue.component(Icon.name, Icon)
 

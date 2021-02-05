@@ -14,7 +14,7 @@
             ></vsm-select>
         <div class="vsm-content" v-if="value">值：{{ value }}</div>
         
-        <Codes :codes="codes0" show></Codes>
+        <Codes :codes="codes0"></Codes>
 
         <h3 class="section-title">多选</h3>
         <p>多选时，绑定的值类型须为一个数组。</p>

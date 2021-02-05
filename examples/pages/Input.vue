@@ -10,7 +10,7 @@
       inline
       placeholder="请输入用户名"
       class="vsm-col-5"></vsm-input>
-    <Codes :codes="codes0" show></Codes>
+    <Codes :codes="codes0"></Codes>
 
     <h3 class="section-title">数字输入框</h3>
     <vsm-input

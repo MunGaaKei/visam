@@ -1,31 +1,32 @@
 import './js/visam';
 
-import Button from './components/button';
-import Calendar from './components/calendar';
-import Checkbox from './components/checkbox';
-import { Collapse, CollapseItem } from './components/collapse';
-import Cols from './components/cols';
-import Dialog from './components/dialog';
-import Drawer from './components/drawer';
-import Dropdown from './components/dropdown';
-import Form from './components/form';
-import Group from './components/group';
-import Icon from './components/icon';
-import Input from './components/input';
-import List from './components/list';
-import Radio from './components/radio';
-import Select from './components/select';
-import Slider from './components/slider';
-import { Swiper, SwiperItem } from './components/swiper';
-import Table from './components/table';
-import Tabs from './components/tabs';
-import Tree from './components/tree';
-import Page from './components/page';
+import Button from './components/button/index';
+import Calendar from './components/calendar/index';
+import Checkbox from './components/checkbox/index';
+import { Collapse, CollapseItem } from './components/collapse/index';
+import { Cols, N } from './components/cols/index';
+import Dialog from './components/dialog/index';
+import Drawer from './components/drawer/index';
+import Dropdown from './components/dropdown/index';
+import Form from './components/form/index';
+import Group from './components/group/index';
+import Icon from './components/icon/index';
+import Input from './components/input/index';
+import Lazy from './components/lazy/index';
+import List from './components/list/index';
+import Radio from './components/radio/index';
+import Select from './components/select/index';
+import Slider from './components/slider/index';
+import { Swiper, SwiperItem } from './components/swiper/index';
+import Table from './components/table/index';
+import Tabs from './components/tabs/index';
+import Tree from './components/tree/index';
+import Page from './components/page/index';
 
-import Tooltip from './directives/tooltip';
-import Lazy from './directives/lazy';
+import vTooltip from './directives/v-tooltip/index';
+import vLazy from './directives/v-lazy/index';
 
-import Notice from './components/notice';
+import Notice from './components/notice/index';
 
 const components = [
     Button,
@@ -41,7 +42,9 @@ const components = [
     Group,
     Icon,
     Input,
+    Lazy,
     List,
+    N,
     Radio,
     Select,
     Slider,
@@ -54,8 +57,8 @@ const components = [
 ];
 
 const directives = [
-    Tooltip,
-    Lazy
+    vTooltip,
+    vLazy
 ];
 
 const install = function(Vue, options) {
@@ -75,7 +78,31 @@ const install = function(Vue, options) {
 
 export default {
     install,
-    ...components,
-    ...directives,
-    version: '1.0'
+    Button,
+    Calendar,
+    Collapse,
+    CollapseItem,
+    Cols,
+    Checkbox,
+    Dialog,
+    Drawer,
+    Dropdown,
+    Form,
+    Group,
+    Icon,
+    Input,
+    Lazy,
+    List,
+    N,
+    Radio,
+    Select,
+    Slider,
+    Swiper,
+    SwiperItem,
+    Table,
+    Tabs,
+    Tree,
+    Page,
+    vTooltip,
+    vLazy
 }

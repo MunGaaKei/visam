@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import tpl from './notice';
+import tpl from './notice.vue';
 
 const noticeConstructor = Vue.extend(tpl);
 

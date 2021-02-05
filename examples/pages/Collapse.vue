@@ -5,7 +5,7 @@
     <h3 class="section-title">使用</h3>
     <p>组件会根据传入的 v-model 即 active 属性值类型判断是否为手风琴展示：当 active 值类型为数值时则每次最多仅允许打开一项，否则不限制。active 值为每项的索引值，其中也可穿插其它结构；当为数组类型时，数组存储激活项当索引值。</p>
     <br>
-    <vsm-collapse :active="0" icon="❖">
+    <vsm-collapse :active="0" icon="😲">
         <vsm-collapse-item>
             <template #title>人物形象</template>
             <p>人物形象的核心是人物的思想性格，人物描写的角度有正面描写和侧面描写。正面描写包括外貌、语言、动作、神态、心理描写；侧面描写(又叫侧面烘托）指以他人言行来反映人物等。</p>
@@ -20,7 +20,7 @@
         </vsm-collapse-item>
     </vsm-collapse>
     
-    <Codes :codes="codes0" show></Codes>
+    <Codes :codes="codes0"></Codes>
 
     <h3 class="section-title">参数说明</h3>
     <vsm-table :data="params" :header="paramsHeader" stickyHeader></vsm-table>
@@ -36,7 +36,7 @@ export default {
     name: 'Collapse',
     data () {
         return {
-            codes0: `<vsm-collapse :active="0" icon="❖">
+            codes0: `<vsm-collapse :active="0" icon="😲">
     <vsm-collapse-item>
         <template #title>人物形象</template>
         <p>人物形象的核心是人物的思想性格，人物描写的角度有正面描写和侧面描写。正面描写包括外貌、语言、动作、神态、心理描写；侧面描写(又叫侧面烘托）指以他人言行来反映人物等。</p>

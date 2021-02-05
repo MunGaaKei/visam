@@ -4,10 +4,10 @@
 
     <h3 class="section-title">使用</h3>
     <vsm-button @click="dialog0 = true">弹出</vsm-button>
-    <vsm-dialog v-model="dialog0" :close-button="false" backdrop backdropClosable>
-      <img src="../assets/img/naruto.jpg">
+    <vsm-dialog v-model="dialog0" :close-button="false" backdrop backdropClosable width="80vw">
+      <img src="../assets/img/landscape.jpg">
     </vsm-dialog>
-    <Codes :codes="codes0" show></Codes>
+    <Codes :codes="codes0"></Codes>
 
     <h3 class="section-title">属性设置</h3>
     <p>设置对话框其它属性。</p>
@@ -54,7 +54,7 @@ export default {
       title: '其它属性设置',
       confirm: '确定',
       cancel: '取消',
-      dialogProps: ['backdrop', 'closable'],
+      dialogProps: ['backdrop', 'closable', 'backdropClosable'],
       dialogOptions: [
         { label: '关闭按钮', value: 'closeButton' },
         { label: '遮罩层', value: 'backdrop' },
@@ -193,8 +193,9 @@ export default {
 <vsm-dialog v-model="dialog0"
   :close-button="false"
   backdrop
-  backdropClosable>
-  <img src="../assets/img/naruto.jpg">
+  backdropClosable
+  width="80vw">
+  <img src="../assets/img/landscape.jpg">
 </vsm-dialog>
 
 <\script>
@@ -210,9 +211,9 @@ export default {
     codes1 () {
       return `<vsm-dialog v-model="dialog1"
   title="${this.title}"
-  :backdrop="${this.dialogProps.includes('backdrop')}"
-  :backdrop-closable="${this.dialogProps.includes('backdropClosable')}"
-  :closable="${this.dialogProps.includes('closable')}"
+  :backdrop="${this.dialogProps.includes('backdrop')}"\
+  ${this.dialogProps.includes('backdropClosable')? '\r\n  backdrop-closable': ''}\
+  ${this.dialogProps.includes('closable')?'':'\r\n  :closable="false"'}
   :blur="${this.dialogProps.includes('blur')}"
   :close-button="${this.dialogProps.includes('closeButton')}"
   confirm="${this.confirm}"

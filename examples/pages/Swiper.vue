@@ -12,7 +12,7 @@
               <div class="swiper-block">{{ i }}</div>
           </vsm-swiper-item>
       </vsm-swiper>
-      <Codes :codes="codes0" show></Codes>
+      <Codes :codes="codes0"></Codes>
 
       <h3 class="section-title">卡片类型</h3>
       <p>必须设置高度属性。</p>

@@ -1,4 +1,7 @@
 const menu = [{
+    name: '介绍',
+    href: '/intro'
+  }, {
     name: '开始',
     href: '/start'
   }, {
@@ -11,11 +14,14 @@ const menu = [{
       name: '日期选择<i>calendar</i>',
       href: '/calendar',
     }, {
-      name: '折叠面板<i>collapse</i>',
-      href: '/collapse',
-    }, {
       name: '多选框<i>checkbox</i>',
       href: '/checkbox',
+    }, {
+      name: '分栏<i>cols</i>',
+      href: '/cols',
+    }, {
+      name: '折叠面板<i>collapse</i>',
+      href: '/collapse',
     }, {
       name: '对话框<i>dialog</i>',
       href: '/dialog',
@@ -26,8 +32,14 @@ const menu = [{
       name: '下拉菜单<i>dropdown</i>',
       href: '/dropdown',
     }, {
+      name: '组<i>group</i>',
+      href: '/group',
+    }, {
       name: '输入框<i>input</i>',
       href: '/input'
+    }, {
+      name: '懒加载<i>lazy</i>',
+      href: '/lazyload'
     }, {
       name: '消息提醒<i>notice</i>',
       href: '/notice',
@@ -59,10 +71,10 @@ const menu = [{
   }, {
     name: '指令<i>Directives</i>',
     children: [{
-      name: '提示框<i>tooltip</i>',
+      name: '提示框<i>v-tooltip</i>',
       href: '/tooltip'
     }, {
-      name: '懒加载<i>lazy</i>',
+      name: '懒加载<i>v-lazy</i>',
       href: '/lazy',
     }]
   }];

@@ -34,7 +34,7 @@
                 inline></vsm-input>
         </vsm-form>
     </div>
-    <Codes :codes="codes0" show></Codes>
+    <Codes :codes="codes0"></Codes>
 
     <h3 class="section-title">范围选择</h3>
     <p>范围选择时绑定值为数组类型。part可设置为包含多个值的数组，并且可通过设置force-step属性强制值为间断点里的值。</p>

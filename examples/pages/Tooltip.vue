@@ -4,7 +4,7 @@
 
       <h3 class="section-title">基本用法</h3>
       <vsm-button v-tooltip="'提示消息'">鼠标悬停在此</vsm-button>
-      <Codes :codes="codes0" show></Codes>
+      <Codes :codes="codes0"></Codes>
 
       <h3 class="section-title">弹出方向</h3>
       <p>默认行为是根据相对祖先节点进行定位计算弹出方向，一般为上或下。如果希望固定方向，可通过指令参数或position属性设置。</p>

@@ -22,7 +22,7 @@
       <vsm-checkbox v-model="tabProps" :options="tabOptions" type="slide"></vsm-checkbox>
 
     </div>
-    <Codes :codes="codes0" show></Codes>
+    <Codes :codes="codes0"></Codes>
 
     <h3 class="section-title">更多用法</h3>
     <vsm-tabs
@@ -44,7 +44,7 @@
       bar
       background="#212121"
       bar-color="#fafafa"
-      bar-width="12"
+      bar-width="6"
       bar-height="6"
       color="white"
       plain
@@ -325,7 +325,7 @@ export default {
   bar
   background="#212121"
   bar-color="#fafafa"
-  bar-width="12"
+  bar-width="6"
   bar-height="6"
   color="white"
   plain

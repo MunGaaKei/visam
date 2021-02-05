@@ -6,6 +6,7 @@
         <div class="vsm-tabs-navs"
             :class="[
                 align? `vsm-align-${align}`: '',
+                round? `vsm-round`: ''
             ]"
             :style="background? `background:${background};`: ''"
             @mousedown="dragStart"

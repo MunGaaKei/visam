@@ -2,18 +2,25 @@
   <div class="home">
     <div class="vsm-content">
       <h1 class="visam">VISAM</h1>
-      <span class="version">1.0</span>
+      <span class="version">{{ version }}</span>
       <div class="icons">
         <a v-tooltip="'使用文档'" href="/docs/button" class="iconfont icon-script"><i></i></a>
-        <a v-tooltip="'Github'" href="https://github.com/MunGaaKei/visam-vue" target="_blank" class="iconfont icon-github"></a>
+        <a v-tooltip="'GitHub'" href="https://github.com/MunGaaKei/visam-vue" target="_blank" class="iconfont icon-github"></a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { version } from '../../package.json';
+
 export default {
-    name: 'Home'
+    name: 'Home',
+    data () {
+      return {
+        version
+      }
+    }
 }
 </script>
 

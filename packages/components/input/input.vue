@@ -54,7 +54,8 @@
 </template>
 
 <script>
-import vsmGroup from '../group';
+import vsmGroup from '../group/index';
+
 export default {
     name: 'vsmInput',
     props: {

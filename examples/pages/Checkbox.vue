@@ -6,7 +6,7 @@
       <div class="vsm-cols">
         <vsm-checkbox v-model="value">值: {{ value }}</vsm-checkbox>
       </div>
-      <Codes :codes="codes0" show></Codes>
+      <Codes :codes="codes0"></Codes>
 
 
       <h3 class="section-title">多选框组</h3>
@@ -32,7 +32,7 @@
             <vsm-checkbox type="slide" v-model="otherProps" :options="otherOptions"></vsm-checkbox>
         </div>
       </vsm-cols>
-      <Codes :codes="codes1" show></Codes>
+      <Codes :codes="codes1"></Codes>
 
       <h3 class="section-title">参数说明</h3>
       <vsm-table :data="params" :header="paramsHeader" stickyHeader></vsm-table>

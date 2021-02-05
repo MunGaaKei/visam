@@ -11,7 +11,7 @@
             ></vsm-tree>
       </vsm-dropdown>
       
-      <Codes :codes="codes0" show></Codes>
+      <Codes :codes="codes0"></Codes>
 
       <h3 class="section-title">规定方向</h3>
       <p>通过点击向右弹出自定义内容，点击内容不会隐藏下拉框。</p>

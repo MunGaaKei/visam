@@ -6,7 +6,7 @@
       <div class="codes">
         <vsm-button @click="callout">弹出提醒</vsm-button>
       </div>
-      <Codes language="js" :codes="codes0" show></Codes>
+      <Codes language="js" :codes="codes0"></Codes>
 
       <h3 class="section-title">更多配置</h3>
       <div class="codes">
@@ -29,7 +29,7 @@
           </div>
         </div>
         
-        <Codes language="js" :codes="codes1" show></Codes>
+        <Codes language="js" :codes="codes1"></Codes>
 
         <h3 class="section-title">参数说明</h3>
         <vsm-table :data="params" :header="paramsHeader" stickyHeader></vsm-table>

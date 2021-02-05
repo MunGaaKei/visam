@@ -1,4 +1,4 @@
-import Group from './group';
+import Group from './group.vue';
 
 Group.install = Vue => Vue.component(Group.name, Group)
 

@@ -135,6 +135,12 @@ const routes = [{
       default: Docs,
       child: () => import('@/pages/Lazy')}
   }, {
+    path: 'lazyload',
+    name: 'Lazyload',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Lazyload')}
+  }, {
     path: 'drag',
     name: 'Drag',
     components: {
@@ -146,6 +152,24 @@ const routes = [{
     components: {
       default: Docs,
       child: () => import('@/pages/Collapse')}
+  }, {
+    path: 'cols',
+    name: 'Cols',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Cols')}
+  }, {
+    path: 'group',
+    name: 'Group',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Group')}
+  }, {
+    path: 'intro',
+    name: 'Intro',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Intro')}
   }]
 }]
 

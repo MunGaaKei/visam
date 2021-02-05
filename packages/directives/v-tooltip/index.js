@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import tooltipTemplate from './tooltip';
+import tooltipTemplate from './tooltip.vue';
 
 const tooltipConstructor = Vue.extend(tooltipTemplate);
 

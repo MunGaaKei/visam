@@ -24,7 +24,7 @@
             </div>
         </vsm-cols>
         
-        <Codes :codes="btnCode" show></Codes>
+        <Codes :codes="btnCode"></Codes>
 
         <h3 class="section-title">按钮组</h3>
         <vsm-group>
@@ -72,7 +72,7 @@ export default {
                 type: 'String',
                 options: '"button" 及其它原生类型',
                 default: '"button"',
-                desc: '当标签为<button>时属性type的值'
+                desc: '当标签为&lt;button>时属性type的值'
             }, {
                 prop: 'color',
                 type: 'String',
@@ -122,25 +122,22 @@ export default {
                 default: 'false',
                 desc: '按钮尺寸小一号'
             }]),
-            events: Object.freeze([])
-        }
-    },
-    computed: {
-        btnCode () {
-            return `<vsm-button\
-${this.btnProps.length? ' \r\n    '+ this.btnProps.join('\r\n    '): ''}\
-${this.color? `\r\n    color="${this.color}"`: ''}>默认按钮</vsm-button>`;
-        },
-        groupCode () {
-            return `<vsm-group>
+            events: Object.freeze([]),
+            groupCode: `<vsm-group>
     <vsm-button color="black">黑色</vsm-button>
     <vsm-button color="blue">蓝色</vsm-button>
     <vsm-button color="red">红色</vsm-button>
     <vsm-button color="yellow">黄色</vsm-button>
     <vsm-button color="green">绿色</vsm-button>
     <vsm-button color="white">白色</vsm-button>
-</vsm-group>`;
+</vsm-group>`
         }
+    },
+    computed: {
+        btnCode () {
+            return `<vsm-button ${this.btnProps.length? this.btnProps.join(' '): ''}\
+${this.color? `\r\n    color="${this.color}"`: ''}>默认按钮</vsm-button>`;
+        },
     }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <header class="header vsm-cols">
       <a v-tooltip:right="'目录'" @click="toggleSidebar" class="sidebar-toggler iconfont icon-menu"></a>
-      <a href="https://github.com/MunGaaKei/visam-vue" class="header-item iconfont icon-github" target="_blank" v-tooltip:bottom="'github'"></a>
+      <a href="https://github.com/MunGaaKei/visam-vue" class="header-item iconfont icon-github" target="_blank" v-tooltip:bottom="'Github'"></a>
       <a v-tooltip="'切换主题'" @click="toggleTheme" class="header-item iconfont icon-theme"></a>
       <h1><a href="/"><span class="vue">V</span>ISA<span class="masiv">M</span></a></h1>
   </header>
@@ -38,6 +38,8 @@ export default {
   padding: 0 var(--gap);
 }
 .header h1 {
+  font-weight: 900;
+  font-style: italic;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

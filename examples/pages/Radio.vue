@@ -14,7 +14,7 @@
             label="单选框："></vsm-radio>
         <vsm-checkbox type="slide" v-model="otherProps" :options="otherOptions"></vsm-checkbox>
       </div>
-      <Codes :codes="codes0" show></Codes>
+      <Codes :codes="codes0"></Codes>
       
       <h3 class="section-title">参数说明</h3>
       <vsm-table :data="params" :header="paramsHeader" stickyHeader></vsm-table>

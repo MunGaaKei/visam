@@ -1,5 +1,15 @@
 <template>
-  <div :class="[classes]">
+  <div :class="[{
+        'vsm-nowrap': nowrap,
+        'vsm-gapped': gap
+      },
+      align? `vsm-align-${align}`: '',
+      verticle? 'vsm-rows': 'vsm-cols'
+    ]"
+    :style="{
+      height,
+      width
+    }">
     <slot></slot>
   </div>
 </template>
@@ -11,14 +21,10 @@ export default {
       nowrap: Boolean,
       align: String,
       verticle: Boolean,
+      height: String,
+      width: String,
+      gap: Boolean
     },
-    computed: {
-      classes () {
-        let names = this.align? `vsm-align-${this.align} `: '';
-        names += this.nowrap? 'vsm-nowrap ': '';
-        names += this.verticle? 'vsm-rows': 'vsm-cols';
-        return names;
-      }
-    }
+      
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="codes">
-    <a @click="toggle" class="iconfont icon-script" v-tooltip:top="{
+    <a v-if="tools" @click="toggle" class="iconfont icon-script" v-tooltip:top="{
         html: '查看代码',
         color: 'blue',
     }"><i></i></a>
@@ -8,7 +8,7 @@
         html: '复制代码',
         color: 'blue'
     }"></a>
-    <pre v-show="display" v-highlightjs="codes">
+    <pre v-show="!tools || display" v-highlightjs="codes">
         <code :class="language" ref="code"></code>
     </pre>
   </div>
@@ -26,6 +26,10 @@ export default {
         language: {
             type: String,
             default: 'html'
+        },
+        tools: {
+            type: Boolean,
+            default: true
         }
     },
     data () {

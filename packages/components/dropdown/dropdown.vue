@@ -96,25 +96,25 @@ export default {
         },
         handleMenuClick (e) {
             this.$emit('content-click', e);
-            if (this.hideOnContentClick) {
+            if ( this.hideOnContentClick ) {
                 this.show = false;
                 this.$emit('toggle', this.show);
             }
         },
         handleMouseenter (e) {
-            if (!this.hover) return;
+            if ( !this.hover ) return;
             this.setPosition();
             this.show = true;
             this.$emit('toggle', this.show);
         },
         handleMouseleave (e) {
-            if (!this.hover) return;
+            if ( !this.hover ) return;
             this.show = false;
             this.$emit('toggle', this.show);
         },
         collapse (e) {
-            if (!this.show || !this.closable) return;
-            if (!this.$refs.rel.contains(e.target) || this.hideOnContentClick) {
+            if ( !this.show || !this.closable ) return;
+            if ( !this.$refs.rel.contains(e.target) ) {
                 this.show = false;
                 this.$emit('toggle', this.show);
             }

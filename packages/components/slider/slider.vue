@@ -45,10 +45,8 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import vsmInput from '../input';
+import vsmInput from '../input/index';
 import { throttle } from '../../js/utils';
-Vue.use(vsmInput);
 
 export default {
     name: 'vsmSlider',
@@ -216,6 +214,9 @@ export default {
         value (value) {
             this.setValue(value);
         }
+    },
+    components: {
+        vsmInput
     },
     beforeMount () {
         this.forceStep && this.forceValues()

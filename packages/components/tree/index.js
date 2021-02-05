@@ -1,4 +1,4 @@
-import Tree from './tree';
+import Tree from './tree.vue';
 
 Tree.install = Vue => Vue.component(Tree.name, Tree)
 

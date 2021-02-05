@@ -1,4 +1,4 @@
-import Dropdown from './dropdown';
+import Dropdown from './dropdown.vue';
 
 Dropdown.install = Vue => Vue.component(Dropdown.name, Dropdown)
 

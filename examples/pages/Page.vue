@@ -10,7 +10,7 @@
     :total="12"
     loading
     @change="handlePageClick"></vsm-page>
-    <Codes :codes="codes0" show></Codes>
+    <Codes :codes="codes0"></Codes>
 
     <h3 class="section-title">简洁显示</h3>
     <p>简洁显示，只保留跳页器，可附带上一页和下一页。</p>
