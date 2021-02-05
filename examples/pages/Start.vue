@@ -31,14 +31,14 @@ export default {
       return {
         install: `npm install visam`,
         use: `import visam from 'visam'
-import 'visam/visam.css'
+import 'visam/lib/visam.css'
 
 Vue.use(visam)`,
         bpc: `npm i babel-plugin-component -D`,
         babel: `plugins: [
   ["component", {
     libraryName: "visam",
-    libDir: "src",
+    libDir: "lib/src",
     style: false,
   }],
 ]`,     
