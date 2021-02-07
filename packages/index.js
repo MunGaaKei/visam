@@ -31,8 +31,6 @@ import vLazy from './directives/v-lazy/index';
 
 import Notice from './components/notice/index';
 
-console.log(Cols, Button, N, Dialog);
-
 const components = [
     Button,
     Calendar,
