@@ -107,7 +107,7 @@ export default {
     <vsm-n>
         <div class="block vsm-blue">n</div>
     </vsm-n>
-</vsm-cols$>`;
+</vsm-cols>`;
         },
         codes1 () {
             return `<vsm-cols verticle height="200px">

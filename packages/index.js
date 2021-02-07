@@ -3,8 +3,10 @@ import './js/visam';
 import Button from './components/button/index';
 import Calendar from './components/calendar/index';
 import Checkbox from './components/checkbox/index';
-import { Collapse, CollapseItem } from './components/collapse/index';
-import { Cols, N } from './components/cols/index';
+import Collapse from './components/collapse/index';
+import CollapseItem from './components/collapse-item/index';
+import Cols from './components/cols/index';
+import N from './components/n/index';
 import Dialog from './components/dialog/index';
 import Drawer from './components/drawer/index';
 import Dropdown from './components/dropdown/index';
@@ -17,7 +19,8 @@ import List from './components/list/index';
 import Radio from './components/radio/index';
 import Select from './components/select/index';
 import Slider from './components/slider/index';
-import { Swiper, SwiperItem } from './components/swiper/index';
+import Swiper from './components/swiper/index';
+import SwiperItem from './components/swiper-item/index';
 import Table from './components/table/index';
 import Tabs from './components/tabs/index';
 import Tree from './components/tree/index';
@@ -27,6 +30,8 @@ import vTooltip from './directives/v-tooltip/index';
 import vLazy from './directives/v-lazy/index';
 
 import Notice from './components/notice/index';
+
+console.log(Cols, Button, N, Dialog);
 
 const components = [
     Button,
