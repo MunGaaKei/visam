@@ -2,7 +2,8 @@
     <div class="vsm-tooltip"
         :class="[{
             'vsm-on': active && display && html,
-            'vsm-reverse': reverse
+            'vsm-reverse': reverse,
+            'vsm-repos': repos
         },
             color? `vsm-${color}`: ''
         ]"
@@ -21,11 +22,14 @@ export default {
             caretCssText: '',
             color: '',
             reverse: false,
+            repos: false
         }
+    },
+    beforeMount () {
+        this.repos = true;
+    },
+    mounted () {
+        this.repos = false;
     }
 }
 </script>
-
-<style>
-
-</style>

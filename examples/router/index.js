@@ -93,6 +93,12 @@ const routes = [{
       default: Docs,
       child: () => import('@/pages/Slide')}
   }, {
+    path: 'icon',
+    name: 'Icon',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Icon')}
+  }, {
     path: 'swiper',
     name: 'Swiper',
     components: {
@@ -152,6 +158,12 @@ const routes = [{
     components: {
       default: Docs,
       child: () => import('@/pages/Collapse')}
+  }, {
+    path: 'card',
+    name: 'Card',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Card')}
   }, {
     path: 'cols',
     name: 'Cols',

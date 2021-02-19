@@ -16,6 +16,9 @@ export default {
       }, {
         key: 'type',
         title: '类型',
+        render: (h, ctx) => h('span', {
+          class: 'param-type'
+        }, ctx.data.type)
       }, {
         key: 'options',
         title: '可选值'
@@ -34,9 +37,6 @@ export default {
         { label: '黄色', value: 'yellow' },
       ]
     }
-  },
-  methods: {
-    
   },
   components: {
     Codes,

@@ -105,7 +105,7 @@ export default {
         },
         barH () {
             return this.barHeight || (this.vertical? 16: 4);
-        }
+        },
     },
     methods: {
         switchTab (i, e) {
@@ -189,7 +189,7 @@ export default {
                         'vsm-reverse': this.reverse
                     }
                 ]: '';
-        }
+        },
     },
 
     mounted () {

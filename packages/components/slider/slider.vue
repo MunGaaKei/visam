@@ -218,7 +218,7 @@ export default {
     components: {
         vsmInput
     },
-    beforeMount () {
+    mounted () {
         this.forceStep && this.forceValues()
         document.addEventListener('mousemove', this.sliding);
         document.addEventListener('mouseup', this.slideEnd);
@@ -229,7 +229,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>

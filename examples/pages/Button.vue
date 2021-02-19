@@ -3,7 +3,7 @@
         <h2>按钮</h2>
 
         <h3 class="section-title">基础</h3>
-        <p>其中<b>平白显示</b>会使<b>边框</b>失效。</p>
+        <p>其中平白显示会使边框失效。</p>
         <br>
         <vsm-cols>
             <div class="vsm-n widget">

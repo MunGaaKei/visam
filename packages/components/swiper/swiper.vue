@@ -73,13 +73,28 @@
 
       <div v-if="indicator && length > displayNum"
         class="vsm-swiper-indicator">
-        <a v-for="i in Math.ceil((length - displayNum) / scrollNum) + 1"
-          :key="i"
-          :data-swiper="i - 1"
-          :class="{
-            'vsm-swiper-active': i - 1 === currentIndex
-          }"
-          @click.stop="handleNavClick((i - 1) * scrollNum)">{{ i }}</a>
+        <template v-if="Array.isArray(indicator) && displayNum === 1">
+          <a v-for="(p, i) in indicator"
+            :key="i"
+            :data-swiper="i"
+            class="vsm-swiper-indicator-img"
+            :class="{
+              'vsm-swiper-active': i === currentIndex
+            }"
+            @click.stop="handleNavClick(i)">
+            <img :src="p">
+          </a>
+        </template>
+        <template v-else>
+          <a v-for="i in Math.ceil((length - displayNum) / scrollNum) + 1"
+            :key="i"
+            :data-swiper="i - 1"
+            class="vsm-swiper-indicator-a"
+            :class="{
+              'vsm-swiper-active': i - 1 === currentIndex
+            }"
+            @click.stop="handleNavClick((i - 1) * scrollNum)">{{ i }}</a>
+        </template>
       </div>
     </template>
 

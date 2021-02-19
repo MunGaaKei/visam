@@ -50,6 +50,12 @@ export default {
         return {
             gap: false,
             params: Object.freeze([{
+                prop: 'tag',
+                type: 'String',
+                options: '',
+                default: 'div',
+                desc: '容器标签名'
+            }, {
                 prop: 'nowrap',
                 type: 'Boolean',
                 options: '',
@@ -87,6 +93,12 @@ export default {
                 desc: '宽度',
             }]),
             params1: Object.freeze([{
+                prop: 'tag',
+                type: 'String',
+                options: '',
+                default: 'div',
+                desc: '容器标签名'
+            }, {
                 prop: 'n',
                 type: 'String | Number',
                 options: '整数1 ~ 10，小数2.5/3.3/6.6/7.5，字符串n',

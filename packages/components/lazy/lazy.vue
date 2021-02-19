@@ -24,6 +24,10 @@ export default {
         fade: {
             type: Boolean,
             default: true
+        },
+        tag: {
+            type: String,
+            default: 'div'
         }
     },
     data () {

@@ -6,9 +6,8 @@
       <vsm-swiper
         ref="swiper"
         :display="2"
-        :scroll="2"
         :gap="12">
-          <vsm-swiper-item v-for="i in 3" :key="i">
+          <vsm-swiper-item v-for="i in 5" :key="i">
               <div class="swiper-block">{{ i }}</div>
           </vsm-swiper-item>
       </vsm-swiper>
@@ -72,12 +71,11 @@ export default {
             codes0: `<vsm-swiper
     ref="swiper"
     :display="2"
-    :scroll="2"
     :gap="12">
-        <vsm-swiper-item v-for="i in 5" :key="i">
-            <div class="swiper-block">{{ i }}</div>
-        </vsm-swiper-item>
-    </vsm-swiper>`,
+    <vsm-swiper-item v-for="i in 5" :key="i">
+        <div class="swiper-block">{{ i }}</div>
+    </vsm-swiper-item>
+</vsm-swiper>`,
             codes1: `<vsm-swiper type="card" height="200px">
     <vsm-swiper-item v-for="i in 5" :key="i">
         <div class="swiper-block">{{ i }}</div>
@@ -167,7 +165,7 @@ export default {
                 type: 'Boolean | Array',
                 options: '',
                 default: 'true',
-                desc: '索引指示器'
+                desc: '索引指示器，当为数组格式时可传入缩略图路径显示缩略图'
             }, {
                 prop: 'invert',
                 type: 'Boolean',

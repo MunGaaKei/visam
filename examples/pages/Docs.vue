@@ -32,10 +32,10 @@ export default {
   name: 'Docs',
   data () {
     return {
-      sidebar: window.innerWidth > 980,
+      sidebar: window.innerWidth > 1920,
       sidebarWidth: '240px',
       menu,
-      breakpoint: 780
+      breakpoint: 1920
     }
   },
   components: {
@@ -57,6 +57,7 @@ export default {
         if (path !== this.$route.path) {
             this.$router.push(path);
         }
+        this.sidebar = false;
       }
     }
   }
@@ -108,5 +109,9 @@ export default {
 }
 .footer {
   min-height: 60px;
+}
+.param-type {
+  font-style: italic;
+  opacity: 0.5;
 }
 </style>

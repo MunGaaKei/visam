@@ -41,11 +41,7 @@
       :tabs="tabs0"
       v-model="activeTab"
       vertical
-      bar
       background="#212121"
-      bar-color="#fafafa"
-      bar-width="6"
-      bar-height="6"
       color="white"
       plain
     >
@@ -247,7 +243,7 @@ export default {
     methods: {
       handleChange (i, e) {
         this.$notice({
-          html: `已打开第 <b>${i+1}</b> 个TAB`,
+          html: `已打开第 <b>${i+1}</b> 个标签页`,
           color: 'red',
           overwrite: true
         });
@@ -308,7 +304,7 @@ export default {
   methods: {
     handleChange (i, e) {
       this.$notice({
-        html: \`已打开第 <b>\${i+1}</b> 个TAB\`,
+        html: \`已打开第 <b>\${i+1}</b> 个标签页\`,
         color: 'red',
         overwrite: true
       });
@@ -322,11 +318,7 @@ export default {
   tabs="tabs"
   v-model="activeTab"
   vertical
-  bar
   background="#212121"
-  bar-color="#fafafa"
-  bar-width="6"
-  bar-height="6"
   color="white"
   plain
 >

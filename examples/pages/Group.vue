@@ -12,6 +12,9 @@
     </vsm-group>
     <Codes :codes="groupCode"></Codes>
 
+    <h3 class="section-title">参数说明</h3>
+    <vsm-table :data="params" :header="paramsHeader" stickyHeader></vsm-table>
+
   </div>
 </template>
 
@@ -24,7 +27,14 @@ export default {
     <vsm-button color="black">黑色</vsm-button>
     <vsm-button color="blue">蓝色</vsm-button>
     <vsm-button color="red">红色</vsm-button>
-</vsm-group>`
+</vsm-group>`,
+            params: Object.freeze([{
+              prop: 'tag',
+              type: 'String',
+              options: '',
+              default: 'div',
+              desc: '容器标签名'
+            }])
         }
     }
 }

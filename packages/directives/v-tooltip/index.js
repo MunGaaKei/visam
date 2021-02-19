@@ -47,8 +47,8 @@ class TooltipInstance {
         
         this.offsetParent.append(tooltip.$el);
 
-        instance.setPosition(this);
         tooltip.active = true;
+        instance.setPosition(this);
     }
 
     destroy (instance) {

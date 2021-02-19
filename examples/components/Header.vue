@@ -1,8 +1,8 @@
 <template>
   <header class="header vsm-cols">
-      <a v-tooltip:right="'目录'" @click="toggleSidebar" class="sidebar-toggler iconfont icon-menu"></a>
-      <a href="https://github.com/MunGaaKei/visam-vue" class="header-item iconfont icon-github" target="_blank" v-tooltip:bottom="'Github'"></a>
-      <a v-tooltip="'切换主题'" @click="toggleTheme" class="header-item iconfont icon-theme"></a>
+      <a v-tooltip:right="'目录'" @click="toggleSidebar" class="vsm-btn vsm-plain vsm-small iconfont icon-menu"></a>
+      <a href="https://github.com/MunGaaKei/visam" class="vsm-btn vsm-plain vsm-small iconfont icon-github" target="_blank" v-tooltip:bottom="'GitHub'"></a>
+      <a v-tooltip="'切换主题'" @click="toggleTheme" class="vsm-btn vsm-plain vsm-small iconfont icon-theme"></a>
       <h1><a href="/"><span class="vue">V</span>ISA<span class="masiv">M</span></a></h1>
   </header>
 </template>
@@ -38,17 +38,19 @@ export default {
   padding: 0 var(--gap);
 }
 .header h1 {
+  margin-left: 8px;
   font-weight: 900;
   font-style: italic;
+  font-size: 2rem;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   background-image: linear-gradient(to right, var(--theme-color-vice) 0%, var(--theme-color) 100%);
 }
-.sidebar-toggler {
-  margin: 0 auto 0 0;
+.header .vsm-btn {
+  margin-right: 4px;
 }
-.header-item {
-  margin: 0 16px 0 0;
+.header .icon-menu {
+  margin: 0 auto 0 0;
 }
 </style>

@@ -2,6 +2,7 @@ import './js/visam';
 
 import Button from './components/button/index';
 import Calendar from './components/calendar/index';
+import Card from './components/card/index';
 import Checkbox from './components/checkbox/index';
 import Collapse from './components/collapse/index';
 import CollapseItem from './components/collapse-item/index';
@@ -34,6 +35,7 @@ import Notice from './components/notice/index';
 const components = [
     Button,
     Calendar,
+    Card,
     Collapse,
     CollapseItem,
     Cols,
@@ -66,6 +68,8 @@ const directives = [
 
 const install = function(Vue, options) {
 
+    if (install.installed) return;
+
     components.map(component => {
         Vue.component(component.name, component);
     });
@@ -75,6 +79,8 @@ const install = function(Vue, options) {
     });
 
     Vue.prototype.$notice = Notice;
+
+    install.installed = true;
 
 }
 

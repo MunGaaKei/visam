@@ -14,6 +14,9 @@ const menu = [{
       name: '日期选择<i>calendar</i>',
       href: '/calendar',
     }, {
+      name: '卡片<i>card</i>',
+      href: '/card',
+    }, {
       name: '多选框<i>checkbox</i>',
       href: '/checkbox',
     }, {
@@ -34,6 +37,9 @@ const menu = [{
     }, {
       name: '组<i>group</i>',
       href: '/group',
+    }, {
+      name: '图标<i>icon</i>',
+      href: '/icon'
     }, {
       name: '输入框<i>input</i>',
       href: '/input'
