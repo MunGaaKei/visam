@@ -73,6 +73,9 @@ const menu = [{
     }, {
       name: '树<i>tree</i>',
       href: '/tree'
+    }, {
+      name: '查看器<i>viewer</i>',
+      href: '/viewer'
     }]
   }, {
     name: '指令<i>Directives</i>',

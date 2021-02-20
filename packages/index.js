@@ -31,6 +31,7 @@ import vTooltip from './directives/v-tooltip/index';
 import vLazy from './directives/v-lazy/index';
 
 import Notice from './components/notice/index';
+import Viewer from './components/viewer/index';
 
 const components = [
     Button,
@@ -79,6 +80,7 @@ const install = function(Vue, options) {
     });
 
     Vue.prototype.$notice = Notice;
+    Vue.prototype.$viewer = Viewer;
 
     install.installed = true;
 

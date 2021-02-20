@@ -36,7 +36,7 @@ export default {
     name: 'Lazy',
     data () {
         return {
-            img: '/examples/assets/img/landscape.33aaf0ef.jpg',
+            img: '/examples/assets/img/landscape.jpg',
             codes0: `<div class="port">
     <div class="holder">向下滚动显示图片</div>
     <img v-lazy="'/img/landscape.jpg'">

@@ -8,4 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.classList.add('vsm-windows');
   }
 
+  // 是否为夜间模式
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    // document.body.classList.add('theme-dark');
+  }
+
 });

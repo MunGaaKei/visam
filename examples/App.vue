@@ -1,9 +1,5 @@
 <template>
-  <div codes="ithanism">
-
     <router-view></router-view>
-
-  </div>
 </template>
 
 <script>

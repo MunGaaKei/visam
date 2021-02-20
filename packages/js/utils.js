@@ -70,34 +70,6 @@ const getDefault = (
   def
 ) => arr.includes(value)? value: def;
 
-/**
- * 获取相对水平偏移值
- * @param {boundingClientRect} rectRel
- * @param {boundingClientRect} rectMenu
- * @param {boundingClientRect} rectPa
- * @return *
-**/
-const getOffsetX = (rectRel, rectMenu, rectPa) => {
-  let offset = (rectMenu.width - rectRel.width) / 2;
-  let text = 'left: 0;';
-  if (offset < 0) {
-      text += `left: ${(rectRel.width - rectMenu.width)/2}px;`;
-  } else if (offset + 12 < rectRel.left - rectPa.left) {
-      text += rectRel.right + 12 + offset < rectPa.right? `left: ${-offset}px;`: 'right: 0;';
-  }
-  return text;
-}
-
-/**
- * 获取相对垂直偏移值
- * @param {boundingClientRect} rectRel
- * @param {boundingClientRect} rectMenu
- * @param {boundingClientRect} rectPa
- * @return *
-**/
-// const getOffsetY
-
-
 export {
   throttle,
   debounce,

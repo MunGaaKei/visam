@@ -338,7 +338,7 @@ export default {
             part = $el.offsetWidth / total;
           }
           
-          if ( Math.abs(offset) >= (dragOffset || part/2) ) {
+          if ( Math.abs(offset) >= (dragOffset || part/3) ) {
             this.swipe( offset < 0 );
           } else {
             let origin = -(current + displayNum) * 100 / total;

@@ -28,6 +28,7 @@
                         'vsm-on': slideCursor === 0
                     }"
                     @mousedown.stop="slideStart(0, $event)"
+                    @touchstart.stop="slideStart(0, $event)"
                     style="left:0;">
                     <span>{{ currentValue[0] }}{{ unit }}</span>
                 </a>
@@ -35,7 +36,8 @@
                     :class="{
                         'vsm-on': slideCursor === 1
                     }"
-                    @mousedown.stop="slideStart(1, $event)">
+                    @mousedown.stop="slideStart(1, $event)"
+                    @touchstart.stop="slideStart(1, $event)">
                     <span>{{ isRange? currentValue[1]: currentValue }}{{ unit }}</span>
                 </a>
             </div>
@@ -45,9 +47,7 @@
 </template>
 
 <script>
-import vsmInput from '../input/index';
-import { throttle } from '../../js/utils';
-
+const ispc = !('ontouchend' in document);
 export default {
     name: 'vsmSlider',
     props: {
@@ -76,9 +76,6 @@ export default {
     model: {
         prop: 'value',
         event: 'change'
-    },
-    components: {
-        vsmInput
     },
     data () {
         return {
@@ -143,6 +140,7 @@ export default {
         },
         slideStart (cursor, e) {
             e.stopPropagation();
+            e.preventDefault();
             this.slideCursor = cursor;
             this.rect = this.$refs.bar.getBoundingClientRect();
         },
@@ -155,6 +153,7 @@ export default {
             if (typeof this.slideCursor !== 'number') return;
             e.stopPropagation();
             e.preventDefault();
+            if (!ispc) e = e.touches[0];
 
             let { left, width } = this.rect;
             let dx = e.clientX - left;
@@ -215,17 +214,14 @@ export default {
             this.setValue(value);
         }
     },
-    components: {
-        vsmInput
-    },
     mounted () {
         this.forceStep && this.forceValues()
-        document.addEventListener('mousemove', this.sliding);
-        document.addEventListener('mouseup', this.slideEnd);
+        document.addEventListener(ispc? 'mousemove': 'touchmove', this.sliding);
+        document.addEventListener(ispc? 'mouseup': 'touchend', this.slideEnd);
     },
     beforeDestroy () {
-        document.removeEventListener('mousemove', this.sliding);
-        document.addEventListener('mouseup', this.slideEnd);
+        document.removeEventListener(ispc? 'mousemove': 'touchmove', this.sliding);
+        document.addEventListener(ispc? 'mouseup': 'touchend', this.slideEnd);
     }
 }
 </script>

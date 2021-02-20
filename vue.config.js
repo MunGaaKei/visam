@@ -4,6 +4,7 @@ const resolve = dir => path.join(__dirname, dir);
 
 module.exports = {
     assetsDir: 'examples/assets/',
+    filenameHashing: false,
     pages: {
         index: {
             entry: 'examples/main.js',
@@ -16,5 +17,7 @@ module.exports = {
         .set('@', resolve('examples'))
         .set('@visam', resolve('packages'))
     },
-    
+    dev: {
+        host: '0.0.0.0'
+    }
 }

@@ -42,6 +42,7 @@
     --red: #fd5174;
     --red-vice: #f14164;
 }
+
 .theme-dark {
     --background: #2a2a2a;
     --background-vice: #313131;
@@ -705,8 +706,6 @@ a.vsm-calendar-item.vsm-on {
     width: 100%;
     justify-content: unset;
 }
-.vsm-tabs-navs::-webkit-scrollbar,
-.vsm-swiper-indicator::-webkit-scrollbar { display: none; }
 .vsm-tabs-nav {
     position: relative;
     box-sizing: border-box;
@@ -1215,6 +1214,82 @@ td.vsm-sticky-right {
 }
 
 
+.vsm-viewer {
+    position: absolute;
+    padding: 0;
+    overflow: hidden;
+    user-select: none;
+}
+.vsm-viewer-ul {
+    display: flex;
+    flex-shrink: 0;
+    overflow: hidden;
+    transition: var(--transition);
+}
+.vsm-viewer-li {
+    display: flex;
+    flex: 1 1 100%;
+}
+.vsm-viewer-li > img {
+    position: relative;
+    cursor: grab;
+    flex-shrink: 0;
+}
+.vsm-viewer-toolbar {
+    position: absolute;
+    z-index: 1;
+    right: 12px;
+    bottom: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: rgba(0,0,0,.15);
+    backdrop-filter: blur(24px);
+    color: rgba(255,255,255,.5);
+    font-size: 1.2em;
+}
+.vsm-viewer-act {
+    box-sizing: border-box;
+    padding: 4px 0;
+    width: 50%;
+    text-align: center;
+}
+.vsm-viewer-act:hover {
+    background: rgba(0,0,0,.5);
+    color: #fff;
+}
+.vsm-viewer-text {
+    padding: 2px 10px;
+    border-radius: 100px;
+    background: rgba(0,0,0,.24);
+    color: #fafafa;
+    backdrop-filter: blur(24px);
+    font-size: .8em;
+}
+.vsm-viewer-index {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+}
+.vsm-viewer-zoom {
+    position: absolute;
+    right: var(--gap);
+    top: var(--gap);
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+}
+.vsm-viewer-zoom.vsm-on {
+    opacity: 1;
+}
+.vsm-viewer-dragging img {
+    transition: none !important;
+    cursor: grabbing;
+}
+
+
 .vsm-swiper {
     position: relative;
     overflow: hidden;
@@ -1234,7 +1309,10 @@ td.vsm-sticky-right {
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
-.vsm-swiper-flow::-webkit-scrollbar { display: none; }
+.vsm-swiper-flow::-webkit-scrollbar,
+.vsm-tabs-navs::-webkit-scrollbar,
+.vsm-swiper-indicator::-webkit-scrollbar { display: none; }
+
 .vsm-swiper-flow > .vsm-swiper-item {
     flex: none;
 }
@@ -1485,5 +1563,8 @@ td.vsm-sticky-right {
     [class*='vsm-col-'],
     .vsm-n {
         flex: 1 1 100%;
+    }
+    :root {
+        --padding: 5px 12px 4px;
     }
 }

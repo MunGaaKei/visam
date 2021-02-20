@@ -182,6 +182,12 @@ const routes = [{
     components: {
       default: Docs,
       child: () => import('@/pages/Intro')}
+  }, {
+    path: 'viewer',
+    name: 'Viewer',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Viewer')}
   }]
 }]
 
