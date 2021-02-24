@@ -295,7 +295,7 @@ export default {
         
         if (type === 'flow') {
           let offsetX = dragStart[2] - e.clientX + dragStart[0];
-          let offsetY = dragStart[3] - e.clientY + dragStart[1]
+          let offsetY = dragStart[3] - e.clientY + dragStart[1];
           this.$refs.flowlist.scrollTo(offsetX, offsetY);
         } else if (type === 'normal') {
           if ( touchable ) {

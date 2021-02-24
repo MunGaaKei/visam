@@ -153,7 +153,3 @@ ${this.duration === 3000? '': `\r\n  duration: ${this.duration}`}
   }
 }
 </script>
-
-<style>
-
-</style>

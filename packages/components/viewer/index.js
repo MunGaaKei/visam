@@ -36,7 +36,12 @@ const Viewer = (options) => {
     
     data.imgs = data.imgs.map(img => {
         if (typeof img === 'string') {
-            img = { img }
+            img = {
+                img,
+                thumb: img,
+            }
+        } else {
+            if ( !img.thumb ) img.thumb = img.img;
         }
         return img;
     });
