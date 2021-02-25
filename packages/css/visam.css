@@ -80,7 +80,7 @@ h4 { font-size: 1.2rem; }
 .iconfont{ font-size: 1em; }
 ::selection{background-color:#ffd57b !important;color:#2a2a2a !important}
 
-.vsm-windows ::-webkit-scrollbar{ width: 6px; height: 6px; }
+.vsm-windows ::-webkit-scrollbar{ width: 6px; height: 6px; border-radius: var(--radius); }
 .vsm-windows ::-webkit-scrollbar-thumb{ background-color: var(--scrollbar); border: 1px solid transparent; cursor: pointer; }
 
 .vsm-container {
