@@ -27,15 +27,15 @@
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { menu } from '@/assets/data/docs'
-
+const BREAKPOINT = 1000;
 export default {
   name: 'Docs',
   data () {
     return {
-      sidebar: window.innerWidth > 1920,
+      sidebar: window.innerWidth > BREAKPOINT,
       sidebarWidth: '240px',
       menu,
-      breakpoint: 1920
+      breakpoint: BREAKPOINT
     }
   },
   components: {
@@ -57,7 +57,9 @@ export default {
         if (path !== this.$route.path) {
             this.$router.push(path);
         }
-        this.sidebar = false;
+        if (window.innerWidth < BREAKPOINT) {
+          this.sidebar = false;
+        }
       }
     }
   }

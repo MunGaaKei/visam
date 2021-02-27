@@ -3,7 +3,6 @@
         :class="[{
             'vsm-on': isActive,
             'vsm-drawer-backdrop': responsive,
-            'vsm-blur': blur
         }]"
         @click="toggle">
         <div class="vsm-drawer-inner"
@@ -37,7 +36,6 @@ export default {
             type: String,
             default: 'left'
         },
-        blur: Boolean,
     },
     data () {
         return {

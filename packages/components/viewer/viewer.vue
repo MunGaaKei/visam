@@ -2,7 +2,6 @@
   <div class="vsm-viewer vsm-backdrop"
     :class="{
         'vsm-on': show,
-        'vsm-blur': blur,
         'vsm-viewer-dragging': touchstart
     }">
 
@@ -79,7 +78,6 @@ export default {
             imgs: [],
             thumbs: true,
             show: false,
-            blur: false,
             current: 0,
             zooming: false,
             handleWheel: Object.freeze(e => {

@@ -34,9 +34,9 @@ export default {
     data () {
         return {
             imgs: [
-                '/examples/assets/img/p1.jpg',
-                '/examples/assets/img/p2.jpg',
-                '/examples/assets/img/p3.jpg',
+                require('@/assets/img/p1.jpg'),
+                require('@/assets/img/p2.jpg'),
+                require('@/assets/img/p3.jpg'),
                 // {
                 //     img: 'https://mungaakei.github.io/masiv/resource/video.mp4',
                 //     type: 'video'
@@ -102,12 +102,6 @@ export default {
                 options: '',
                 default: 'false',
                 desc: '大图懒加载'
-            }, {
-                prop: 'blur',
-                type: 'Boolean',
-                options: '',
-                default: 'true',
-                desc: '背景层模糊'
             }, {
                 prop: 'target',
                 type: 'HTMLElement',

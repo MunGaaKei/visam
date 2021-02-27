@@ -17,7 +17,7 @@ module.exports = {
         .set('@', resolve('examples'))
         .set('@visam', resolve('packages'))
     },
-    dev: {
+    devServer: {
         host: '0.0.0.0'
     }
 }

@@ -8,7 +8,6 @@
       <vsm-button @click="toggle">呼出</vsm-button>
       <div class="vsm-cols-3">
         <vsm-select v-model="position" :options="positionOptions" label="位置" inline readonly placeholder="默认居左"></vsm-select>
-        <vsm-checkbox v-model="blur" type="slide">背景层模糊</vsm-checkbox>
       </div>
     </vsm-cols>
 
@@ -16,8 +15,7 @@
 
 
     <vsm-drawer v-model="show"
-      :position="position"
-      :blur="blur">
+      :position="position">
       <div class="drawer-content">
         <h3>抽屉已打开 🤓</h3>
         <br>
@@ -58,12 +56,6 @@ export default {
           options: 'top | right | bottom',
           default: '',
           desc: '抽屉内容从哪个方向划入，默认从左边'
-        }, {
-          prop: 'blur',
-          type: 'Boolean',
-          options: '',
-          default: 'false',
-          desc: '背景层是否模糊显示'
         }, {
           prop: 'breakpoint',
           type: 'Number',

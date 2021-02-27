@@ -2,11 +2,12 @@
     --font: normal 400 14px/1.5 -apple-system, BlinkMacSystemFont, Oxygen, Ubuntu, Cantarell, Consolas, 'Open Sans', 'Helvetica Neue', sans-serif;
     --background: #f0f0f0;
     --background-vice: #ececec;
+    --background-opacity: rgba(255,255,255,.76);
     --color: #262223;
     --color-vice: #a1a1a1;
 
-    --theme-color: #404040;
-    --theme-color-vice: #313131;
+    --theme-color: rgba(0,0,0,.72);
+    --theme-color-vice: rgba(0,0,0,.86);
     --theme-color-active: #469af5;
     --theme-color-reverse: #fff;
     --theme-color-hover: #e3e3e3;
@@ -46,6 +47,7 @@
 .theme-dark {
     --background: #2a2a2a;
     --background-vice: #313131;
+    --background-opacity: rgba(0,0,0,.4);
     --color: #f3f3f3;
     --color-vice: #6a6a6a;
 
@@ -107,6 +109,7 @@ h4 { font-size: 1.2rem; }
     max-height: 100%;
     transition: var(--transition);
     will-change: transform;
+    backdrop-filter: blur(32px);
 }
 .vsm-drawer.vsm-on {
     pointer-events: unset;
@@ -117,7 +120,7 @@ h4 { font-size: 1.2rem; }
     left: 0; top: 0;
     width: 100%; height: 100%;
     display: flex;
-    background: rgba(0, 0, 0, .5) !important;
+    background: rgba(0,0,0,.6) !important;
     pointer-events: none;
     opacity: 0;
 }
@@ -194,7 +197,7 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
 }
 .vsm-textarea {
-    transition: background-color var(--transition);
+    transition: var(--transition), width 0s, height 0s;
     max-width: 100%;
     resize: none;
 }
@@ -246,7 +249,7 @@ input[type=number]::-webkit-outer-spin-button {
     box-sizing: border-box;
     min-width: 100%;
     max-height: 30vh;
-    background: var(--background);
+    background: var(--background-opacity);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     transition: var(--transition);
@@ -254,6 +257,7 @@ input[type=number]::-webkit-outer-spin-button {
     opacity: 0;
     pointer-events: none;
     user-select: none;
+    backdrop-filter: blur(32px);
 }
 .vsm-select-option {
     display: flex;
@@ -525,9 +529,10 @@ input[type=number]::-webkit-outer-spin-button {
     width: 228px;
     padding: 2px;
     border-radius: var(--radius);
-    background: var(--background);
+    background: var(--background-opacity);
     box-shadow: var(--shadow);
     overflow: hidden;
+    backdrop-filter: blur(32px);
 }
 .vsm-calendar-dates {
     display: flex;
@@ -617,8 +622,12 @@ a.vsm-calendar-item.vsm-on {
 }
 .vsm-btn:active,
 .vsm-page:active,
+.vsm-radio:active,
+.vsm-checkbox:active,
+.vsm-select-option:active,
 .vsm-slider.vsm-on,
-.vsm-swiper-indicator > a:active {
+.vsm-swiper-indicator > a:active,
+.vsm-swiper-arrow:active {
     z-index: 1;
     box-shadow: 0 0 0 2px rgba(0,0,0,.15);
 }
@@ -788,7 +797,7 @@ a.vsm-calendar-item.vsm-on {
 .vsm-dropmenu {
     position: absolute;
     z-index: 10;
-    background: var(--background);
+    background: var(--background-opacity);
     border-radius: inherit;
     box-shadow: var(--shadow);
     overflow: hidden;
@@ -796,6 +805,7 @@ a.vsm-calendar-item.vsm-on {
     opacity: 0;
     transition: opacity var(--transition);
     white-space: nowrap;
+    backdrop-filter: blur(32px);
 }
 .vsm-on > .vsm-dropmenu,
 .vsm-dropdown-hover:hover > .vsm-dropmenu {
@@ -810,8 +820,8 @@ a.vsm-calendar-item.vsm-on {
     z-index: 100;
     left: 50%;
     padding: var(--padding);
-    background: var(--theme-color);
-    color: var(--theme-color-reverse);
+    background: var(--background-opacity);
+    backdrop-filter: blur(32px);
     box-shadow: var(--shadow);
     border-radius: var(--radius);
     transition: var(--transition);
@@ -1167,13 +1177,10 @@ td.vsm-sticky-right {
 }
 .vsm-dialog-header,
 .vsm-dialog-footer {
-    position: sticky;
-    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: var(--gap);
-    background: inherit;
 }
 .vsm-dialog-header {
     align-items: flex-start;
@@ -1222,6 +1229,7 @@ td.vsm-sticky-right {
     overflow: hidden;
     user-select: none;
     touch-action : none;
+    backdrop-filter: blur(32px);
 }
 .vsm-viewer-ul {
     display: flex;
@@ -1250,7 +1258,7 @@ td.vsm-sticky-right {
     overflow: hidden;
     border-radius: var(--radius);
     background: rgba(0,0,0,.15);
-    backdrop-filter: blur(24px);
+    backdrop-filter: blur(32px);
     color: rgba(255,255,255,.5);
     font-size: 1.2em;
     transform: translate(0, -50%);
@@ -1270,7 +1278,7 @@ td.vsm-sticky-right {
     border-radius: 100px;
     background: rgba(0,0,0,.24);
     color: #fafafa;
-    backdrop-filter: blur(24px);
+    backdrop-filter: blur(32px);
     font-size: .8em;
 }
 .vsm-viewer-index {
@@ -1337,7 +1345,7 @@ td.vsm-sticky-right {
     border-radius: var(--radius);
     background: rgba(0,0,0,.24);
     color: #fafafa;
-    backdrop-filter: blur(24px);
+    backdrop-filter: blur(32px);
     transform: translate(-50%, 0);
 }
 
@@ -1422,12 +1430,9 @@ td.vsm-sticky-right {
     top: 50%; left: var(--gap);
     padding: 4px 8px;
     border-radius: var(--radius);
-    background: var(--theme-color);
-    color: var(--theme-color-reverse);
+    background: var(--background-opacity);
     transform: translate(0, -50%);
-}
-.vsm-swiper-arrow:hover {
-    background: var(--theme-color-vice);
+    backdrop-filter: blur(32px);
 }
 .vsm-swiper-arrow-next {
     left: auto;
@@ -1469,7 +1474,7 @@ td.vsm-sticky-right {
     height: 8px;
     background: var(--theme-color-hover);
     color: transparent;
-    border-radius: 50%;
+    border-radius: var(--radius);
 }
 .vsm-swiper-indicator-a.vsm-swiper-active {
     background: var(--color);
