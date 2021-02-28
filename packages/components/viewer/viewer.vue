@@ -64,7 +64,8 @@ let ispc = !('ontouchend' in document);
 let events = {
     start: ispc? 'mousedown': 'touchstart',
     move: ispc? 'mousemove': 'touchmove',
-    end: ispc? 'mouseup': 'touchend'
+    end: ispc? 'mouseup': 'touchend',
+    wheel: ispc? 'mousewheel': 'wheel'
 };
 let wheelTimer = null;
 let pnTimer = null;
@@ -85,12 +86,13 @@ export default {
                 if ( e.ctrlKey ) {
                     // 缩放
                     if (wheelTimer) return;
-                    this.handleZoom(this.oScale + (e.deltaX + e.deltaY) * -0.1);
+                    let scale = (e.deltaX + e.deltaY) > 0? -0.1: 0.1;
+                    this.handleZoom(this.oScale + scale);
                     wheelTimer = setTimeout(() => {
                         wheelTimer = null;
                     }, 120);
                 } else {
-                    // 平移
+                    // 切换
                     delta += e.deltaX;
                     if ( delta > DELTA_THRESHOLD ) {
                         this.handlePN(true);
@@ -105,6 +107,8 @@ export default {
                             delta = 0;
                         }, 800);
                     }
+                    if (e.deltaY > 0) this.handleZoom(false);
+                    if (e.deltaY < 0) this.handleZoom(true);
                 }
             }),
 
@@ -191,7 +195,7 @@ export default {
         handleZoom ( zoom ) {
             if ( !this.zoomable ) return;
             let { current, oScale, oW, minScale, maxScale } = this;
-            let img = this.$refs.img[this.current];
+            let img = this.$refs.img[current];
             if ( this.zooming ) clearTimeout(this.zooming);
 
             let nw = img.naturalWidth;
@@ -338,7 +342,10 @@ export default {
         });
 
         let $ul = this.$refs.ul;
-        if (ispc) $ul.addEventListener('wheel', this.handleWheel);
+        if (ispc) {
+            $ul.addEventListener('wheel', this.handleWheel);
+            $ul.addEventListener('DOMMouseScroll', this.handleWheel);
+        }
         document.addEventListener('keydown', this.handleKeydown);
         $ul.addEventListener(events.start, this.handleDragStart);
         document.addEventListener(events.move, this.handleDrag, { passive: false });
@@ -346,7 +353,10 @@ export default {
     },
     beforeDestroy () {
         let $ul = this.$refs.ul;
-        if (ispc) $ul.removeEventListener('wheel', this.handleWheel);
+        if (ispc) {
+            $ul.removeEventListener('wheel', this.handleWheel);
+            $ul.removeEventListener('DOMMouseScroll', this.handleWheel);
+        }
         document.removeEventListener('keydown', this.handleKeydown);
         $ul.removeEventListener(events.start, this.handleDragStart);
         document.removeEventListener(events.move, this.handleDrag, { passive: false });

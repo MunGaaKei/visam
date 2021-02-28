@@ -6,8 +6,8 @@
     --color: #262223;
     --color-vice: #a1a1a1;
 
-    --theme-color: rgba(0,0,0,.72);
-    --theme-color-vice: rgba(0,0,0,.86);
+    --theme-color: #404040;
+    --theme-color-vice: #313131;
     --theme-color-active: #469af5;
     --theme-color-reverse: #fff;
     --theme-color-hover: #e3e3e3;
@@ -64,6 +64,12 @@
 }
 .theme-dark ::selection{background-color:#ffd832 !important;color:#212121 !important}
 
+@supports not (backdrop-filter: blur(1px)) {
+    :root,
+    .theme-dark {
+        --background-opacity: var(--background);
+    }
+}
   
 article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}
 body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,figure,fieldset,legend,button,img,input,textarea,th,td{margin:0;padding:0;border:0;}
@@ -73,7 +79,7 @@ b,strong{ font-weight: 700; }
 html{ position: relative; height: 100%; background: var(--background); color: var(--color); font: var(--font);  overflow-x: hidden; scroll-behavior: smooth; }
 input, button, textarea, select{ font: inherit; }
 input:-webkit-autofill{ background-color: initial; }
-ul,li,ol{ list-style: none; }
+ul,ol{ list-style: none; }
 img,video,audio,iframe{ display: block; margin: auto; max-height: 100%; max-width: 100%; transition: var(--transition); }
 h1 { font-size: 2.4rem; }
 h2 { font-size: 2rem; }
@@ -84,6 +90,9 @@ h4 { font-size: 1.2rem; }
 
 .vsm-windows ::-webkit-scrollbar{ width: 6px; height: 6px; border-radius: var(--radius); }
 .vsm-windows ::-webkit-scrollbar-thumb{ background-color: var(--scrollbar); border: 1px solid transparent; cursor: pointer; }
+.vsm-windows {
+    --padding: 5px 10px 4px;
+}
 
 .vsm-container {
     position: absolute;
@@ -510,7 +519,6 @@ input[type=number]::-webkit-outer-spin-button {
     position: absolute;
     z-index: 10;
     top: 100%;
-    display: flex;
     text-align: center;
     user-select: none;
     pointer-events: none;
@@ -1229,7 +1237,7 @@ td.vsm-sticky-right {
     overflow: hidden;
     user-select: none;
     touch-action : none;
-    backdrop-filter: blur(32px);
+    background: var(--black);
 }
 .vsm-viewer-ul {
     display: flex;
