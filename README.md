@@ -1,6 +1,6 @@
-# <center>VISAM UI</center>
+# <h1 align="center">VISAM UI</h1>
 
-<b><center>A UI Framework for Vue 2.0</center></b>
+<p align="center"><b>A UI Framework for Vue 2.0</b></p>
 <p align="center">
   <a href="https://www.npmjs.org/package/visam">
     <img src="https://img.shields.io/npm/v/visam.svg">
@@ -21,6 +21,7 @@
 - with developer documentations & demo
 
 <br>
+
 ### INSTALL
 
 ```node
