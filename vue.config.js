@@ -15,9 +15,10 @@ module.exports = {
     chainWebpack: config => {
         config.resolve.alias
         .set('@', resolve('examples'))
-        .set('@visam', resolve('packages'))
+        .set('@visam', resolve('packages'));
+
     },
-    devServer: {
-        host: '0.0.0.0'
-    }
+    // devServer: {
+    //     host: '0.0.0.0'
+    // }
 }

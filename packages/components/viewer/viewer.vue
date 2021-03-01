@@ -90,7 +90,7 @@ export default {
                     this.handleZoom(this.oScale + scale);
                     wheelTimer = setTimeout(() => {
                         wheelTimer = null;
-                    }, 120);
+                    }, 600);
                 } else {
                     // 切换
                     delta += e.deltaX;
@@ -105,15 +105,15 @@ export default {
                         wheelTimer = setTimeout(() => {
                             wheelTimer = null;
                             delta = 0;
-                        }, 800);
+                        }, 1200);
                     }
-                    if (e.deltaY > 0) this.handleZoom(false);
-                    if (e.deltaY < 0) this.handleZoom(true);
+                    if (e.deltaY > 100) this.handleZoom(false);
+                    if (e.deltaY < -100) this.handleZoom(true);
                 }
+                return false;
             }),
 
             oW: 0,
-            oH: 0,
             oL: 0,
             oT: 0,
             scale: 100,
@@ -145,7 +145,6 @@ export default {
             }
             this.scale = Math.round(img.offsetWidth / img.naturalWidth * 100);
             this.oW = img.offsetWidth;
-            this.oH = img.offsetHeight;
             img.style.cssText = this.imgStyle;
         },
         lazyloadImage (img) {
@@ -199,8 +198,11 @@ export default {
             if ( this.zooming ) clearTimeout(this.zooming);
 
             let nw = img.naturalWidth;
+            if (oW === 0) {
+                oW = img.offsetWidth;
+            }
             if (typeof zoom === 'boolean') {
-                let p = nw * .125 / this.oW;
+                let p = nw * .125 / oW;
                 if ( zoom ) {
                     if ( (oScale + p) * oW > nw * maxScale ) {
                         this.oScale = nw * maxScale / oW;

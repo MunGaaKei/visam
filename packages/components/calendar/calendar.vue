@@ -13,7 +13,8 @@
         :class="{
           'vsm-on': show
         }"
-        @click.prevent>
+        @click.prevent
+        @click.self="toggle">
         <div class="vsm-calendar-inner">
           <div class="vsm-calendar-header">
             <a class="vsm-calendar-item"
@@ -208,14 +209,22 @@ export default {
         this.show = !this.show;
         if ( this.show ) {
           let t = new Date(this.currentValue);
-          if (!isNaN(t.getDate())) {
-            this.tYear = t.getFullYear();
-            this.tMonth = t.getMonth();
-            this.date = t.getDate();
+          if ( !isNaN( t.getDate() ) ) {
+            this.setTempDate(t);
           } else {
-            this.date = 0;
+            t = new Date(this.currentValue.split('-').join('/'));
+            if (!isNaN( t.getDate() )) {
+              this.setTempDate(t);
+            } else {
+              this.date = 0;
+            }
           }
         }
+      },
+      setTempDate (t) {
+        this.tYear = t.getFullYear();
+        this.tMonth = t.getMonth();
+        this.date = t.getDate();
       },
       collapse ( e ) {
         if (!this.show || !this.closable) return;

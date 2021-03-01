@@ -2,7 +2,7 @@
     --font: normal 400 14px/1.5 -apple-system, BlinkMacSystemFont, Oxygen, Ubuntu, Cantarell, Consolas, 'Open Sans', 'Helvetica Neue', sans-serif;
     --background: #f0f0f0;
     --background-vice: #ececec;
-    --background-opacity: rgba(255,255,255,.76);
+    --background-opacity: rgba(255,255,255,.15);
     --color: #262223;
     --color-vice: #a1a1a1;
 
@@ -534,6 +534,7 @@ input[type=number]::-webkit-outer-spin-button {
 .vsm-calendar-inner {
     position: relative;
     box-sizing: border-box;
+    margin: auto;
     width: 228px;
     padding: 2px;
     border-radius: var(--radius);
@@ -1254,6 +1255,7 @@ td.vsm-sticky-right {
     cursor: grab;
     flex-shrink: 0;
     transition: all var(--transition-duration) linear;
+    object-fit: contain;
 }
 .vsm-viewer-toolbar {
     position: absolute;
@@ -1628,6 +1630,7 @@ td.vsm-sticky-right {
 @media (max-width: 750px) {
     [class*='vsm-col-'],
     .vsm-n {
+        width: unset;
         flex: 1 1 100%;
     }
     :root {
@@ -1635,5 +1638,16 @@ td.vsm-sticky-right {
     }
     .vsm-viewer-thumbs {
         opacity: 1;
+    }
+    .vsm-calendar {
+        position: fixed;
+        z-index: 100;
+        left: 0; top: 0; right: 0; bottom: 0;
+        display: flex;
+        background: var(--background-opacity);
+        backdrop-filter: blur(32px);
+    }
+    .vsm-calendar-inner {
+        background: var(--background);
     }
 }
