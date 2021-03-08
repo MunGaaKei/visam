@@ -69,11 +69,23 @@ const routes = [{
       default: Docs,
       child: () => import('@/pages/Tab')}
   }, {
+    path: 'progress',
+    name: 'Progress',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Progress')}
+  }, {
     path: 'table',
     name: 'Table',
     components: {
       default: Docs,
       child: () => import('@/pages/Table')}
+  }, {
+    path: 'step',
+    name: 'Step',
+    components: {
+      default: Docs,
+      child: () => import('@/pages/Step')}
   }, {
     path: 'checkbox',
     name: 'Checkbox',

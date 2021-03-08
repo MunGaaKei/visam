@@ -1,6 +1,6 @@
 {
   "name": "visam",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "author": "ithan",
   "main": "lib/visam.umd.js",
   "module": "lib/visam.esm.js",

@@ -71,7 +71,7 @@ export default {
             values: [20, 80],
             marks: [0, 10, 30, 70, 100],
             force: true,
-            params: [{
+            params: Object.freeze([{
                 prop: 'value | v-model',
                 type: 'Number | Array',
                 options: '',
@@ -125,7 +125,7 @@ export default {
                 options: '',
                 default: '',
                 desc: '原生属性'
-            }]
+            }])
         }
     },
     computed: {

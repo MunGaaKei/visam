@@ -68,6 +68,12 @@ export default {
                 default: '',
                 desc: '链接内容，设置改属性时按钮标签以<router-link>形式渲染，否则为<button>'
             }, {
+                prop: 'href',
+                type: 'String',
+                options: '',
+                default: '',
+                desc: '链接内容，设置改属性时按钮标签以<a>形式渲染，否则为<button>'
+            }, {
                 prop: 'type',
                 type: 'String',
                 options: '"button" 及其它原生类型',

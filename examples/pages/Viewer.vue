@@ -14,7 +14,7 @@
     <Codes :codes="code"></Codes>
 
     <h3 class="section-title">参数说明</h3>
-    <p>图片的选项有以下几个选项：</p>
+    <p>图片的选项有以下几个：</p>
     <ul class="options">
         <li><span class="vsm-blue vsm-reverse">img</span>: 图片路径</li>
         <li><span class="vsm-blue vsm-reverse">thumb</span>: 缩略图路径，无则默认取 img 值</li>

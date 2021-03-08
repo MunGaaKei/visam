@@ -53,6 +53,9 @@ const menu = [{
       name: '分页<i>page</i>',
       href: '/page',
     }, {
+      name: '进度条<i>progress</i>',
+      href: '/progress',
+    }, {
       name: '单选框<i>radio</i>',
       href: '/radio',
     }, {
@@ -61,6 +64,9 @@ const menu = [{
     }, {
       name: '滑块<i>slide</i>',
       href: '/slide',
+    }, {
+      name: '步骤<i>step</i>',
+      href: '/step',
     }, {
       name: '轮播<i>swiper</i>',
       href: '/swiper',

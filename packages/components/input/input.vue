@@ -43,12 +43,20 @@
             :spellcheck="spellcheck"
             :autofocus="autofocus"
             :pattern="pattern"
+            :step="step"
             v-on="listeners">
+        <div v-if="clear && currentValue.length" class="vsm-spinners vsm-group-item">
+            <a class="iconfont icon-close vsm-spinner" @click="clearText"></a>
+        </div>
         <div v-if="type === 'number'" class="vsm-spinners vsm-group-item">
             <a class="iconfont icon-add vsm-spinner" @click="increase"></a>
         </div>
         <slot name="append"></slot>
       </vsm-group>
+
+      <div class="vsm-input-suggestion">
+          
+      </div>
 
   </label>
 </template>
@@ -89,6 +97,7 @@ export default {
             type: Number | String,
             default: 3
         },
+        clear: Boolean,
     },
     data () {
         return {
@@ -114,11 +123,15 @@ export default {
             this.$emit('input', val, e);
         },
         increase (e) {
+            console.log(this.step, this.currentValue, this.currentValue.length);
             this.setValue(Number(this.currentValue) + Number(this.step), e);
         },
         decrease (e) {
             this.setValue(Number(this.currentValue) - Number(this.step), e);
         },
+        clearText (e) {
+            this.setValue( '', e );
+        }
     },
     watch: {
         value (value) {

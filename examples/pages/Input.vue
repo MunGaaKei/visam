@@ -8,6 +8,7 @@
       name="username"
       label="用户名"
       inline
+      clear
       placeholder="请输入用户名"
       class="vsm-col-5"></vsm-input>
     <Codes :codes="codes0"></Codes>
@@ -59,6 +60,7 @@ export default {
   v-model="username"
   name="username"
   label="用户名"
+  clear
   inline
   placeholder="请输入用户名"></vsm-input>`,
       codes1: `<vsm-input
@@ -126,6 +128,12 @@ export default {
         type: 'Number',
         options: '',
         default: '3'
+      }, {
+        prop: 'clear',
+        desc: '显示清除按钮',
+        type: 'Boolean',
+        options: '',
+        default: 'false'
       }, {
         prop: 'step',
         desc: '数字类型时，计数器步长',

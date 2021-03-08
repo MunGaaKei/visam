@@ -20,12 +20,14 @@ import List from './components/list/index';
 import Radio from './components/radio/index';
 import Select from './components/select/index';
 import Slider from './components/slider/index';
+import Step from './components/step/index';
 import Swiper from './components/swiper/index';
 import SwiperItem from './components/swiper-item/index';
 import Table from './components/table/index';
 import Tabs from './components/tabs/index';
 import Tree from './components/tree/index';
 import Page from './components/page/index';
+import Progress from './components/progress/index';
 
 import vTooltip from './directives/v-tooltip/index';
 import vLazy from './directives/v-lazy/index';
@@ -54,12 +56,14 @@ const components = [
     Radio,
     Select,
     Slider,
+    Step,
     Swiper,
     SwiperItem,
     Table,
     Tabs,
     Tree,
     Page,
+    Progress
 ];
 
 const directives = [
@@ -108,12 +112,14 @@ export default {
     Radio,
     Select,
     Slider,
+    Step,
     Swiper,
     SwiperItem,
     Table,
     Tabs,
     Tree,
     Page,
+    Progress,
     vTooltip,
     vLazy
 }

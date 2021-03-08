@@ -53,7 +53,7 @@ export default {
                 value: 'Foo'
             }, 'Bar', 'Baz', 'Qux'],
             options1: ['Foo', 'Bar', 'Baz', 'Qux'],
-            params: [{
+            params: Object.freeze([{
                 prop: 'value | v-model',
                 type: 'String | Array | Number',
                 options: '',
@@ -169,7 +169,7 @@ export default {
                 default: '',
                 desc: '监听选项框打开关闭，参数（show)',
                 event: true
-            }],
+            }]),
             cursor: 1,
         }
     },

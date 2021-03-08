@@ -86,7 +86,7 @@ export default {
                 if ( e.ctrlKey ) {
                     // 缩放
                     if (wheelTimer) return;
-                    let scale = (e.deltaX + e.deltaY) > 0? -0.1: 0.1;
+                    let scale = (e.deltaX + e.deltaY) > 0? -0.2: 0.2;
                     this.handleZoom(this.oScale + scale);
                     wheelTimer = setTimeout(() => {
                         wheelTimer = null;

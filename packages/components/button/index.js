@@ -13,6 +13,7 @@ const Button = {
       loading: Boolean,
       small: Boolean,
       disabled: Boolean,
+      href: String
     },
     data () {
       return {
@@ -30,11 +31,12 @@ const Button = {
       return h(this.tag, {
         staticClass: 'vsm-btn',
         props: {
-          to: this.to
+          to: this.to || this.href
         },
         attrs: {
           type: this.btnType,
-          disabled: this.disabled? 'disabled': false
+          disabled: this.disabled? 'disabled': false,
+          href: this.href
         },
         class: [{
           'vsm-plain': this.plain,
@@ -57,6 +59,9 @@ const Button = {
         let tag = 'button';
         if ( this.to ) {
           tag = 'router-link';
+          this.btnType = false;
+        } else if ( this.href ) {
+          tag = 'a';
           this.btnType = false;
         } else {
           this.btnType = getDefault(this.btnType, ['button', 'submit', 'reset'], 'button');

@@ -153,6 +153,7 @@ h4 { font-size: 1.2rem; }
 }
 .vsm-label-inline,
 .vsm-label-input {
+    position: relative;
     display: block;
     flex: 1 1 0;
     align-self: flex-start;
@@ -206,6 +207,7 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
 }
 .vsm-textarea {
+    display: block;
     transition: var(--transition), width 0s, height 0s;
     max-width: 100%;
     resize: none;
@@ -215,6 +217,7 @@ input[type=number]::-webkit-outer-spin-button {
     padding: var(--padding);
     border: 1px solid transparent;
     background: var(--input);
+    white-space: nowrap;
 }
 .vsm-spinners {
     display: flex;
@@ -919,6 +922,150 @@ a.vsm-calendar-item.vsm-on {
     border-radius: 3px;
     background: inherit;
     transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.vsm-steps {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+}
+.vsm-step {
+    position: relative;
+    z-index: 1;
+    padding: var(--gap);
+    border-radius: var(--radius);
+    opacity: .4;
+}
+.vsm-step-split {
+    margin: calc(var(--gap) + 1em) 0;
+    color: var(--color);
+    pointer-events: none;
+    opacity: .4;
+    transition: var(--transition);
+}
+.vsm-step-split.vsm-step-finished {
+    color: var(--theme-color-active);
+    border-color: var(--theme-color-active);
+}
+.vsm-step-line {
+    flex: 1 1 auto;
+    border-bottom: 2px dashed var(--color-vice);
+    border-left: 2px dashed var(--color-vice);
+}
+.vsm-step-arrow {
+    margin: var(--gap) 0;
+    font-size: 1.5em;
+}
+.vsm-step:hover,
+.vsm-step.vsm-on {
+    opacity: 1;
+}
+.vsm-step:hover {
+    background: var(--theme-color-hover);
+}
+.vsm-step.vsm-on,
+.vsm-step-finished {
+    color: var(--theme-color-active);
+}
+.vsm-on > .vsm-step-icon {
+    border-color: var(--theme-color-active);
+}
+.vsm-step-icon {
+    font-size: 2em;
+    line-height: 1em;
+    border-radius: 50%;
+    font-weight: 600;
+}
+.vsm-step-icon + .vsm-step-title {
+    margin-top: .5em;
+}
+.vsm-step-title {
+    font-size: 1.2em;
+}
+.vsm-step-content {
+    opacity: 0.72;
+}
+.vsm-rows > .vsm-step-line {
+    margin: 0 var(--gap);
+    flex: 1 1 2em;
+}
+.vsm-rows > .vsm-step-arrow {
+    padding: var(--gap);
+}
+
+.vsm-progress-label {
+    margin: 0 var(--gap) 0 0;
+    align-self: center;
+}
+.vsm-progress {
+    position: relative;
+    flex: 1 1 auto;
+    align-self: center;
+    border-radius: var(--radius);
+    display: flex;
+    background: var(--theme-color-hover);
+    min-height: 2px;
+    transition: var(--transition);
+}
+.vsm-progress-clickable {
+    cursor: pointer;
+}
+.vsm-bar {
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
+    background: var(--theme-color);
+    color: var(--theme-color-reverse);
+    border-radius: inherit;
+    transition: var(--transition);
+}
+.vsm-bar-dragging {
+    transition: none;
+}
+.vsm-bar-buffer {
+    position: absolute;
+    left: 0; bottom: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--theme-color);
+    opacity: 0.4;
+}
+.vsm-rows > .vsm-progress {
+    flex-direction: column-reverse;
+}
+.vsm-bar-btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    padding: 0 2px;
+    display: flex;
+    transform: translate(50%, -50%) scale(0);
+    background: inherit;
+    border-radius: inherit;
+    transform-origin: 50% 50%;
+}
+.vsm-progress:hover .vsm-bar-btn {
+    transform: translate(50%, -50%) scale(1);
+}
+.vsm-bar-dragging > .vsm-bar-btn {
+    box-shadow: var(--shadow);
+    transform: translate(50%, -50%) scale(1);
+}
+.vsm-bar-animation {
+    position: absolute;
+    left: 0; top: 0;
+    right: 0; bottom: 0;
+    border-radius: inherit;
+    width: auto;
+    will-change: left, right;
+    animation: bar-animating 2s linear infinite;
+}
+@keyframes bar-animating {
+    0% { left: 0%; right: 100%; }
+    20% { left: 10%; right: 50%; }
+    40% { left: 40%; right: 10%; }
+    70% { left: 80%; right: 0%; }
+    100% { left: 100%; right: 0%; }
 }
 
 .vsm-table {
@@ -1634,7 +1781,7 @@ td.vsm-sticky-right {
         flex: 1 1 100%;
     }
     :root {
-        --padding: 5px 12px 4px;
+        --padding: 4px 10px;
     }
     .vsm-viewer-thumbs {
         opacity: 1;
