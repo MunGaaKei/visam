@@ -1,7 +1,7 @@
 {
   "name": "visam",
   "version": "1.1.7",
-  "author": "ithan",
+  "author": "iann",
   "main": "lib/visam.umd.js",
   "module": "lib/visam.esm.js",
   "keyword": "visam",

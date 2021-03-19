@@ -59,7 +59,8 @@ Vue.use(vsmButton);
 <br>
 
 ### DOCUMENTATION
-You can find all of the functions、components & api only by downloading this repository at present.
+*[Developer Documentation](http://iannism.art:27149)*
+You can also find out all of the functions、components & api by downloading this repository at present.
 
 ```node
 npm i

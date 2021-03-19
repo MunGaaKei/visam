@@ -1679,7 +1679,7 @@ td.vsm-sticky-right {
 }
 .vsm-loading:before,
 .vsm-loading:after {
-    content: '⬤';
+    content: '●';
     font-size: .8em;
     line-height: 1;
     transform: scale(0);
