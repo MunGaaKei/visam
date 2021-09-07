@@ -515,7 +515,6 @@ input[type=number]::-webkit-outer-spin-button {
     z-index: 1;
     top: 0;
     height: 100%; width: 4px;
-    border-radius: inherit;
     background: var(--background);
 }
 .vsm-calendar {

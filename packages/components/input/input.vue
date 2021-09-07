@@ -11,7 +11,7 @@
             'vsm-disabled': disabled
         }"
         :name="name"
-        v-model="currentValue"
+        :value="val"
         :placeholder="placeholder"
         :readonly="readonly"
         :disabled="disabled"
@@ -32,8 +32,7 @@
             :class="{
                 'vsm-disabled': disabled,
             }"
-            v-model="currentValue"
-            :value="value"
+            :value="val"
             :name="name"
             :type="type"
             :placeholder="placeholder"
@@ -45,7 +44,7 @@
             :pattern="pattern"
             :step="step"
             v-on="listeners">
-        <div v-if="clear && currentValue.length" class="vsm-spinners vsm-group-item">
+        <div v-if="clear && value.length" class="vsm-spinners vsm-group-item">
             <a class="iconfont icon-close vsm-spinner" @click="clearText"></a>
         </div>
         <div v-if="type === 'number'" class="vsm-spinners vsm-group-item">
@@ -53,10 +52,6 @@
         </div>
         <slot name="append"></slot>
       </vsm-group>
-
-      <div class="vsm-input-suggestion">
-          
-      </div>
 
   </label>
 </template>
@@ -108,34 +103,47 @@ export default {
         listeners () {
             const vm = this;
             return Object.assign({}, this.$listeners, {
-                input (e) { vm.setValue(vm.currentValue, e); },
+                input (e) {
+                    var $input = e.target;
+                    var val = $input.value;
+                    if ( vm.type === 'number' ) {
+                        val = vm.checkRange(val, vm.min, vm.max);
+                        $input.value = val;
+                    }
+                    vm.setValue(val, e);
+                },
             });
+        },
+        val: {
+            get () {
+                return this.value;
+            },
+            set ( val ) {
+                this.$emit('input', val);
+            }
         }
     },
     methods: {
         setValue ( val, e ) {
             if ( this.type === 'number' ) {
-                val = this.max? Math.min(this.max, val): val;
-                val = this.min? Math.max(this.min, val): val;
+                val = this.checkRange(val, this.min, this.max);
+                this.currentValue = val;
             }
-            
-            this.currentValue = val;
             this.$emit('input', val, e);
         },
+        checkRange (val, min, max) {
+            val = max? Math.min(max, val): val;
+            val = min? Math.max(min, val): val;
+            return val;
+        },
         increase (e) {
-            console.log(this.step, this.currentValue, this.currentValue.length);
             this.setValue(Number(this.currentValue) + Number(this.step), e);
         },
         decrease (e) {
             this.setValue(Number(this.currentValue) - Number(this.step), e);
         },
         clearText (e) {
-            this.setValue( '', e );
-        }
-    },
-    watch: {
-        value (value) {
-            this.setValue(value);
+            this.setValue('', e);
         }
     },
     components: {
@@ -143,7 +151,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>
