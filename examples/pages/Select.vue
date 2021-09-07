@@ -3,6 +3,8 @@
         <h2>选择框</h2>
 
         <h3 class="section-title">使用</h3>
+        <p>注意，这里使用 <code class="vsm-blue vsm-reverse">filter</code> 属性，当通过输入改变值时，选项列表会过滤掉不匹配该值的其余选项。</p>
+        <br>
         <vsm-select
             class="vsm-col-33"
             v-model="value"
@@ -52,7 +54,10 @@ export default {
                 label: '默认',
                 value: 'Foo'
             }, 'Bar', 'Baz', 'Qux'],
-            options1: ['Foo', 'Bar', 'Baz', 'Qux'],
+            options1: [{
+                label: '默认',
+                value: 'Foo'
+            }, 'Bar', 'Baz', 'Qux'],
             params: Object.freeze([{
                 prop: 'value | v-model',
                 type: 'String | Array | Number',
@@ -215,7 +220,10 @@ export default {
   data () {
     return {
         values: [],
-        options: ['Foo', 'Bar', 'Baz', 'Qux']
+        options: [{
+            label: '默认',
+            value: 'Foo'
+        }, 'Bar', 'Baz', 'Qux']
     }
   }
 }

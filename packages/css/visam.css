@@ -51,10 +51,10 @@
     --color: #f3f3f3;
     --color-vice: #6a6a6a;
 
-    --theme-color: #ffd832;
-    --theme-color-vice: #fcea4d;
-    --theme-color-active: #e7d535;
-    --theme-color-reverse: #212121;
+    --theme-color: #3a9dff;
+    --theme-color-vice: #2893ff;
+    --theme-color-active: #2a8aeb;
+    --theme-color-reverse: #fff;
     --theme-color-hover: #3a3a3a;
     --shadow: 0 0 16px rgba(0,0,0,.4);
 
@@ -261,7 +261,7 @@ input[type=number]::-webkit-outer-spin-button {
     box-sizing: border-box;
     min-width: 100%;
     max-height: 30vh;
-    background: var(--background-opacity);
+    background: var(--background);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     transition: var(--transition);
@@ -716,6 +716,7 @@ a.vsm-calendar-item.vsm-on {
     user-select: none;
     scroll-behavior: initial;
     border-radius: var(--radius);
+    color: var(--color-vice);
 }
 .vsm-tabs-vertical > .vsm-tabs-navs {
     flex-direction: column;
@@ -734,12 +735,12 @@ a.vsm-calendar-item.vsm-on {
     justify-content: center;
     flex-shrink: 0;
     padding: 4px 10px;
-    color: var(--color-vice);
-    border: 1px solid transparent;
+    /* border: 1px solid transparent; */
     border-radius: inherit;
     cursor: pointer;
     outline: none;
     transition: var(--transition);
+    overflow: hidden;
 }
 .vsm-tabs-nav-title {
     white-space: nowrap;
@@ -752,20 +753,23 @@ a.vsm-calendar-item.vsm-on {
 }
 .vsm-tabs-nav .vsm-close {
     position: absolute;
-    right: 4px;
-    width: 1.5em;
-    line-height: 1.5em;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
     background: var(--background);
     color: var(--color);
-    border-radius: inherit;
-    transform: scale(0);
+    transform: translateX(100%);
     font-size: .8em;
-    box-shadow: var(--shadow);
 }
 .vsm-tabs-nav:hover .vsm-close {
     transition: var(--transition) .4s;
-    transform: scale(1);
+    transform: none;
+    box-shadow: var(--shadow);
 }
 .vsm-tabs-nav[disabled] {
     pointer-events: none;

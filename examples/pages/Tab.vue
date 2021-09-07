@@ -7,16 +7,21 @@
       :closable="tabProps.includes('closable')"
       :bar="tabProps.includes('bar')"
       :color="color"
+      :background="background"
+      :activeColor="activeColor"
+      :activeBackground="activeBackground"
       :round="tabProps.includes('round')"
       :align="align"
       :reverse="tabProps.includes('reverse')"
-      :plain="tabProps.includes('plain')"
       v-model="activeTab">
     </vsm-tabs>
     <br>
     <div class="vsm-cols">
       <div class="vsm-col-3">
-        <vsm-select v-model="color" :options="colorOptions" label="颜色" inline readonly placeholder="默认"></vsm-select>
+        <vsm-select v-model="color" :options="colorOptions" label="导航条字体色" inline readonly placeholder="默认"></vsm-select>
+        <vsm-select v-model="background" :options="colorOptions" label="导航条背景颜色" inline readonly placeholder="默认"></vsm-select>
+        <vsm-select v-model="activeColor" :options="colorOptions" label="激活项字体色" inline readonly placeholder="默认"></vsm-select>
+        <vsm-select v-model="activeBackground" :options="colorOptions" label="激活项背景色" inline readonly placeholder="默认"></vsm-select>
         <vsm-select v-model="align" :options="alignOptions" label="位置" inline readonly placeholder="默认居左"></vsm-select>
       </div>
       <vsm-checkbox v-model="tabProps" :options="tabOptions" type="slide"></vsm-checkbox>
@@ -33,7 +38,8 @@
       center-active
       bar-width="auto"
       bar-color="#258de6"
-      color="blue"
+      activeBackground="transparent"
+      activeColor="var(--blue)"
       @change="handleChange"></vsm-tabs>
     <Codes :codes="codes1"></Codes>
     <br><br>
@@ -42,8 +48,6 @@
       v-model="activeTab"
       vertical
       background="#212121"
-      color="white"
-      plain
     >
       <Codes :codes="codes2" show></Codes>
     </vsm-tabs>
@@ -68,10 +72,21 @@ export default {
           { label: '下滑条', value: 'bar' },
           { label: '圆角', value: 'round' },
           { label: '边框', value: 'reverse' },
-          { label: '平白显示', value: 'plain' },
         ],
         color: '',
-        align: 'center',
+        background: '',
+        activeColor: '',
+        activeBackground: '',
+        colorOptions: [
+          { label: '默认', value: '' },
+          { label: '黑色', value: '#000' },
+          { label: '白色', value: '#fff' },
+          { label: '蓝色', value: 'var(--blue)' },
+          { label: '红色', value: 'var(--red)' },
+          { label: '绿色', value: 'var(--green)' },
+          { label: '黄色', value: 'var(--yellow)' }
+        ],
+        align: '',
         alignOptions: [
           { label: '默认居左', value: '' },
           { label: '居中', value: 'center' },
@@ -142,7 +157,7 @@ export default {
           type: 'String',
           options: '',
           default: '',
-          desc: '标签页激活项颜色'
+          desc: '标签页字体颜色'
         }, {
           prop: 'background',
           type: 'String',
@@ -150,17 +165,23 @@ export default {
           default: '',
           desc: '标签页导航条背景色'
         }, {
+          prop: 'activeColor',
+          type: 'String',
+          options: '',
+          default: '',
+          desc: '标签激活项字体色'
+        }, {
+          prop: 'activeBackground',
+          type: 'String',
+          options: '',
+          default: '',
+          desc: '标签激活项背景色'
+        }, {
           prop: 'reverse',
           type: 'Boolean',
           options: '',
           default: 'false',
-          desc: '类似按钮，可搭配color'
-        }, {
-          prop: 'plain',
-          type: 'Boolean',
-          options: '',
-          default: 'false',
-          desc: '类似按钮，可搭配color，取消背景色'
+          desc: '边框'
         }, {
           prop: 'round',
           type: 'Boolean',
@@ -257,8 +278,10 @@ ${this.tabProps.includes('closable')? ' \r\n  closable': ''}\
 ${this.tabProps.includes('bar')? ' \r\n  bar': ''}\
 ${this.tabProps.includes('round')? ' \r\n  round': ''}\
 ${this.tabProps.includes('reverse')? ' \r\n  reverse': ''}\
-${this.tabProps.includes('plain')? ' \r\n  plain': ''}\
 ${this.color? ` \r\n  color="${this.color}"`: ''}\
+${this.background? ` \r\n  background="${this.background}"`: ''}\
+${this.activeColor? ` \r\n  activeColor="${this.activeColor}"`: ''}\
+${this.activeBackground? ` \r\n  activeBackground="${this.activeBackground}"`: ''}\
 ${this.align? ` \r\n  align="${this.align}"`: ''}>
 </vsm-tabs>
 
@@ -282,7 +305,8 @@ export default {
   center-active
   bar-color="#258de6"
   bar-width="auto"
-  color="blue"
+  activeBackground="transparent"
+  activeColor="var(--blue)"
   @change="handleChange"></vsm-tabs>
 
 <\script>
@@ -320,7 +344,6 @@ export default {
   vertical
   background="#212121"
   color="white"
-  plain
 >
   Codes
 </vsm-tabs>
@@ -334,13 +357,7 @@ export default {
     }
   }
 }
-</\script>
-
-<style>
-.vsm-tabs-vertical > .vsm-tabs-navs {
-  padding-right: 12px;
-}
-</style>`;
+</\script>`;
       }
     }
 }
@@ -359,8 +376,5 @@ export default {
 .vsm-tabs > .codes {
   margin: 0 0 0 1em;
   flex: 1;
-}
-.vsm-tabs-vertical > .vsm-tabs-navs {
-  padding-right: var(--gap);
 }
 </style>

@@ -15,7 +15,7 @@
         >
           <input type="text" ref="input"
             v-model="multipleValue"
-            v-show="!displayValue.length || (filter && show)"
+            v-show="!multiValues.length || (filter && show)"
             :readonly="!filter"
             :placeholder="placeholder"
             :disabled="disabled"
@@ -24,7 +24,7 @@
           <template v-if="multiple">
             <a class="vsm-chip"
               contenteditable="false"
-              v-for="(dv, i) in displayValue"
+              v-for="(dv, i) in multiValues"
               :key="i"
               v-html="dv.label"
               @click.stop="select(dv, $event)"></a>
@@ -34,7 +34,7 @@
         <input
           v-else
           class="vsm-input vsm-group-item"
-          v-model="currentValue"
+          :value="displayValue"
           type="text"
           :name="name"
           :readonly="readonly"
@@ -111,6 +111,7 @@ export default {
   },
   data () {
     return {
+      currentOption: null,
       currentValue: this.value || (this.multiple? []: ''),
       show: this.showOptions,
       editable: this.readonly? false: 'plain-text',
@@ -122,10 +123,16 @@ export default {
     }
   },
   computed: {
+    displayValue () {
+      return this.currentOption?.label || this.currentValue;
+    },
     listeners () {
         const vm = this;
         return Object.assign({}, this.$listeners, {
-            input (e) { vm.$emit('input', vm.currentValue, e); },
+            input (e) {
+              var $input = e.target;
+              vm.$emit('input', $input.value, e);
+            },
             click (e) {
               vm.closable = false;
               vm.toggle();
@@ -145,7 +152,7 @@ export default {
             },
         });
     },
-    displayValue () {
+    multiValues () {
       if (this.multiple) {
         let res = [];
         this.currentValue.map(value => {
@@ -182,6 +189,7 @@ export default {
         this.setValue(this.currentValue, e);
         this.$refs.input.focus();
       } else {
+        this.currentOption = opt;
         this.setValue(opt.value, e);
         this.show = false;
       }
@@ -225,6 +233,7 @@ export default {
   watch: {
     value (value) {
       this.currentValue = value;
+      this.currentOption = this.opts.find(opt => opt.value === value);
     },
     options (value) {
       this.opts = this.formatOptions(value);

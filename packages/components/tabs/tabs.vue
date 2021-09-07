@@ -8,14 +8,18 @@
                 align? `vsm-align-${align}`: '',
                 round? `vsm-round`: ''
             ]"
-            :style="background? `background:${background};`: ''"
+            :style="navsStyle"
             @mousedown="dragStart"
             ref="navs">
             <div class="vsm-tabs-nav"
                 ref="nav"
                 v-for="(nav, i) in navs"
                 :key="i"
-                :class="activeClasses(i)"
+                :class="{
+                    'vsm-tabs-nav-active': activeTab === i,
+                    'vsm-reverse': reverse && activeTab === i
+                }"
+                :style="activeTab === i? activeStyle: ''"
                 @click="switchTab(i, $event)"
             >
                 <div class="vsm-tabs-nav-title" v-html="nav.title"></div>
@@ -62,12 +66,13 @@ export default {
 
         background: String,
         color: String,
+        activeBackground: String,
+        activeColor: String,
         closable: Boolean,
         vertical: Boolean,
         centerActive: Boolean,
         round: Boolean,
         align: String,
-        plain: Boolean,
         reverse: Boolean,
         navWidth: String,
 
@@ -99,6 +104,18 @@ export default {
                     title: tab
                 }: tab;
             });
+        },
+        navsStyle () {
+            let { background, color } = this;
+            let css = background? `background: ${background};`: '';
+            css += color? `color: ${color};`: '';
+            return css;
+        },
+        activeStyle () {
+            let { activeBackground, activeColor } = this;
+            let css = activeBackground? `background: ${activeBackground};`: '';
+            css += activeColor? `color: ${activeColor};`: '';
+            return css;
         },
         barW () {
             return this.barWidth || (this.vertical? 4: 24);
@@ -178,18 +195,7 @@ export default {
                 left: $nav.offsetLeft - ($navs.offsetWidth - $nav.offsetWidth)/2,
                 behavior: 'smooth'
             });
-        },
-        activeClasses (i) {
-            return this.activeTab === i?
-                [
-                    'vsm-tabs-nav-active',
-                    this.color? `vsm-${this.color}`: '',
-                    {
-                        'vsm-plain': this.plain,
-                        'vsm-reverse': this.reverse
-                    }
-                ]: '';
-        },
+        }
     },
 
     mounted () {
