@@ -74,6 +74,12 @@ export default {
                 default: 'false',
                 desc: '是否垂直排列',
             }, {
+                prop: 'full',
+                type: 'Boolean',
+                options: '',
+                default: 'false',
+                desc: '表现为一个绝对定位的宽高均为100%的容器',
+            }, {
                 prop: 'align',
                 type: 'String',
                 options: 'center | evenly | justify | right',

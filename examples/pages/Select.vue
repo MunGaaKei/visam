@@ -13,6 +13,7 @@
             label="选择框"
             placeholder="请选择"
             filter
+            hideSpinner
             ></vsm-select>
         <div class="vsm-content" v-if="value">值：{{ value }}</div>
         
@@ -154,6 +155,12 @@ export default {
                 options: '',
                 default: 'false',
                 desc: '拼写检查'
+            }, {
+                prop: 'hide-spinner',
+                type: 'Boolean',
+                options: '',
+                default: 'false',
+                desc: '隐藏倒三角'
             }, {
                 prop: 'autocomplete',
                 type: 'String',

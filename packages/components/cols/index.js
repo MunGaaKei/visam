@@ -7,20 +7,22 @@ const Cols = {
       height: String,
       width: String,
       gap: Boolean,
+      full: Boolean,
       tag: {
         type: String,
         default: 'div'
       }
     },
     render (h) {
-      let { tag, verticle, align, nowrap, gap, height, width } = this;
+      let { tag, verticle, align, nowrap, gap, height, width, full } = this;
       return h(tag, {
         class: [
           verticle? 'vsm-rows': 'vsm-cols',
           align? `vsm-align-${align}`: '',
           {
             'vsm-nowrap': nowrap,
-            'vsm-gapped': gap
+            'vsm-gapped': gap,
+            'vsm-container': full
           }
         ],
         style: {
