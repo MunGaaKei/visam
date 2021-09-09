@@ -14,7 +14,7 @@
             <div class="vsm-tabs-nav"
                 ref="nav"
                 v-for="(nav, i) in navs"
-                :key="i"
+                :key="nav.tid"
                 :class="{
                     'vsm-tabs-nav-active': activeTab === i,
                     'vsm-reverse': reverse && activeTab === i
@@ -100,9 +100,16 @@ export default {
     computed: {
         navs () {
             return this.tabs.map(tab => {
-                return typeof tab === 'string'? {
+                tab = typeof tab === 'string'? {
                     title: tab
                 }: tab;
+                tab.tid = (() => {
+                    return 'xxxxxxxx-xxxx-yxxx'.replace(/[xy]/g, function(c) {
+                        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                        return v.toString(16);
+                    });
+                })();
+                return tab;
             });
         },
         navsStyle () {
@@ -122,7 +129,7 @@ export default {
         },
         barH () {
             return this.barHeight || (this.vertical? 16: 4);
-        },
+        }
     },
     methods: {
         switchTab (i, e) {
@@ -132,10 +139,15 @@ export default {
             this.$emit('change', i, e);
         },
         closeTab (i) {
+            let { activeTab } = this;
             this.$emit('close', i, this.navs[i]);
             this.navs.splice(i, 1);
-
-            this.activeTab === i && this.switchTab( i - 1 < 0? 0: --i );
+            this.$forceUpdate();
+            if (i < activeTab ) {
+                this.activeTab -= 1;
+            } else if (i === activeTab ) {
+                this.switchTab( i - 1 < 0? i: i - 1 );
+            }
         },
         dragStart (e) {
             this.dragPosX = e.pageX;

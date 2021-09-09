@@ -765,11 +765,13 @@ a.vsm-calendar-item.vsm-on {
     color: var(--color);
     transform: translateX(100%);
     font-size: .8em;
+    opacity: 0;
 }
 .vsm-tabs-nav:hover .vsm-close {
     transition: var(--transition) .4s;
     transform: none;
     box-shadow: var(--shadow);
+    opacity: 1;
 }
 .vsm-tabs-nav[disabled] {
     pointer-events: none;
