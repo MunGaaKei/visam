@@ -1,635 +1,772 @@
 :root {
-    --font: normal 400 14px/1.5 -apple-system, BlinkMacSystemFont, Oxygen, Ubuntu, Cantarell, Consolas, 'Open Sans', 'Helvetica Neue', sans-serif;
-    --background: #f0f0f0;
-    --background-vice: #ececec;
-    --background-opacity: rgba(255,255,255,.15);
-    --color: #262223;
-    --color-vice: #a1a1a1;
+  --font: normal 400 14px/1.5 -apple-system, BlinkMacSystemFont, Oxygen, Ubuntu,
+    Cantarell, Consolas, "Open Sans", "Helvetica Neue", sans-serif;
+  --background: #f0f0f0;
+  --background-vice: #ececec;
+  --background-opacity: rgba(255, 255, 255, 0.15);
+  --color: #262223;
+  --color-vice: #a1a1a1;
 
-    --theme-color: #404040;
-    --theme-color-vice: #313131;
-    --theme-color-active: #469af5;
-    --theme-color-reverse: #fff;
-    --theme-color-hover: #e3e3e3;
+  --theme-color: #404040;
+  --theme-color-vice: #313131;
+  --theme-color-active: #469af5;
+  --theme-color-reverse: #fff;
+  --theme-color-hover: #e3e3e3;
 
-    --gap: 12px;
-    --padding: 5px 12px;
-    --breakpoint: 640px;
-    
-    --radius: 3px;
-    --transition-duration: 240ms;
-    --transition: var(--transition-duration) ease;
-    --shadow: 0 4px 12px rgba(0,0,0,.15);
-    --scrollbar: #dadada;
+  --gap: 12px;
+  --padding: 5px 12px;
+  --breakpoint: 640px;
 
-    --input: #e3e3e3;
-    --input-hover: #dcdcdc;
+  --radius: 3px;
+  --transition-duration: 240ms;
+  --transition: var(--transition-duration) ease;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --scrollbar: #dadada;
 
-    --black: #1a1a1a;
-    --black-vice: #000;
+  --input: #e3e3e3;
+  --input-hover: #dcdcdc;
 
-    --white: #fff;
-    --white-vice: #fafafa;
+  --black: #1a1a1a;
+  --black-vice: #000;
 
-    --blue: #258de6;
-    --blue-vice: #1b96ff;
+  --white: #fff;
+  --white-vice: #fafafa;
 
-    --yellow: #ffd832;
-    --yellow-vice: #f7ce1a;
+  --blue: #258de6;
+  --blue-vice: #1b96ff;
 
-    --green: #19be6b;
-    --green-vice: #37c574;
+  --yellow: #ffd832;
+  --yellow-vice: #f7ce1a;
 
-    --red: #fd5174;
-    --red-vice: #f14164;
+  --green: #19be6b;
+  --green-vice: #37c574;
+
+  --red: #fd5174;
+  --red-vice: #f14164;
 }
 
 .theme-dark {
-    --background: #2a2a2a;
-    --background-vice: #313131;
-    --background-opacity: rgba(0,0,0,.4);
-    --color: #f3f3f3;
-    --color-vice: #6a6a6a;
+  --background: #2a2a2a;
+  --background-vice: #313131;
+  --background-opacity: rgba(0, 0, 0, 0.4);
+  --color: #f3f3f3;
+  --color-vice: #6a6a6a;
 
-    --theme-color: #3a9dff;
-    --theme-color-vice: #2893ff;
-    --theme-color-active: #2a8aeb;
-    --theme-color-reverse: #fff;
-    --theme-color-hover: #3a3a3a;
-    --shadow: 0 0 16px rgba(0,0,0,.4);
+  --theme-color: #3a9dff;
+  --theme-color-vice: #2893ff;
+  --theme-color-active: #2a8aeb;
+  --theme-color-reverse: #fff;
+  --theme-color-hover: #3a3a3a;
+  --shadow: 0 0 16px rgba(0, 0, 0, 0.4);
 
-    --input: #393939;
-    --input-hover: #414141;
-    --scrollbar: #5a5a5a;
+  --input: #393939;
+  --input-hover: #414141;
+  --scrollbar: #5a5a5a;
 }
-.theme-dark ::selection{background-color:#ffd832 !important;color:#212121 !important}
+.theme-dark ::selection {
+  background-color: #ffd832 !important;
+  color: #212121 !important;
+}
 
 @supports not (backdrop-filter: blur(1px)) {
-    :root,
-    .theme-dark {
-        --background-opacity: var(--background);
-    }
+  :root,
+  .theme-dark {
+    --background-opacity: var(--background);
+  }
 }
-  
-article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}
-body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,figure,fieldset,legend,button,img,input,textarea,th,td{margin:0;padding:0;border:0;}
-h1,h2,h3,h4,h5,h6,p,article,section,body{line-height: 1.5}
-a{ color: inherit; text-decoration: none; cursor: pointer; transition: var(--transition); }
-b,strong{ font-weight: 700; }
-html{ position: relative; height: 100%; background: var(--background); color: var(--color); font: var(--font);  overflow-x: hidden; scroll-behavior: smooth; }
-input, button, textarea, select{ font: inherit; }
-input:-webkit-autofill{ background-color: initial; }
-ul,ol{ list-style: none; }
-img,video,audio,iframe{ display: block; margin: auto; max-height: 100%; max-width: 100%; transition: var(--transition); }
-h1 { font-size: 2.4rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.2rem; }
-.iconfont{ font-size: 1em; }
-::selection{background-color:#ffd57b !important;color:#2a2a2a !important}
 
-.vsm-windows ::-webkit-scrollbar{ width: 6px; height: 6px; border-radius: var(--radius); }
-.vsm-windows ::-webkit-scrollbar-thumb{ background-color: var(--scrollbar); border: 1px solid transparent; cursor: pointer; }
+article,
+aside,
+dialog,
+footer,
+header,
+section,
+footer,
+nav,
+figure,
+menu {
+  display: block;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+figure,
+fieldset,
+legend,
+button,
+img,
+input,
+textarea,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+article,
+section,
+body {
+  line-height: 1.5;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+b,
+strong {
+  font-weight: 700;
+}
+html {
+  position: relative;
+  height: 100%;
+  background: var(--background);
+  color: var(--color);
+  font: var(--font);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+input:-webkit-autofill {
+  background-color: initial;
+}
+ul,
+ol {
+  list-style: none;
+}
+img,
+video,
+audio,
+iframe {
+  display: block;
+  margin: auto;
+  max-height: 100%;
+  max-width: 100%;
+  transition: var(--transition);
+}
+h1 {
+  font-size: 2.4rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1.2rem;
+}
+.iconfont {
+  font-size: 1em;
+}
+::selection {
+  background-color: #ffd57b !important;
+  color: #2a2a2a !important;
+}
+
+.vsm-windows ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius);
+}
+.vsm-windows ::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar);
+  border: 1px solid transparent;
+  cursor: pointer;
+}
 .vsm-windows {
-    --padding: 5px 10px 4px;
+  --padding: 5px 10px 4px;
 }
 
 .vsm-container {
-    position: absolute;
-    box-sizing: border-box;
-    left: 0; top: 0; right: 0; bottom: 0;
-    overflow: hidden;
-    transition: var(--transition);
+  position: absolute;
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  transition: var(--transition);
 }
 .vsm-content {
-    position: relative;
-    box-sizing: border-box;
-    margin: 0 auto;
-    padding: var(--gap);
-    width: 780px;
-    max-width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: var(--gap);
+  width: 780px;
+  max-width: 100%;
 }
 
 .vsm-drawer {
-    flex-shrink: 0;
-    z-index: 100;
-    box-sizing: border-box;
-    max-width: 100%;
-    max-height: 100%;
-    transition: var(--transition);
-    will-change: transform;
-    backdrop-filter: blur(32px);
+  flex-shrink: 0;
+  z-index: 100;
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
+  transition: var(--transition);
+  will-change: transform;
+  backdrop-filter: blur(32px);
 }
 .vsm-drawer.vsm-on {
-    pointer-events: unset;
-    opacity: 1;
+  pointer-events: unset;
+  opacity: 1;
 }
 .vsm-drawer-backdrop {
-    position: fixed;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    display: flex;
-    background: rgba(0,0,0,.6) !important;
-    pointer-events: none;
-    opacity: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: rgba(0, 0, 0, 0.6) !important;
+  pointer-events: none;
+  opacity: 0;
 }
 .vsm-drawer-inner {
-    box-sizing: border-box;
-    max-width: 100%;
-    max-height: 100%;
-    transition: var(--transition);
-    overflow: auto;
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
+  transition: var(--transition);
+  overflow: auto;
 }
 .vsm-drawer-backdrop > .vsm-drawer-inner {
-    background: var(--background);
+  background: var(--background);
 }
 
 .vsm-form {
-    padding: var(--padding);
+  padding: var(--padding);
 }
 .vsm-form > .vsm-label-inline,
 .vsm-form > .vsm-label-input {
-    align-self: unset;
+  align-self: unset;
 }
 .vsm-label-inline,
 .vsm-label-input {
-    position: relative;
-    display: block;
-    flex: 1 1 0;
-    align-self: flex-start;
-    margin: calc(var(--gap)/2);
-    border-radius: var(--radius);
+  position: relative;
+  display: block;
+  flex: 1 1 0;
+  align-self: flex-start;
+  margin: calc(var(--gap) / 2);
+  border-radius: var(--radius);
 }
 .vsm-label-inline {
-    display: flex;
-    align-items: flex-start;
+  display: flex;
+  align-items: flex-start;
 }
 .vsm-label-inline > .vsm-label {
-    padding: var(--padding);
-    padding-left: 0;
+  padding: var(--padding);
+  padding-left: 0;
 }
 .vsm-label-input > .vsm-label {
-    padding: 0 0 .5em;
-    border: 1px solid transparent;
+  padding: 0 0 0.5em;
+  border: 1px solid transparent;
 }
 .vsm-label {
-    display: block;
-    white-space: nowrap;
-    align-self: baseline;
-    box-sizing: border-box;
+  display: block;
+  white-space: nowrap;
+  align-self: baseline;
+  box-sizing: border-box;
 }
 .vsm-input {
-    position: relative;
-    box-sizing: border-box;
-    padding: var(--padding);
-    width: 100%;
-    border: 1px solid transparent;
-    border-radius: var(--radius);
-    background: var(--input);
-    color: inherit;
-    outline: none;
-    transition: var(--transition);
+  position: relative;
+  box-sizing: border-box;
+  padding: var(--padding);
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  background: var(--input);
+  color: inherit;
+  outline: none;
+  transition: var(--transition);
 }
 .vsm-input-like {
-    display: flex;
-    flex-wrap: wrap;
-    cursor: text;
+  display: flex;
+  flex-wrap: wrap;
+  cursor: text;
 }
 .vsm-input:hover {
-    background: var(--input-hover);
+  background: var(--input-hover);
 }
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
 }
-.vsm-input[type=number] {
-    -moz-appearance: textfield;
-    text-align: center;
+.vsm-input[type="number"] {
+  -moz-appearance: textfield;
+  text-align: center;
 }
 .vsm-textarea {
-    display: block;
-    transition: var(--transition), width 0s, height 0s;
-    max-width: 100%;
-    resize: none;
+  display: block;
+  transition: var(--transition), width 0s, height 0s;
+  max-width: 100%;
+  resize: none;
 }
 .vsm-input-prepend,
 .vsm-input-append {
-    padding: var(--padding);
-    border: 1px solid transparent;
-    background: var(--input);
-    white-space: nowrap;
+  padding: var(--padding);
+  border: 1px solid transparent;
+  background: var(--input);
+  white-space: nowrap;
 }
 .vsm-spinners {
-    display: flex;
-    flex-shrink: 0;
-    background: var(--input-hover);
-    overflow: hidden;
-    user-select: none;
+  display: flex;
+  flex-shrink: 0;
+  background: var(--input-hover);
+  overflow: hidden;
+  user-select: none;
 }
 .vsm-spinner {
-    flex: 1 1 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 .5em;
-    font-size: .8em;
-    line-height: 1;
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 0.5em;
+  font-size: 0.8em;
+  line-height: 1;
 }
 .vsm-label-input:hover .vsm-spinner,
 .vsm-label-inline:hover .vsm-spinner {
-    background: var(--theme-color);
-    color: var(--theme-color-reverse);
+  background: var(--theme-color);
+  color: var(--theme-color-reverse);
 }
 .vsm-spinners .vsm-spinner:hover {
-    background: var(--theme-color-vice);
+  background: var(--theme-color-vice);
 }
 .vsm-calendar-input,
 .vsm-select,
 .vsm-tree {
-    position: relative;
+  position: relative;
 }
 .vsm-select-input {
-    width: 100%;
-    outline: none;
-    border: none;
-    background: transparent;
+  width: 100%;
+  outline: none;
+  border: none;
+  background: transparent;
 }
 .vsm-select-options {
-    position: absolute;
-    z-index: 10;
-    top: 100%; left: 0;
-    box-sizing: border-box;
-    min-width: 100%;
-    max-height: 30vh;
-    background: var(--background);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    overflow: auto;
-    opacity: 0;
-    pointer-events: none;
-    user-select: none;
-    backdrop-filter: blur(32px);
+  position: absolute;
+  z-index: 10;
+  top: 100%;
+  left: 0;
+  box-sizing: border-box;
+  min-width: 100%;
+  max-height: 30vh;
+  background: var(--background);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  overflow: auto;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  backdrop-filter: blur(32px);
 }
 .vsm-select-option {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--padding);
-    border: 1px solid transparent;
-    cursor: pointer;
-    transition: var(--transition);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--padding);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: var(--transition);
 }
 .vsm-select-option:hover {
-    background: var(--theme-color-hover);
+  background: var(--theme-color-hover);
 }
 .vsm-select-option.vsm-selected {
-    color: var(--theme-color-active);
+  color: var(--theme-color-active);
 }
 .vsm-select-option .icon-check {
-    margin-left: .6em;
-    font-size: .86em;
-    opacity: 0;
-    color: var(--theme-color-active);
-    font-weight: 600;
+  margin-left: 0.6em;
+  font-size: 0.86em;
+  opacity: 0;
+  color: var(--theme-color-active);
+  font-weight: 600;
 }
 .vsm-select-option.vsm-selected > .icon-check {
-    opacity: 1;
+  opacity: 1;
 }
 .vsm-select.vsm-on .vsm-select-options {
-    opacity: 1;
-    transform: translate(0, 0);
-    pointer-events: unset;
+  opacity: 1;
+  transform: translate(0, 0);
+  pointer-events: unset;
 }
 .vsm-chip {
-    padding: 0 4px;
-    margin: 2px 4px 2px 0;
-    background: var(--theme-color);
-    color: var(--theme-color-reverse);
-    border-radius: var(--radius);
-    user-select: none;
+  padding: 0 4px;
+  margin: 2px 4px 2px 0;
+  background: var(--theme-color);
+  color: var(--theme-color-reverse);
+  border-radius: var(--radius);
+  user-select: none;
 }
 .vsm-chip:hover {
-    background: var(--theme-color-vice);
+  background: var(--theme-color-vice);
 }
 .vsm-checkbox,
 .vsm-radio {
-    position: relative;
-    transition: var(--transition);
-	outline: 0;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	-ms-appearance: none;
-	appearance: none;
-    cursor: inherit;
+  position: relative;
+  transition: var(--transition);
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  cursor: inherit;
 }
 .vsm-checkbox-label,
 .vsm-radio-label {
-    display: flex;
-    align-items: center;
-    margin: var(--padding);
-    margin-left: 0;
-    cursor: pointer;
-    user-select: none;
-    border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  margin: var(--padding);
+  margin-left: 0;
+  cursor: pointer;
+  user-select: none;
+  border-radius: var(--radius);
 }
 .vsm-checkbox-label span {
-    border-radius: inherit;
-    transition: var(--transition);
+  border-radius: inherit;
+  transition: var(--transition);
 }
 .vsm-checkbox:hover,
 .vsm-radio:hover {
-    background: var(--input-hover);
+  background: var(--input-hover);
 }
 .vsm-checkbox {
-    border-radius: inherit;
-    background: var(--input);
+  border-radius: inherit;
+  background: var(--input);
 }
 .vsm-checkbox:disabled {
-    cursor: not-allowed;
+  cursor: not-allowed;
 }
 .vsm-checkbox-normal,
 .vsm-checkbox-textless {
-    height: 1.2em;
-    width: 1.2em;
-    overflow: hidden;
+  height: 1.2em;
+  width: 1.2em;
+  overflow: hidden;
 }
 .vsm-checkbox-slide {
-    height: 1.4em;
-    width: 2.6em;
+  height: 1.4em;
+  width: 2.6em;
 }
 .vsm-checkbox-slide + span,
 .vsm-checkbox-normal + span {
-    margin-left: 0.5em;
+  margin-left: 0.5em;
 }
 .vsm-checkbox-textless {
-    margin-top: .2em;
+  margin-top: 0.2em;
 }
 .vsm-checkbox-textless + span {
-    display: none;
+  display: none;
 }
 .vsm-checkbox:checked {
-    background: var(--theme-color-active);
+  background: var(--theme-color-active);
 }
 .vsm-checkbox:after {
-    content: '\20';
-    position: absolute;
-    transition: var(--transition);
+  content: "\20";
+  position: absolute;
+  transition: var(--transition);
 }
 .vsm-checkbox-text:checked + span {
-    color: var(--theme-color-active);
+  color: var(--theme-color-active);
 }
 .vsm-checkbox-normal:after,
 .vsm-checkbox-textless:after {
-    left: 34%; top: 18%;
-    height: 50%; width: 20%;
-    border-bottom: 2px solid var(--background);
-    border-right: 2px solid var(--background);
-    transform: rotate(90deg) scale(0);
+  left: 34%;
+  top: 18%;
+  height: 50%;
+  width: 20%;
+  border-bottom: 2px solid var(--background);
+  border-right: 2px solid var(--background);
+  transform: rotate(90deg) scale(0);
 }
 .vsm-checkbox-normal:checked:after,
 .vsm-checkbox-textless:checked:after {
-    transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 .vsm-checkbox-indeterminated:after {
-    left: 50%; top: 50%;
-    height: 2px; width: 50%;
-    background: var(--background);
-    transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  height: 2px;
+  width: 50%;
+  background: var(--background);
+  transform: translate(-50%, -50%);
 }
 .vsm-checkbox-slide:after {
-    left: 2px; top: 2px; bottom: 2px;
-    width: calc(50% - 2px);
-    background: var(--background);
-    border-radius: inherit;
+  left: 2px;
+  top: 2px;
+  bottom: 2px;
+  width: calc(50% - 2px);
+  background: var(--background);
+  border-radius: inherit;
 }
 .vsm-checkbox-slide:checked:after {
-    transform: translate(100%, 0);
+  transform: translate(100%, 0);
 }
 .vsm-checkbox-button + span {
-    padding: 2px 10px;
-    background: var(--input);
+  padding: 2px 10px;
+  background: var(--input);
 }
 .vsm-checkbox-button:hover + span {
-    background: var(--input-hover);
+  background: var(--input-hover);
 }
 .vsm-checkbox-button:checked + span {
-    background: var(--theme-color-active);
-    color: var(--background);
+  background: var(--theme-color-active);
+  color: var(--background);
 }
 
 .vsm-checkbox:disabled + span,
 .vsm-radio:disabled + span {
-    opacity: 0.4;
-    cursor: not-allowed;
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 .vsm-radio {
-    margin-right: .4em;
-    height: 1.1em;
-    width: 1.1em;
-    border-radius: 50%;
-    flex-shrink: 0;
-    background: var(--input);
+  margin-right: 0.4em;
+  height: 1.1em;
+  width: 1.1em;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--input);
 }
 .vsm-radio:after {
-    content: '\20';
-    position: absolute;
-    left: 3px; top: 3px; right: 3px; bottom: 3px;
-    border-radius: inherit;
-    transition: var(--transition);
-    transform: scale(0);
-    background: var(--background);
+  content: "\20";
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  right: 3px;
+  bottom: 3px;
+  border-radius: inherit;
+  transition: var(--transition);
+  transform: scale(0);
+  background: var(--background);
 }
 .vsm-radio:checked {
-    background: var(--theme-color-active);
+  background: var(--theme-color-active);
 }
 .vsm-radio:checked:after {
-    transform: scale(1);
+  transform: scale(1);
 }
 .vsm-slider-bar {
-    position: relative;
-    flex: 1 1 100%;
-    margin: .5em;
-    align-self: center;
-    height: 4px;
-    background: var(--input);
-    border-radius: var(--radius);
-    cursor: pointer;
-    user-select: none;
+  position: relative;
+  flex: 1 1 100%;
+  margin: 0.5em;
+  align-self: center;
+  height: 4px;
+  background: var(--input);
+  border-radius: var(--radius);
+  cursor: pointer;
+  user-select: none;
 }
 .vsm-slider-range {
-    position: absolute;
-    height: 100%;
-    width: 0;
-    flex-direction: row-reverse;
-    border-radius: inherit;
-    background: linear-gradient(45deg, var(--theme-color-vice), var(--theme-color));
-    transition: var(--transition);
+  position: absolute;
+  height: 100%;
+  width: 0;
+  flex-direction: row-reverse;
+  border-radius: inherit;
+  background: linear-gradient(
+    45deg,
+    var(--theme-color-vice),
+    var(--theme-color)
+  );
+  transition: var(--transition);
 }
 .vsm-slider-range.vsm-sliding {
-    transition: none;
+  transition: none;
 }
 .vsm-slider {
-    position: absolute;
-    z-index: 1;
-    left: 100%; top: 50%;
-    width: 1em;
-    height: 1em;
-    border-radius: inherit;
-    background: var(--theme-color-vice);
-    outline: none;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 1;
+  left: 100%;
+  top: 50%;
+  width: 1em;
+  height: 1em;
+  border-radius: inherit;
+  background: var(--theme-color-vice);
+  outline: none;
+  transform: translate(-50%, -50%);
 }
 .vsm-slider-value > span {
-    position: absolute;
-    bottom: 100%; left: 50%;
-    content: attr(data-value);
-    padding: var(--padding);
-    border-radius: inherit;
-    background: var(--theme-color);
-    color: var(--theme-color-reverse);
-    transform: translate(-50%, -.5em);
-    transition: var(--transition);
-    opacity: 0;
-    pointer-events: none;
-    box-shadow: var(--shadow);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  content: attr(data-value);
+  padding: var(--padding);
+  border-radius: inherit;
+  background: var(--theme-color);
+  color: var(--theme-color-reverse);
+  transform: translate(-50%, -0.5em);
+  transition: var(--transition);
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: var(--shadow);
 }
 .vsm-slider:hover {
-    box-shadow: var(--shadow);
-    background: var(--theme-color-active);
+  box-shadow: var(--shadow);
+  background: var(--theme-color-active);
 }
 .vsm-slider.vsm-on > span,
 .vsm-slider-value:hover > span {
-    opacity: 1;
+  opacity: 1;
 }
 .vsm-slider-division {
-    position: absolute;
-    height: 100%; width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    border-radius: inherit;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: inherit;
 }
 .vsm-slider-point {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    height: 100%; width: 4px;
-    background: var(--background);
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: var(--background);
 }
 .vsm-calendar {
-    position: absolute;
-    z-index: 10;
-    top: 100%;
-    text-align: center;
-    user-select: none;
-    pointer-events: none;
-    transition: var(--transition);
-    transform: translate(8px, 0);
-    opacity: 0;
+  position: absolute;
+  z-index: 10;
+  top: 100%;
+  text-align: center;
+  user-select: none;
+  pointer-events: none;
+  transition: var(--transition);
+  transform: translate(8px, 0);
+  opacity: 0;
 }
 .vsm-calendar.vsm-on {
-    pointer-events: unset;
-    opacity: 1;
-    transform: none;
+  pointer-events: unset;
+  opacity: 1;
+  transform: none;
 }
 .vsm-calendar-inner {
-    position: relative;
-    box-sizing: border-box;
-    margin: auto;
-    width: 228px;
-    padding: 2px;
-    border-radius: var(--radius);
-    background: var(--background-opacity);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-    backdrop-filter: blur(32px);
+  position: relative;
+  box-sizing: border-box;
+  margin: auto;
+  width: 228px;
+  padding: 2px;
+  border-radius: var(--radius);
+  background: var(--background);
+  box-shadow: var(--shadow);
+  overflow: hidden;
 }
 .vsm-calendar-dates {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
-.vsm-calendar-header { 
-    display: flex;
-    justify-content: space-between;
+.vsm-calendar-header {
+  display: flex;
+  justify-content: space-between;
 }
 .vsm-calendar-header .icon-left {
-    margin-left: auto;
+  margin-left: auto;
 }
 .vsm-calendar-header .vsm-calendar-item,
 .vsm-calendar-panel .vsm-calendar-item {
-    width: unset;
-    padding: 0 8px;
+  width: unset;
+  padding: 0 8px;
 }
 .vsm-calendar-item {
-    display: block;
-    margin: 2px;
-    width: 28px;
-    line-height: 28px;
-    border-radius: var(--radius);
+  display: block;
+  margin: 2px;
+  width: 28px;
+  line-height: 28px;
+  border-radius: var(--radius);
 }
 a.vsm-calendar-item:hover {
-    background: var(--theme-color-hover);
+  background: var(--theme-color-hover);
 }
 a.vsm-calendar-item.vsm-on {
-    background: var(--theme-color-active);
-    color: var(--theme-color-reverse);
-    box-shadow: inset var(--shadow);
+  background: var(--theme-color-active);
+  color: var(--theme-color-reverse);
+  box-shadow: inset var(--shadow);
 }
 .vsm-calendar-panel {
-    position: absolute;
-    left: 0; top: 0; right: 0; bottom: 0;
-    padding: 2px;
-    background: inherit;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2px;
+  background: inherit;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
 .vsm-calendar-years {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .vsm-calendar-months {
-    margin-bottom: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  margin-bottom: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .vsm-calendar-months .vsm-calendar-item {
-    width: 56px;
-    padding: 0;
+  width: 56px;
+  padding: 0;
 }
 
 .vsm-btn {
-    position: relative;
-    box-sizing: border-box;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--padding);
-    border-radius: var(--radius);
-    background: var(--theme-color);
-    color: var(--theme-color-reverse);
-    border: 1px solid transparent;
-    text-align: center;
-    transition: var(--transition);
-    user-select: none;
-    cursor: pointer;
-    align-self: center;
-    vertical-align: center;
-    white-space: nowrap;
-    outline: none;
-    font-weight: 500;
+  position: relative;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding);
+  border-radius: var(--radius);
+  background: var(--theme-color);
+  color: var(--theme-color-reverse);
+  border: 1px solid transparent;
+  text-align: center;
+  transition: var(--transition);
+  user-select: none;
+  cursor: pointer;
+  align-self: center;
+  vertical-align: center;
+  white-space: nowrap;
+  outline: none;
+  font-weight: 500;
 }
 .vsm-btn:hover {
-    background: var(--theme-color-vice);
-    border-color: transparent;
-    color: var(--theme-color-reverse);
+  background: var(--theme-color-vice);
+  border-color: transparent;
+  color: var(--theme-color-reverse);
 }
 .vsm-btn:disabled {
-    opacity: .5;
-    pointer-events: none;
+  opacity: 0.5;
+  pointer-events: none;
 }
 .vsm-btn:active,
 .vsm-page:active,
@@ -639,461 +776,479 @@ a.vsm-calendar-item.vsm-on {
 .vsm-slider.vsm-on,
 .vsm-swiper-indicator > a:active,
 .vsm-swiper-arrow:active {
-    z-index: 1;
-    box-shadow: 0 0 0 2px rgba(0,0,0,.15);
+  z-index: 1;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15);
 }
 .vsm-btn.vsm-small {
-    padding: 2px 6px;
+  padding: 2px 6px;
 }
 .vsm-btn.vsm-plain:hover {
-    color: var(--color);
+  color: var(--color);
 }
 .vsm-btn-loading {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 .vsm-pages {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    border-radius: var(--radius);
-    user-select: none;
-    background: var(--background);
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border-radius: var(--radius);
+  user-select: none;
+  background: var(--background);
 }
 .vsm-page {
-    position: relative;
-    margin: 4px;
-    padding: 3px 10px;
-    border: 1px solid transparent;
-    border-radius: inherit;
-    background: inherit;
-    white-space: nowrap;
+  position: relative;
+  margin: 4px;
+  padding: 3px 10px;
+  border: 1px solid transparent;
+  border-radius: inherit;
+  background: inherit;
+  white-space: nowrap;
 }
 .vsm-page:hover {
-    background: var(--theme-color-hover);
+  background: var(--theme-color-hover);
 }
 .vsm-page-split {
-    margin-left: .8em;
+  margin-left: 0.8em;
 }
 .vsm-page-dots {
-    margin: 0 .5em;
+  margin: 0 0.5em;
 }
 .vsm-page.vsm-on {
-    background: var(--theme-color);
-    color: var(--theme-color-reverse);
-    font-weight: 500;
+  background: var(--theme-color);
+  color: var(--theme-color-reverse);
+  font-weight: 500;
 }
 .vsm-page[disabled] {
-    opacity: .6;
-    pointer-events: none;
+  opacity: 0.6;
+  pointer-events: none;
 }
 .vsm-page-loading {
-    pointer-events: none;
+  pointer-events: none;
 }
 .vsm-page-elevator {
-    outline: none;
-    cursor: text;
+  outline: none;
+  cursor: text;
 }
 
 .vsm-tabs {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .vsm-tabs-vertical {
-    flex-direction: row;
+  flex-direction: row;
 }
 .vsm-tabs-navs {
-    position: relative;
-    flex: 1 1 100%;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    overflow: auto;
-    text-align: center;
-    user-select: none;
-    scroll-behavior: initial;
-    border-radius: var(--radius);
-    color: var(--color-vice);
+  position: relative;
+  flex: 1 1 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow: auto;
+  text-align: center;
+  user-select: none;
+  scroll-behavior: initial;
+  border-radius: var(--radius);
+  color: var(--color-vice);
 }
 .vsm-tabs-vertical > .vsm-tabs-navs {
-    flex-direction: column;
-    flex: 0 0 auto;
-    align-items: flex-start;
+  flex-direction: column;
+  flex: 0 0 auto;
+  align-items: flex-start;
 }
 .vsm-tabs-vertical .vsm-tabs-nav {
-    width: 100%;
-    justify-content: unset;
+  width: 100%;
+  justify-content: unset;
 }
 .vsm-tabs-nav {
-    position: relative;
-    box-sizing: border-box;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    padding: 4px 10px;
-    /* border: 1px solid transparent; */
-    border-radius: inherit;
-    cursor: pointer;
-    outline: none;
-    transition: var(--transition);
-    overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 4px 10px;
+  /* border: 1px solid transparent; */
+  border-radius: inherit;
+  cursor: pointer;
+  outline: none;
+  transition: var(--transition);
+  overflow: hidden;
 }
 .vsm-tabs-nav-title {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .vsm-tabs-nav-active {
-    background: var(--theme-color);
-    color: var(--theme-color-reverse);
+  background: var(--theme-color);
+  color: var(--theme-color-reverse);
 }
 .vsm-tabs-nav .vsm-close {
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 2em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    background: var(--background);
-    color: var(--color);
-    transform: translateX(100%);
-    font-size: .8em;
-    opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background: var(--background);
+  color: var(--color);
+  transform: translateX(100%);
+  font-size: 0.8em;
+  opacity: 0;
 }
 .vsm-tabs-nav:hover .vsm-close {
-    transition: var(--transition) .4s;
-    transform: none;
-    box-shadow: var(--shadow);
-    opacity: 1;
+  transition: var(--transition) 0.4s;
+  transform: none;
+  box-shadow: var(--shadow);
+  opacity: 1;
 }
 .vsm-tabs-nav[disabled] {
-    pointer-events: none;
-    opacity: 0.2;
+  pointer-events: none;
+  opacity: 0.2;
 }
 .vsm-tabs-bar {
-    position: absolute;
-    z-index: 1;
-    background: var(--theme-color);
-    border-radius: var(--radius);
-    transition: var(--transition) .1s;
-    will-change: transform;
-    pointer-events: none;
+  position: absolute;
+  z-index: 1;
+  background: var(--theme-color);
+  border-radius: var(--radius);
+  transition: var(--transition) 0.1s;
+  will-change: transform;
+  pointer-events: none;
 }
 .vsm-tab {
-    display: none;
-    border-radius: var(--radius);
-    padding: var(--gap) 0;
+  display: none;
+  border-radius: var(--radius);
+  padding: var(--gap) 0;
 }
 .vsm-tab.vsm-tab-active {
-    display: block;
+  display: block;
 }
 
 .vsm-card {
-    position: relative;
-    flex: 1 1 100%;
-    border-radius: var(--radius);
-    transition: var(--transition);
-    overflow: hidden;
+  position: relative;
+  flex: 1 1 100%;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  overflow: hidden;
 }
 
 .vsm-dropdown {
-    position: relative;
-    display: inline-flex;
-    border-radius: var(--radius);
+  position: relative;
+  display: inline-flex;
+  border-radius: var(--radius);
 }
 .vsm-dropdown > .vsm-btn {
-    border-radius: inherit;
+  border-radius: inherit;
 }
 .vsm-dropmenu {
-    position: absolute;
-    z-index: 10;
-    background: var(--background-opacity);
-    border-radius: inherit;
-    box-shadow: var(--shadow);
-    overflow: hidden;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity var(--transition);
-    white-space: nowrap;
-    backdrop-filter: blur(32px);
+  position: absolute;
+  z-index: 10;
+  background: var(--background-opacity);
+  border-radius: inherit;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition);
+  white-space: nowrap;
+  backdrop-filter: blur(32px);
 }
 .vsm-on > .vsm-dropmenu,
 .vsm-dropdown-hover:hover > .vsm-dropmenu {
-    opacity: 1;
-    pointer-events: unset;
+  opacity: 1;
+  pointer-events: unset;
 }
 
 .vsm-notice {
-    display: flex;
-    align-items: flex-start;
-    position: fixed;
-    z-index: 100;
-    left: 50%;
-    padding: var(--padding);
-    background: var(--background-opacity);
-    backdrop-filter: blur(32px);
-    box-shadow: var(--shadow);
-    border-radius: var(--radius);
-    transition: var(--transition);
-    transform: translate(calc(-50% + 80px), 0) scale(.86) skew(-40deg);
-    opacity: 0;
+  display: flex;
+  align-items: flex-start;
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  padding: var(--padding);
+  background: var(--background);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  transition: var(--transition);
+  transform: translate(calc(-50% + 80px), 0) scale(0.86) skew(-40deg);
+  opacity: 0;
 }
 .vsm-notice.vsm-on {
-    opacity: 1;
-    transform: translate(-50%, 0);
+  opacity: 1;
+  transform: translate(-50%, 0);
 }
 .vsm-notice .vsm-close {
-    margin: .4em 0 0 1em;
-    width: 0.72em;
-    height: 0.72em;
-    border-radius: var(--radius);
-    flex-shrink: 0;
-    background: #ff6c53;
-    box-shadow: var(--shadow);
+  margin: 0.4em 0 0 1em;
+  width: 0.72em;
+  height: 0.72em;
+  border-radius: var(--radius);
+  flex-shrink: 0;
+  background: #ff6c53;
+  box-shadow: var(--shadow);
 }
 
 .vsm-collapse {
-    border-radius: var(--radius);
+  border-radius: var(--radius);
 }
 .vsm-collapse-item + .vsm-collapse-item {
-    border-top: 1px solid var(--theme-color-hover);
+  border-top: 1px solid var(--theme-color-hover);
 }
 .vsm-collapse-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: .6em var(--gap);
-    opacity: .6;
-    transition: var(--transition);
-    cursor: default;
-    font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6em var(--gap);
+  opacity: 0.6;
+  transition: var(--transition);
+  cursor: default;
+  font-weight: 500;
 }
 .vsm-collapse-icon {
-    font-weight: 400;
-    user-select: none;
+  font-weight: 400;
+  user-select: none;
 }
 .vsm-collapse-content {
-    padding: 0 var(--gap);
-    height: 0;
-    overflow: hidden;
-    transition: var(--transition);
+  padding: 0 var(--gap);
+  height: 0;
+  overflow: hidden;
+  transition: var(--transition);
 }
 .vsm-on > .vsm-collapse-header,
 .vsm-collapse-header:hover {
-    opacity: 1;
+  opacity: 1;
 }
 .vsm-on > .vsm-collapse-content {
-    padding: 4px var(--gap) 1em;
-    height: unset;
+  padding: 4px var(--gap) 1em;
+  height: unset;
 }
 
 .vsm-tooltip {
-    position: absolute;
-    z-index: 100;
-    box-sizing: border-box;
-    padding: var(--padding);
-    max-width: 100%;
-    background: var(--theme-color);
-    color: var(--theme-color-reverse);
-    border: 1px solid transparent;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    transition: var(--transition), left 0s, top 0s;
-    opacity: 0;
-    user-select: none;
-    pointer-events: none;
+  position: absolute;
+  z-index: 100;
+  box-sizing: border-box;
+  padding: var(--padding);
+  max-width: 100%;
+  background: var(--theme-color);
+  color: var(--theme-color-reverse);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition), left 0s, top 0s;
+  opacity: 0;
+  user-select: none;
+  pointer-events: none;
 }
 .vsm-tooltip.vsm-on {
-    opacity: 1;
+  opacity: 1;
 }
 .vsm-tooltip-content {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 .vsm-tooltip-caret {
-    position: absolute;
-    box-sizing: border-box;
-    width: 12px; height: 12px;
-    border: inherit;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-radius: 3px;
-    background: inherit;
-    transform: translate(-50%, -50%) rotate(45deg);
+  position: absolute;
+  box-sizing: border-box;
+  width: 12px;
+  height: 12px;
+  border: inherit;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 3px;
+  background: inherit;
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .vsm-steps {
-    position: relative;
-    display: flex;
-    align-items: flex-start;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
 }
 .vsm-step {
-    position: relative;
-    z-index: 1;
-    padding: var(--gap);
-    border-radius: var(--radius);
-    opacity: .4;
+  position: relative;
+  z-index: 1;
+  padding: var(--gap);
+  border-radius: var(--radius);
+  opacity: 0.4;
 }
 .vsm-step-split {
-    margin: calc(var(--gap) + 1em) 0;
-    color: var(--color);
-    pointer-events: none;
-    opacity: .4;
-    transition: var(--transition);
+  margin: calc(var(--gap) + 1em) 0;
+  color: var(--color);
+  pointer-events: none;
+  opacity: 0.4;
+  transition: var(--transition);
 }
 .vsm-step-split.vsm-step-finished {
-    color: var(--theme-color-active);
-    border-color: var(--theme-color-active);
+  color: var(--theme-color-active);
+  border-color: var(--theme-color-active);
 }
 .vsm-step-line {
-    flex: 1 1 auto;
-    border-bottom: 2px dashed var(--color-vice);
-    border-left: 2px dashed var(--color-vice);
+  flex: 1 1 auto;
+  border-bottom: 2px dashed var(--color-vice);
+  border-left: 2px dashed var(--color-vice);
 }
 .vsm-step-arrow {
-    margin: var(--gap) 0;
-    font-size: 1.5em;
+  margin: var(--gap) 0;
+  font-size: 1.5em;
 }
 .vsm-step:hover,
 .vsm-step.vsm-on {
-    opacity: 1;
+  opacity: 1;
 }
 .vsm-step:hover {
-    background: var(--theme-color-hover);
+  background: var(--theme-color-hover);
 }
 .vsm-step.vsm-on,
 .vsm-step-finished {
-    color: var(--theme-color-active);
+  color: var(--theme-color-active);
 }
 .vsm-on > .vsm-step-icon {
-    border-color: var(--theme-color-active);
+  border-color: var(--theme-color-active);
 }
 .vsm-step-icon {
-    font-size: 2em;
-    line-height: 1em;
-    border-radius: 50%;
-    font-weight: 600;
+  font-size: 2em;
+  line-height: 1em;
+  border-radius: 50%;
+  font-weight: 600;
 }
 .vsm-step-icon + .vsm-step-title {
-    margin-top: .5em;
+  margin-top: 0.5em;
 }
 .vsm-step-title {
-    font-size: 1.2em;
+  font-size: 1.2em;
 }
 .vsm-step-content {
-    opacity: 0.72;
+  opacity: 0.72;
 }
 .vsm-rows > .vsm-step-line {
-    margin: 0 var(--gap);
-    flex: 1 1 2em;
+  margin: 0 var(--gap);
+  flex: 1 1 2em;
 }
 .vsm-rows > .vsm-step-arrow {
-    padding: var(--gap);
+  padding: var(--gap);
 }
 
 .vsm-progress-label {
-    margin: 0 var(--gap) 0 0;
-    align-self: center;
+  margin: 0 var(--gap) 0 0;
+  align-self: center;
 }
 .vsm-progress {
-    position: relative;
-    flex: 1 1 auto;
-    align-self: center;
-    border-radius: var(--radius);
-    display: flex;
-    background: var(--theme-color-hover);
-    min-height: 2px;
-    transition: var(--transition);
+  position: relative;
+  flex: 1 1 auto;
+  align-self: center;
+  border-radius: var(--radius);
+  display: flex;
+  background: var(--theme-color-hover);
+  min-height: 2px;
+  transition: var(--transition);
 }
 .vsm-progress-clickable {
-    cursor: pointer;
+  cursor: pointer;
 }
 .vsm-bar {
-    position: relative;
-    z-index: 2;
-    box-sizing: border-box;
-    background: var(--theme-color);
-    color: var(--theme-color-reverse);
-    border-radius: inherit;
-    transition: var(--transition);
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+  background: var(--theme-color);
+  color: var(--theme-color-reverse);
+  border-radius: inherit;
+  transition: var(--transition);
 }
 .vsm-bar-dragging {
-    transition: none;
+  transition: none;
 }
 .vsm-bar-buffer {
-    position: absolute;
-    left: 0; bottom: 0;
-    height: 100%;
-    width: 100%;
-    background: var(--theme-color);
-    opacity: 0.4;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background: var(--theme-color);
+  opacity: 0.4;
 }
 .vsm-rows > .vsm-progress {
-    flex-direction: column-reverse;
+  flex-direction: column-reverse;
 }
 .vsm-bar-btn {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    padding: 0 2px;
-    display: flex;
-    transform: translate(50%, -50%) scale(0);
-    background: inherit;
-    border-radius: inherit;
-    transform-origin: 50% 50%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  padding: 0 2px;
+  display: flex;
+  transform: translate(50%, -50%) scale(0);
+  background: inherit;
+  border-radius: inherit;
+  transform-origin: 50% 50%;
 }
 .vsm-progress:hover .vsm-bar-btn {
-    transform: translate(50%, -50%) scale(1);
+  transform: translate(50%, -50%) scale(1);
 }
 .vsm-bar-dragging > .vsm-bar-btn {
-    box-shadow: var(--shadow);
-    transform: translate(50%, -50%) scale(1);
+  box-shadow: var(--shadow);
+  transform: translate(50%, -50%) scale(1);
 }
 .vsm-bar-animation {
-    position: absolute;
-    left: 0; top: 0;
-    right: 0; bottom: 0;
-    border-radius: inherit;
-    width: auto;
-    will-change: left, right;
-    animation: bar-animating 2s linear infinite;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  width: auto;
+  will-change: left, right;
+  animation: bar-animating 2s linear infinite;
 }
 @keyframes bar-animating {
-    0% { left: 0%; right: 100%; }
-    20% { left: 10%; right: 50%; }
-    40% { left: 40%; right: 10%; }
-    70% { left: 80%; right: 0%; }
-    100% { left: 100%; right: 0%; }
+  0% {
+    left: 0%;
+    right: 100%;
+  }
+  20% {
+    left: 10%;
+    right: 50%;
+  }
+  40% {
+    left: 40%;
+    right: 10%;
+  }
+  70% {
+    left: 80%;
+    right: 0%;
+  }
+  100% {
+    left: 100%;
+    right: 0%;
+  }
 }
 
 .vsm-table {
-    overflow: auto;
+  overflow: auto;
 }
 .vsm-table table {
-    min-width: 100%;
-    text-align: left;
-    border-spacing: 0;
+  min-width: 100%;
+  text-align: left;
+  border-spacing: 0;
 }
 .vsm-table thead th {
-    background: var(--theme-color-hover);
+  background: var(--theme-color-hover);
 }
 .vsm-table th,
 .vsm-table td {
-    position: relative;
-    padding: 8px 12px;
-    transition: var(--transition);
-    background: var(--background);
-    white-space: nowrap;
+  position: relative;
+  padding: 8px 12px;
+  transition: var(--transition);
+  background: var(--background);
+  white-space: nowrap;
 }
 .vsm-table tr:hover td {
-    background: var(--theme-color-hover);
+  background: var(--theme-color-hover);
 }
 th.vsm-sticky-left,
 td.vsm-sticky-left,
@@ -1101,705 +1256,783 @@ th.vsm-sticky-right,
 td.vsm-sticky-right,
 .vsm-sticky-row th,
 .vsm-sticky-row td {
-    position: sticky;
-    z-index: 1;
+  position: sticky;
+  z-index: 1;
 }
 .vsm-sticky-row th,
 .vsm-sticky-row td {
-    top: 0;
+  top: 0;
 }
 th.vsm-sticky-left,
 td.vsm-sticky-left {
-    left: 0;
+  left: 0;
 }
 th.vsm-sticky-right,
 td.vsm-sticky-right {
-    right: 0;
+  right: 0;
 }
 .vsm-sticky-row th,
 .vsm-sticky-row td {
-    z-index: 2;
+  z-index: 2;
 }
 .vsm-sticky-row .vsm-sticky-left {
-    z-index: 3;
+  z-index: 3;
 }
 
 .vsm-btn.vsm-reverse,
 .vsm-tabs-nav.vsm-reverse {
-    background: transparent;
-    border-color: var(--theme-color-vice);
-    color: var(--theme-color-vice);
+  background: transparent;
+  border-color: var(--theme-color-vice);
+  color: var(--theme-color-vice);
 }
 .vsm-btn.vsm-plain,
 .vsm-tabs-nav.vsm-plain,
 .vsm-card.vsm-plain {
-    background: transparent;
-    border-color: transparent !important;
-    color: var(--color);
+  background: transparent;
+  border-color: transparent !important;
+  color: var(--color);
 }
 
 .vsm-black {
-    background: var(--black);
-    color: var(--white);
+  background: var(--black);
+  color: var(--white);
 }
 .vsm-black.vsm-reverse {
-    background: transparent;
-    color: var(--black);
-    border-color: var(--black-vice);
+  background: transparent;
+  color: var(--black);
+  border-color: var(--black-vice);
 }
 .vsm-btn.vsm-black:hover {
-    background: var(--black-vice);
-    color: var(--white);
+  background: var(--black-vice);
+  color: var(--white);
 }
 .vsm-black.vsm-plain,
 .vsm-black.vsm-plain:hover {
-    color: var(--black);
+  color: var(--black);
 }
 .vsm-blue {
-    background: var(--blue);
-    color: var(--white);
+  background: var(--blue);
+  color: var(--white);
 }
 .vsm-blue.vsm-reverse {
-    background: transparent;
-    color: var(--blue);
-    border-color: var(--blue-vice);
+  background: transparent;
+  color: var(--blue);
+  border-color: var(--blue-vice);
 }
 .vsm-btn.vsm-blue:hover {
-    background: var(--blue-vice);
-    color: var(--white);
+  background: var(--blue-vice);
+  color: var(--white);
 }
 .vsm-blue.vsm-plain,
 .vsm-blue.vsm-plain:hover {
-    color: var(--blue);
+  color: var(--blue);
 }
 .vsm-red {
-    background: var(--red);
-    color: var(--white);
+  background: var(--red);
+  color: var(--white);
 }
 .vsm-red.vsm-reverse {
-    background: transparent;
-    color: var(--red);
-    border-color: var(--red-vice);
+  background: transparent;
+  color: var(--red);
+  border-color: var(--red-vice);
 }
 .vsm-btn.vsm-red:hover {
-    background: var(--red-vice);
-    color: var(--white);
+  background: var(--red-vice);
+  color: var(--white);
 }
 .vsm-red.vsm-plain,
 .vsm-red.vsm-plain:hover {
-    color: var(--red);
+  color: var(--red);
 }
 .vsm-green {
-    background: var(--green);
-    color: var(--white);
+  background: var(--green);
+  color: var(--white);
 }
 .vsm-green.vsm-reverse {
-    background: transparent;
-    color: var(--green);
-    border-color: var(--green-vice);
+  background: transparent;
+  color: var(--green);
+  border-color: var(--green-vice);
 }
 .vsm-btn.vsm-green:hover {
-    background: var(--green-vice);
-    color: var(--white);
+  background: var(--green-vice);
+  color: var(--white);
 }
 .vsm-green.vsm-plain,
 .vsm-green.vsm-plain:hover {
-    color: var(--green);
+  color: var(--green);
 }
 .vsm-yellow {
-    background: var(--yellow);
-    color: var(--black);
+  background: var(--yellow);
+  color: var(--black);
 }
 .vsm-yellow.vsm-reverse {
-    background: transparent;
-    color: var(--yellow);
-    border-color: var(--yellow-vice);
+  background: transparent;
+  color: var(--yellow);
+  border-color: var(--yellow-vice);
 }
 .vsm-btn.vsm-yellow:hover {
-    background: var(--yellow-vice);
-    color: var(--black);
+  background: var(--yellow-vice);
+  color: var(--black);
 }
 .vsm-yellow.vsm-plain,
 .vsm-yellow.vsm-plain:hover {
-    color: var(--yellow);
+  color: var(--yellow);
 }
 .vsm-white {
-    background: var(--white);
-    color: var(--black);
+  background: var(--white);
+  color: var(--black);
 }
 .vsm-white.vsm-reverse {
-    background: transparent;
-    color: var(--white);
-    border-color: var(--white-vice);
+  background: transparent;
+  color: var(--white);
+  border-color: var(--white-vice);
 }
 .vsm-btn.vsm-white:hover {
-    background: var(--white-vice);
-    color: var(--black);
+  background: var(--white-vice);
+  color: var(--black);
 }
 .vsm-white.vsm-plain,
 .vsm-white.vsm-plain:hover {
-    color: var(--white);
+  color: var(--white);
 }
 .vsm-btn.vsm-plain:hover {
-    background: var(--theme-color-hover);
+  background: var(--theme-color-hover);
 }
-
-
 
 .vsm-notice.vsm-reverse,
 .vsm-tooltip.vsm-reverse {
-    background: var(--background);
+  background: var(--background);
 }
 
 .vsm-tree-node {
-    display: flex;
-    padding: var(--padding);
-    border-radius: var(--radius);
+  display: flex;
+  padding: var(--padding);
+  border-radius: var(--radius);
 }
 .vsm-tree-checkbox,
 .vsm-tree-node-icon {
-    margin-right: .5em;
-    border-radius: var(--radius);
+  margin-right: 0.5em;
+  border-radius: var(--radius);
 }
 .vsm-tree-node-name {
-    flex: 1 1 0;
+  flex: 1 1 0;
 }
 .vsm-tree-node:hover,
 .vsm-tree-node.vsm-tree-selected {
-    background: var(--theme-color-hover);
+  background: var(--theme-color-hover);
 }
 .vsm-tree-node + ul {
-    box-sizing: border-box;
-    height: 0;
-    padding: 0 0 0 1.6em;
-    overflow: hidden;
-    transition: var(--transition);
-    transform: translate(-.5em, 0);
+  box-sizing: border-box;
+  height: 0;
+  padding: 0 0 0 1.6em;
+  overflow: hidden;
+  transition: var(--transition);
+  transform: translate(-0.5em, 0);
 }
 .vsm-tree-open + ul {
-    position: relative;
-    height: unset;
-    transform: none;
+  position: relative;
+  height: unset;
+  transform: none;
 }
 .vsm-tree-guide ul:before {
-    content: '\20';
-    position: absolute;
-    left: 1.25em; top: .2em; bottom: .2em;
-    border-left: 1px dashed var(--color-vice);
+  content: "\20";
+  position: absolute;
+  left: 1.25em;
+  top: 0.2em;
+  bottom: 0.2em;
+  border-left: 1px dashed var(--color-vice);
 }
 .vsm-tree-toggler {
-    margin-left: 1em;
-    transform: scale(.8) rotate(90deg);
-    transition: var(--transition);
+  margin-left: 1em;
+  transform: scale(0.8) rotate(90deg);
+  transition: var(--transition);
 }
 .vsm-tree-open > .vsm-tree-toggler {
-    transform: scale(.8);
+  transform: scale(0.8);
 }
 
 .vsm-backdrop {
-    position: fixed;
-    z-index: 100;
-    left: 0; right: 0; top: 0; bottom: 0;
-    padding: var(--gap);
-    display: flex;
-    overflow: auto;
-    background: rgba(0,0,0,.5);
-    pointer-events: none;
-    opacity: 0;
-    transition: var(--transition);
-    will-change: backdrop-filter;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: var(--gap);
+  display: flex;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  opacity: 0;
+  transition: var(--transition);
+  will-change: backdrop-filter;
 }
 .vsm-backdrop.vsm-on {
-    pointer-events: initial;
-    opacity: 1;
+  pointer-events: initial;
+  opacity: 1;
 }
 .vsm-backdrop > .vsm-dialog {
-    position: static;
+  position: static;
 }
 .vsm-dialog {
-    position: fixed;
-    left: 0; top: 0;
-    z-index: 100;
-    margin: auto;
-    max-width: 100%;
-    background: var(--background);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    overflow: auto;
-    transition: var(--transition), top 0s, left 0s;
-    transform: translate(0, var(--gap));
-    opacity: 0;
-    pointer-events: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  margin: auto;
+  max-width: 100%;
+  background: var(--background);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: auto;
+  transition: var(--transition), top 0s, left 0s;
+  transform: translate(0, var(--gap));
+  opacity: 0;
+  pointer-events: none;
 }
 .vsm-on > .vsm-dialog {
-    opacity: 1;
-    pointer-events: unset;
-    transform: none;
+  opacity: 1;
+  pointer-events: unset;
+  transform: none;
 }
 .vsm-dialog-header,
 .vsm-dialog-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--gap);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--gap);
 }
 .vsm-dialog-header {
-    align-items: flex-start;
-    top: 0;
+  align-items: flex-start;
+  top: 0;
 }
 .vsm-dialog-title {
-    margin-right: 1em;
-    font-weight: 600;
+  margin-right: 1em;
+  font-weight: 600;
 }
 .vsm-dialog-footer {
-    bottom: 0;
+  bottom: 0;
 }
 .vsm-dialog-footer .vsm-btn {
-    margin-left: var(--gap);
+  margin-left: var(--gap);
 }
 .vsm-dialog-footer .vsm-btn:first-of-type {
-    margin-left: auto;
+  margin-left: auto;
 }
 .vsm-dialog.vsm-bounce {
-    animation: bounce .4s ease-in-out 0s;
+  animation: bounce 0.4s ease-in-out 0s;
 }
 
 .vsm-group {
-    display: flex;
-    flex: 1 1 100%;
-    border-radius: var(--radius);
+  display: flex;
+  flex: 1 1 100%;
+  border-radius: var(--radius);
 }
 .vsm-group-item {
-    border-radius: inherit;
+  border-radius: inherit;
 }
 .vsm-group > .vsm-group-item:not(:last-child) {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 .vsm-group > .vsm-group-item:not(:first-child) {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
-
 
 .vsm-viewer {
-    position: absolute;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    user-select: none;
-    touch-action : none;
-    background: var(--black);
+  position: absolute;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  user-select: none;
+  touch-action: none;
+  background: var(--black);
 }
 .vsm-viewer-ul {
-    display: flex;
-    flex: 1;
-    overflow: hidden;
-    transition: var(--transition);
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  transition: var(--transition);
 }
 .vsm-viewer-li {
-    display: flex;
-    flex: 1 1 100%;
+  display: flex;
+  flex: 1 1 100%;
 }
 .vsm-viewer-li > img {
-    position: relative;
-    cursor: grab;
-    flex-shrink: 0;
-    transition: all var(--transition-duration) linear;
-    object-fit: contain;
+  position: relative;
+  cursor: grab;
+  flex-shrink: 0;
+  transition: all var(--transition-duration) linear;
+  object-fit: contain;
 }
 .vsm-viewer-toolbar {
-    position: absolute;
-    z-index: 1;
-    right: 12px;
-    top: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: var(--radius);
-    background: rgba(0,0,0,.15);
-    backdrop-filter: blur(32px);
-    color: rgba(255,255,255,.5);
-    font-size: 1.2em;
-    transform: translate(0, -50%);
+  position: absolute;
+  z-index: 1;
+  right: 12px;
+  top: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(32px);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.2em;
+  transform: translate(0, -50%);
 }
 .vsm-viewer-act {
-    box-sizing: border-box;
-    padding: 4px 0;
-    width: 50%;
-    text-align: center;
+  box-sizing: border-box;
+  padding: 4px 0;
+  width: 50%;
+  text-align: center;
 }
 .vsm-viewer-act:hover {
-    background: rgba(0,0,0,.5);
-    color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
 }
 .vsm-viewer-text {
-    padding: 2px 10px;
-    border-radius: 100px;
-    background: rgba(0,0,0,.24);
-    color: #fafafa;
-    backdrop-filter: blur(32px);
-    font-size: .8em;
+  padding: 2px 10px;
+  border-radius: 100px;
+  background: rgba(0, 0, 0, 0.24);
+  color: #fafafa;
+  backdrop-filter: blur(32px);
+  font-size: 0.8em;
 }
 .vsm-viewer-index {
-    position: absolute;
-    right: 12px;
-    bottom: 12px;
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
 }
 .vsm-viewer-zoom {
-    position: absolute;
-    bottom: var(--gap);
-    left: var(--gap);
-    z-index: 1;
-    pointer-events: none;
-    opacity: 0;
+  position: absolute;
+  bottom: var(--gap);
+  left: var(--gap);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
 }
 .vsm-viewer-zoom.vsm-on {
-    opacity: 1;
+  opacity: 1;
 }
 .vsm-viewer-dragging img {
-    transition: none !important;
-    cursor: grabbing;
+  transition: none !important;
+  cursor: grabbing;
 }
 .vsm-viewer-dragging .vsm-viewer-toolbar {
-    pointer-events: none;
+  pointer-events: none;
 }
 .vsm-viewer-thumbs {
-    position: absolute;
-    z-index: 1;
-    top: 0; left: 0; right: 0;
-    padding: 4px 4px 10vh;
-    display: flex;
-    justify-content: center;
-    transition: var(--transition);
-    opacity: 0;
-    overflow: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 4px 4px 10vh;
+  display: flex;
+  justify-content: center;
+  transition: var(--transition);
+  opacity: 0;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 .vsm-viewer-thumbs:hover {
-    opacity: 1;
+  opacity: 1;
 }
 .vsm-viewer-thumbnail {
-    flex-shrink: 0;
-    margin: 0 2px;
-    overflow: hidden;
+  flex-shrink: 0;
+  margin: 0 2px;
+  overflow: hidden;
 }
 .vsm-viewer-thumbnail.vsm-on img {
-    filter: none;
-    box-shadow: var(--shadow);
+  filter: none;
+  box-shadow: var(--shadow);
 }
 .vsm-viewer-thumbs img {
-    height: 8vh;
-    min-width: 40px;
-    object-fit: cover;
-    border-radius: var(--radius);
-    filter: grayscale(1);
+  height: 8vh;
+  min-width: 40px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  filter: grayscale(1);
 }
 .vsm-viewer-img-title {
-    position: absolute;
-    z-index: 1;
-    bottom: var(--gap);
-    left: 50%;
-    padding: 0 6px;
-    border-radius: var(--radius);
-    background: rgba(0,0,0,.24);
-    color: #fafafa;
-    backdrop-filter: blur(32px);
-    transform: translate(-50%, 0);
+  position: absolute;
+  z-index: 1;
+  bottom: var(--gap);
+  left: 50%;
+  padding: 0 6px;
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.24);
+  color: #fafafa;
+  backdrop-filter: blur(32px);
+  transform: translate(-50%, 0);
 }
-
 
 .vsm-swiper {
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radius);
-    touch-action: pan-x pan-y;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  touch-action: pan-x pan-y;
 }
 .vsm-swiper-track {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 .vsm-swiper-flow {
-    display: flex;
-    align-items: center;
-    overflow: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+  display: flex;
+  align-items: center;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 .vsm-swiper-flow::-webkit-scrollbar,
 .vsm-tabs-navs::-webkit-scrollbar,
 .vsm-swiper-indicator::-webkit-scrollbar,
-.vsm-viewer-thumbs::-webkit-scrollbar { display: none; }
+.vsm-viewer-thumbs::-webkit-scrollbar {
+  display: none;
+}
 
 .vsm-swiper-flow > .vsm-swiper-item {
-    flex: none;
+  flex: none;
 }
 .vsm-swiper-list {
-    display: flex;
-    align-items: center;
-    transition: var(--transition);
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
 }
 .vsm-swiper-cards > .vsm-swiper-item {
-    position: absolute;
-    z-index: -1;
-    left: 10%;
-    width: 80%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: scale(0);
+  position: absolute;
+  z-index: -1;
+  left: 10%;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0);
 }
 .vsm-swiper-cards > .vsm-swiper-prev {
-    left: 0;
-    transform: translate(-10%, 0) scale(.8);
+  left: 0;
+  transform: translate(-10%, 0) scale(0.8);
 }
 .vsm-swiper-cards > .vsm-swiper-next {
-    left: 20%;
-    transform: translate(10%, 0) scale(.8);
+  left: 20%;
+  transform: translate(10%, 0) scale(0.8);
 }
 .vsm-swiper-cards > .vsm-swiper-prev,
 .vsm-swiper-cards > .vsm-swiper-next {
-    z-index: 1;
+  z-index: 1;
 }
 .vsm-swiper-cards > .vsm-swiper-active {
-    z-index: 2;
-    transform: scale(1);
+  z-index: 2;
+  transform: scale(1);
 }
 .vsm-swiper-fade > .vsm-swiper-item {
-    position: absolute;
-    left: 0; top: 0; right: 0; bottom: 0;
-    opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
 }
 .vsm-swiper-fade > .vsm-swiper-active {
-    opacity: 1;
+  opacity: 1;
 }
 .vsm-swiper-item {
-    box-sizing: border-box;
-    flex: 1 1 100%;
-    overflow: hidden;
-    border-radius: var(--radius);
-    transition: var(--transition);
+  box-sizing: border-box;
+  flex: 1 1 100%;
+  overflow: hidden;
+  border-radius: var(--radius);
+  transition: var(--transition);
 }
 .vsm-swiper-arrow {
-    position: absolute;
-    z-index: 3;
-    top: 50%; left: var(--gap);
-    padding: 4px 8px;
-    border-radius: var(--radius);
-    background: var(--background-opacity);
-    transform: translate(0, -50%);
-    backdrop-filter: blur(32px);
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: var(--gap);
+  padding: 4px 8px;
+  border-radius: var(--radius);
+  background: var(--background-opacity);
+  transform: translate(0, -50%);
+  backdrop-filter: blur(32px);
 }
 .vsm-swiper-arrow-next {
-    left: auto;
-    right: var(--gap);
+  left: auto;
+  right: var(--gap);
 }
 .vsm-swiper-hover > .vsm-swiper-arrow {
-    opacity: 0;
+  opacity: 0;
 }
 .vsm-swiper-hover:hover > .vsm-swiper-arrow {
-    opacity: 1;
+  opacity: 1;
 }
 .vsm-swiper-verticle {
-    flex-direction: column;
-    align-items: unset;
+  flex-direction: column;
+  align-items: unset;
 }
 .vsm-swiper-indicator {
-    margin-top: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
-    overflow: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 .vsm-swiper-indicator > a {
-    margin: 2px;
-    overflow: hidden;
+  margin: 2px;
+  overflow: hidden;
 }
 .vsm-swiper-indicator-img {
-    display: flex;
-    flex-shrink: 0;
-    height: 40px;
-    border-radius: var(--radius);
-    filter: grayscale(.94);
+  display: flex;
+  flex-shrink: 0;
+  height: 40px;
+  border-radius: var(--radius);
+  filter: grayscale(0.94);
 }
 .vsm-swiper-indicator-a {
-    width: 8px;
-    height: 8px;
-    background: var(--theme-color-hover);
-    color: transparent;
-    border-radius: var(--radius);
+  width: 8px;
+  height: 8px;
+  background: var(--theme-color-hover);
+  color: transparent;
+  border-radius: var(--radius);
 }
 .vsm-swiper-indicator-a.vsm-swiper-active {
-    background: var(--color);
-    box-shadow: var(--shadow);
+  background: var(--color);
+  box-shadow: var(--shadow);
 }
 .vsm-swiper-indicator-img.vsm-swiper-active {
-    filter: none;
+  filter: none;
 }
 
 .vsm-align-center {
-    justify-content: center;
+  justify-content: center;
 }
 .vsm-align-right > .vsm-tabs-nav:first-child,
 .vsm-align-right > .vsm-page:first-child {
-    margin-left: auto;
+  margin-left: auto;
 }
 .vsm-align-justify .vsm-tabs-nav {
-    flex: 1 1 100%;
+  flex: 1 1 100%;
 }
 .vsm-align-justify {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 .vsm-align-evenly {
-    justify-content: space-evenly;
+  justify-content: space-evenly;
 }
 
 .vsm-disabled {
-    opacity: .6;
-    cursor: not-allowed;
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 .vsm-reverse > .vsm-loading,
 .vsm-plain > .vsm-loading {
-    background: var(--background);
+  background: var(--background);
 }
 .vsm-loading {
-    position: absolute;
-    z-index: 1;
-    left: 0; top: 0; right: 0; bottom: 0;
-    display: flex;
-    justify-content: center;
-    background: inherit;
-    color: inherit;
-    border-radius: inherit;
-    cursor: default;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  background: inherit;
+  color: inherit;
+  border-radius: inherit;
+  cursor: default;
 }
 .vsm-loading:before,
 .vsm-loading:after {
-    content: '●';
-    font-size: .8em;
-    line-height: 1;
-    transform: scale(0);
-    transition: var(--transition);
+  content: "●";
+  font-size: 0.8em;
+  line-height: 1;
+  transform: scale(0);
+  transition: var(--transition);
 }
 .vsm-loading:before {
-    margin: auto -1em auto 0;
-    animation: loading 1s linear infinite;
+  margin: auto -1em auto 0;
+  animation: loading 1s linear infinite;
 }
 .vsm-loading:after {
-    margin: auto 0 auto -1em;
-    opacity: .8;
-    animation: loading 1s linear .15s infinite;
+  margin: auto 0 auto -1em;
+  opacity: 0.8;
+  animation: loading 1s linear 0.15s infinite;
 }
 .vsm-lazy-container {
-    transition: var(--transition);
+  transition: var(--transition);
 }
 .vsm-lazyload {
-    transition: none;
-    opacity: 0;
+  transition: none;
+  opacity: 0;
 }
 
 .vsm-shadow,
 .vsm-shadow-hover:hover {
-    box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
 }
 .vsm-bordered {
-    border: 1px solid var(--theme-color-hover);
+  border: 1px solid var(--theme-color-hover);
 }
 
 .vsm-cols {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 .vsm-nowrap {
-    flex-wrap: nowrap;
+  flex-wrap: nowrap;
 }
 .vsm-blur {
-    backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
 }
 .vsm-rows {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
-[class*='vsm-col-'],
+[class*="vsm-col-"],
 .vsm-n {
-    box-sizing: border-box;
-    transition: var(--transition);
+  box-sizing: border-box;
+  transition: var(--transition);
 }
 .vsm-gapped {
-    margin: 0 calc(var(--gap)/-2);
+  margin: 0 calc(var(--gap) / -2);
 }
-.vsm-gapped > [class*='vsm-col-'],
+.vsm-gapped > [class*="vsm-col-"],
 .vsm-gapped > .vsm-n {
-    padding: calc(var(--gap)/2);
+  padding: calc(var(--gap) / 2);
 }
-.vsm-col-1 { width: 10%; flex: 0 1 10%; }
-.vsm-col-2 { width: 20%; flex: 0 1 20%; }
-.vsm-col-25 { width: 25%; flex: 0 1 25%; }
-.vsm-col-3 { width: 30%; flex: 0 1 30%; }
-.vsm-col-33 { width: 33.3333%; flex: 0 1 33.3333%; }
-.vsm-col-4 { width: 40%; flex: 0 1 40%; }
-.vsm-col-5 { width: 50%; flex: 0 1 50%; }
-.vsm-col-6 { width: 60%; flex: 0 1 60%; }
-.vsm-col-66 { width: 66.6666%; flex: 0 1 66.6666%; }
-.vsm-col-7 { width: 70%; flex: 0 1 70%; }
-.vsm-col-75 { width: 75%; flex: 0 1 75%; }
-.vsm-col-8 { width: 80%; flex: 0 1 80%; }
-.vsm-col-9 { width: 90%; flex: 0 1 90%; }
-.vsm-col-x { width: 100%; flex: 0 1 100%; }
-.vsm-n { flex: 1 1 0; }
-.vsm-left { margin-right: auto; }
-.vsm-right { margin-left: auto; }
-.vsm-rows > [class*='vsm-col-'] {
-    width: unset;
+.vsm-col-1 {
+  width: 10%;
+  flex: 0 1 10%;
 }
-.vsm-nowrap > [class*='vsm-col-'] {
-    flex: 1 1 auto;
+.vsm-col-2 {
+  width: 20%;
+  flex: 0 1 20%;
+}
+.vsm-col-25 {
+  width: 25%;
+  flex: 0 1 25%;
+}
+.vsm-col-3 {
+  width: 30%;
+  flex: 0 1 30%;
+}
+.vsm-col-33 {
+  width: 33.3333%;
+  flex: 0 1 33.3333%;
+}
+.vsm-col-4 {
+  width: 40%;
+  flex: 0 1 40%;
+}
+.vsm-col-5 {
+  width: 50%;
+  flex: 0 1 50%;
+}
+.vsm-col-6 {
+  width: 60%;
+  flex: 0 1 60%;
+}
+.vsm-col-66 {
+  width: 66.6666%;
+  flex: 0 1 66.6666%;
+}
+.vsm-col-7 {
+  width: 70%;
+  flex: 0 1 70%;
+}
+.vsm-col-75 {
+  width: 75%;
+  flex: 0 1 75%;
+}
+.vsm-col-8 {
+  width: 80%;
+  flex: 0 1 80%;
+}
+.vsm-col-9 {
+  width: 90%;
+  flex: 0 1 90%;
+}
+.vsm-col-x {
+  width: 100%;
+  flex: 0 1 100%;
+}
+.vsm-n {
+  flex: 1 1 0;
+}
+.vsm-left {
+  margin-right: auto;
+}
+.vsm-right {
+  margin-left: auto;
+}
+.vsm-rows > [class*="vsm-col-"] {
+  width: unset;
+}
+.vsm-nowrap > [class*="vsm-col-"] {
+  flex: 1 1 auto;
 }
 
-.vsm-round { border-radius: 100px; }
-.vsm-transless { transition: none !important; }
+.vsm-round {
+  border-radius: 100px;
+}
+.vsm-transless {
+  transition: none !important;
+}
 .vsm-repos {
-    position: absolute;
-    left: 0; top: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
-@keyframes loading { 50% { transform: scale(1); } }
+@keyframes loading {
+  50% {
+    transform: scale(1);
+  }
+}
 @keyframes bounce {
-    20% { transform: translate(12px, 0); }
-    50% { transform: translate(-8px, 0); }
-    80% { transform: translate(6px, 0); }
+  20% {
+    transform: translate(12px, 0);
+  }
+  50% {
+    transform: translate(-8px, 0);
+  }
+  80% {
+    transform: translate(6px, 0);
+  }
 }
 
 @media (max-width: 750px) {
-    [class*='vsm-col-'],
-    .vsm-n {
-        width: unset;
-        flex: 1 1 100%;
-    }
-    :root {
-        --padding: 4px 10px;
-    }
-    .vsm-viewer-thumbs {
-        opacity: 1;
-    }
-    .vsm-calendar {
-        position: fixed;
-        z-index: 100;
-        left: 0; top: 0; right: 0; bottom: 0;
-        display: flex;
-        background: var(--background-opacity);
-        backdrop-filter: blur(32px);
-    }
-    .vsm-calendar-inner {
-        background: var(--background);
-    }
+  [class*="vsm-col-"],
+  .vsm-n {
+    width: unset;
+    flex: 1 1 100%;
+  }
+  :root {
+    --padding: 4px 10px;
+  }
+  .vsm-viewer-thumbs {
+    opacity: 1;
+  }
+  .vsm-calendar {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    background: var(--background);
+  }
+  .vsm-calendar-inner {
+    background: var(--background);
+  }
 }
