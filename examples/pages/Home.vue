@@ -4,24 +4,34 @@
       <h1 class="visam">VISAM</h1>
       <span class="version">{{ version }}</span>
       <div class="icons">
-        <a v-tooltip="'使用文档'" href="/docs/intro" class="iconfont icon-script"><i></i></a>
-        <a v-tooltip="'GitHub'" href="https://github.com/MunGaaKei/visam" target="_blank" class="iconfont icon-github"></a>
+        <a
+          v-tooltip="'使用文档'"
+          href="/#/docs/intro"
+          class="iconfont icon-script"
+          ><i></i
+        ></a>
+        <a
+          v-tooltip="'GitHub'"
+          href="https://github.com/MunGaaKei/visam"
+          target="_blank"
+          class="iconfont icon-github"
+        ></a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { version } from '../../package.json';
+import { version } from "../../package.json";
 
 export default {
-    name: 'Home',
-    data () {
-      return {
-        version
-      }
-    }
-}
+  name: "Home",
+  data() {
+    return {
+      version,
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -47,6 +57,6 @@ export default {
   font-size: 1.5em;
 }
 .icons > a {
-  margin-right: .8em;
+  margin-right: 0.8em;
 }
 </style>
