@@ -4,12 +4,12 @@
       <h1 class="visam">VISAM</h1>
       <span class="version">{{ version }}</span>
       <div class="icons">
-        <a
+        <router-link
           v-tooltip="'使用文档'"
-          href="/#/docs/intro"
+          to="/docs/intro"
           class="iconfont icon-script"
           ><i></i
-        ></a>
+        ></router-link>
         <a
           v-tooltip="'GitHub'"
           href="https://github.com/MunGaaKei/visam"
