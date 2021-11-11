@@ -1,9 +1,25 @@
 <template>
   <header class="header vsm-cols">
-      <a @click="toggleSidebar" class="vsm-btn vsm-plain vsm-small iconfont icon-menu"></a>
-      <a href="https://github.com/MunGaaKei/visam" class="vsm-btn vsm-plain vsm-small iconfont icon-github" target="_blank" v-tooltip:bottom="'GitHub'"></a>
-      <a v-tooltip="'切换主题'" @click="toggleTheme" class="vsm-btn vsm-plain vsm-small iconfont icon-theme"></a>
-      <h1><a href="/"><span class="vue">V</span>ISA<span class="masiv">M</span></a></h1>
+    <a
+      @click="toggleSidebar"
+      class="vsm-btn vsm-plain vsm-small iconfont icon-menu"
+    ></a>
+    <a
+      href="https://github.com/MunGaaKei/visam"
+      class="vsm-btn vsm-plain vsm-small iconfont icon-github"
+      target="_blank"
+      v-tooltip:bottom="'GitHub'"
+    ></a>
+    <a
+      v-tooltip="'切换主题'"
+      @click="toggleTheme"
+      class="vsm-btn vsm-plain vsm-small iconfont icon-theme"
+    ></a>
+    <h1>
+      <router-link to="/"
+        ><span class="vue">V</span>ISA<span class="masiv">M</span></router-link
+      >
+    </h1>
   </header>
 </template>
 
@@ -12,23 +28,23 @@ export default {
   props: {
     sidebar: {
       type: Boolean,
-      default: true
+      default: true,
     },
   },
-  data () {
+  data() {
     return {
-      themeDark: false
-    }
+      themeDark: false,
+    };
   },
   methods: {
-    toggleSidebar () {
-      this.$emit('sidebar-toggle', !this.sidebar);
+    toggleSidebar() {
+      this.$emit("sidebar-toggle", !this.sidebar);
     },
-    toggleTheme () {
-      document.documentElement.classList.toggle('theme-dark');
-    }
-  }
-}
+    toggleTheme() {
+      document.documentElement.classList.toggle("theme-dark");
+    },
+  },
+};
 </script>
 
 <style>
@@ -45,7 +61,11 @@ export default {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  background-image: linear-gradient(to right, var(--theme-color-vice) 0%, var(--theme-color) 100%);
+  background-image: linear-gradient(
+    to right,
+    var(--theme-color-vice) 0%,
+    var(--theme-color) 100%
+  );
 }
 .header .vsm-btn {
   margin-right: 4px;
