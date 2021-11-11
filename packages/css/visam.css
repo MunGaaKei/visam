@@ -540,10 +540,9 @@ input[type=number]::-webkit-outer-spin-button {
     width: 228px;
     padding: 2px;
     border-radius: var(--radius);
-    background: var(--background-opacity);
+    background: var(--background);
     box-shadow: var(--shadow);
     overflow: hidden;
-    backdrop-filter: blur(32px);
 }
 .vsm-calendar-dates {
     display: flex;
