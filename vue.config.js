@@ -2,7 +2,8 @@ const path = require("path");
 const resolve = (dir) => path.join(__dirname, dir);
 
 module.exports = {
-  assetsDir: "./examples",
+  assetsDir: "examples/assets/",
+  publicPath: "./",
   filenameHashing: false,
   pages: {
     index: {
