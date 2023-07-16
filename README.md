@@ -59,13 +59,11 @@ Vue.use(vsmButton);
 <br>
 
 ### DOCUMENTATION
-*[Developer Documentation](http://iannism.art:27149)*
+*[Documentation](https://mungaakei.github.io/visam/#/)*
 You can also find out all of the functions、components & api by downloading this repository at present.
 
 ```node
 npm i
 npm run serve
 ```
-
-Then visit *[localhost:27149](localhost:27149)*
 
